@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>WAYBLE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Pretendard,sans-serif;
+}
+
+body{
+    background:#fff;
+}
+
+.wrap{
+    width:100%;
+    max-width:390px;
+    margin:auto;
+    padding:70px 24px 40px;
+    text-align:center;
+}
+
+h1{
+    font-size:24px;
+    font-weight:700;
+    color:#1B2330;
+    line-height:1.45;
+}
+
+p{
+    margin-top:24px;
+    font-size:16px;
+    color:#6B7280;
+    line-height:1.8;
+}
+
+.visual{
+    margin:55px 0 40px;
+}
+
+.visual img{
+    width:82%;
+}
+
+.page{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:70px;
+}
+
+.page span{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#D8D8D8;
+}
+
+.page span:first-child{
+    background:#2F66E8;
+}
+
+.btn{
+    width:100%;
+    height:52px;
+    border:none;
+    border-radius:8px;
+    background:#2F66E8;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+<h1>
+나에게 딱 맞는<br>
+여행을 찾아드려요
+</h1>
+
+<p>
+AI가 당신의 취향과 성향을 분석해<br>
+완벽한 여행을 제안드려요.
+</p>
+
+<div class="visual">
+    <img src="./images/work 1 ill.svg" alt="온보딩">
+</div>
+
+<div class="page">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<a href="./onboarding2.html"><button class="btn">다음</button></a>
+
+</div>
+<script>
+
+setTimeout(function(){
+
+    window.location.href = "onboarding2.html";
+
+},3000);
+
+</script>
+</body>
+</html>
