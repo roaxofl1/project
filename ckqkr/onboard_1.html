@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambak Onboarding 01</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Pretendard","Noto Sans KR",sans-serif;
+}
+
+body{
+    background:#fff;
+}
+
+.wrap{
+    width:100%;
+    max-width:390px;
+    margin:0 auto;
+    padding:70px 24px 32px;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+.title{
+    margin-top:10px;
+}
+
+.title h1{
+    font-size:28px;
+    font-weight:700;
+    line-height:1.35;
+    color:#30467F;
+}
+
+.title h1 span{
+    color:#8098D4;
+    font-size:20px;
+    font-weight:600;
+}
+
+.title p{
+    margin-top:26px;
+    font-size:15px;
+    line-height:1.7;
+    color:#A8B5DA;
+    font-weight:500;
+}
+
+/* 메인 이미지 */
+
+.visual{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    margin-top:20px;
+}
+
+.visual img{
+    width:100%;
+    max-width:330px;
+}
+
+/* 페이지 */
+
+.page{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:28px 0 34px;
+}
+
+.page span{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#D9DCE6;
+}
+
+.page span:first-child{
+    background:#5A74C8;
+}
+
+/* 버튼 */
+
+button{
+    width:100%;
+    height:50px;
+    border:none;
+    border-radius:10px;
+    background:#5A74C8;
+    color:#fff;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#4A66BF;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <div class="title">
+
+        <h1>
+            차박<br>
+            어디로 <span>떠나야 할지 모르겠나요</span>
+        </h1>
+
+        <p>
+            지도기반 위치 앱 및 키워드 검색으로 내가 원하는 장소를 한번에
+        </p>
+
+    </div>
+
+    <div class="visual">
+        <img src="./work 1 ill .svg" alt="온보딩 이미지">
+    </div>
+
+    <div class="page">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <a href="./login_.html"><button>시작하기</button></a>
+
+</div>
+<script>
+
+window.onload = function () {
+
+    setTimeout(function () {
+
+        window.location.href = "onboard_2.html";
+
+    }, 3000);
+
+};
+
+</script>
+</body>
+</html>

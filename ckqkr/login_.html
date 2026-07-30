@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambak Login</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Pretendard","Noto Sans KR",sans-serif;
+}
+
+body{
+    background:#fff;
+}
+
+.wrap{
+    width:100%;
+    max-width:390px;
+    margin:0 auto;
+    padding:70px 24px 40px;
+}
+
+/* 로고 */
+
+.logo{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.logo img{
+    width:140px;
+}
+
+/* 입력창 */
+
+.input{
+    margin-bottom:32px;
+}
+
+.input input{
+    width:100%;
+    height:52px;
+    border:none;
+    border-bottom:1px solid #D8D8D8;
+    font-size:16px;
+    color:#444;
+    outline:none;
+    margin-bottom:14px;
+}
+
+.input input::placeholder{
+    color:#5A74C8;
+    font-weight:500;
+}
+
+/* 버튼 */
+
+.btn{
+    width:100%;
+    height:50px;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.login{
+    background:#5A74C8;
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.join{
+    background:#fff;
+    color:#5A74C8;
+    border:1px solid #5A74C8;
+}
+
+/* 링크 */
+
+.link{
+    margin:20px 0 36px;
+    text-align:center;
+    font-size:14px;
+    color:#5A74C8;
+}
+
+.link a{
+    color:#5A74C8;
+    text-decoration:none;
+    margin:0 10px;
+}
+
+/* 간편 로그인 */
+
+.sns-title{
+    display:flex;
+    align-items:center;
+    color:#5A74C8;
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:28px;
+}
+
+.sns-title::before,
+.sns-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:#9EB0DF;
+}
+
+.sns-title span{
+    margin:0 15px;
+}
+
+/* SNS */
+
+.sns{
+    display:flex;
+    justify-content:center;
+    gap:28px;
+}
+
+.sns img{
+    width:34px;
+    height:34px;
+    object-fit:contain;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <div class="logo">
+        <img src="./logo.svg" alt="Cambak">
+    </div>
+
+    <div class="input">
+
+        <input type="text" placeholder="아이디">
+
+        <input type="password" placeholder="비밀번호">
+
+    </div>
+
+    <button class="btn login">로그인</button>
+
+    <button class="btn join">회원가입</button>
+
+    <div class="link">
+
+        <a href="#">아이디 찾기</a> |
+
+        <a href="#">비밀번호 찾기</a> |
+
+        <a href="#">둘러보기</a>
+
+    </div>
+
+    <div class="sns-title">
+        <span>간편로그인</span>
+    </div>
+
+    <div class="sns">
+
+        <img src="./kakaotalk_logo.png" alt="카카오">
+
+        <img src="./naver.png" alt="네이버">
+
+        <img src="./google.png" alt="구글">
+
+        <img src="./facebook.png" alt="페이스북">
+
+    </div>
+
+</div>
+
+</body>
+</html>

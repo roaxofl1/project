@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambak Splash</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    background:#fff;
+    font-family:"Pretendard","Noto Sans KR",sans-serif;
+}
+
+.wrap{
+    width:100%;
+    max-width:390px;
+    height:100vh;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo img{
+    width:170px;
+    display:block;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <div class="logo">
+        <img src="./logo.svg" alt="Cambak Logo">
+    </div>
+
+</div>
+<script>
+
+window.onload = function () {
+
+    setTimeout(function () {
+
+        window.location.href = "./onboard_1.html";
+
+    }, 3000);
+
+};
+
+</script>
+</body>
+</html>
