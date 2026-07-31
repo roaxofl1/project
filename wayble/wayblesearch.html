@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>WAYBLE Search</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Pretendard,sans-serif}
+body{background:#efefef;display:flex;justify-content:center}
+.app{width:390px;height:100svh;background:#fff;overflow-y:auto}
+header{position:sticky;top:0;background:#fff;padding:18px 24px 14px;z-index:10}
+.top{display:flex;justify-content:center;position:relative;margin-bottom:16px}
+.logo{height:28px}
+.back{position:absolute;left:0;top:2px;border:none;background:none}
+.back img{width:24px}
+.searchRow{display:flex;gap:14px}
+.search{flex:1;height:46px;border:1px solid #ddd;border-radius:10px;display:flex;align-items:center;padding:0 12px;color:#aaa;font-size:14px}
+.search img{width:18px;margin-right:8px}
+.filter{width:50px;height:46px;border:1px solid #ddd;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.filter img{width:22px}
+.wrap{padding:0 24px 90px}
+h3{font-size:22px;margin:22px 0 14px}
+.tags{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.tag{height:36px;display:flex;align-items:center;justify-content:center;background:#dce9ff;border-radius:10px;color:#555;font-size:14px}
+.region{display:flex;justify-content:space-between}
+.rItem{text-align:center;width:60px}
+.iconBox{width:54px;height:54px;border-radius:10px;background:#dce9ff;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
+.iconBox img{width:28px}
+.menu{margin-top:22px;border-top:1px solid #ececec}
+.row{display:flex;align-items:center;padding:22px 0;border-bottom:1px solid #ececec}
+.row>img:first-child{width:28px;margin-right:16px}
+.text{flex:1}
+.text b{display:block;font-size:18px;margin-bottom:4px}
+.text span{color:#666;font-size:14px}
+.arrow{width:18px}
+nav{position:sticky;bottom:0;height:72px;border-top:1px solid #ddd;background:#fff;display:grid;grid-template-columns:repeat(5,1fr)}
+nav a{display:flex;flex-direction:column;justify-content:center;align-items:center;text-decoration:none;color:#222;font-size:12px}
+nav img{width:22px;margin-bottom:4px}
+.active{color:#2f62e8;font-weight:700}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<div class="top">
+<button class="back" onclick="history.back()"><img src="./icons/line-md_arrow-left.svg"></button>
+<img class="logo" src="./images/LOGO little.svg">
+</div>
+<div class="searchRow">
+<div class="search"><img src="./icons/iconamoon_search-thin.svg">어디로 떠나고 싶으신가요?</div>
+<a href="wayblesearh2.html"><div class="filter"><img src="./icons/mingcute_settings-2-line.svg"></div>
+</div></a>
+</header>
+
+<div class="wrap">
+<h3>인기 검색어</h3>
+<div class="tags">
+<div class="tag">바다</div><div class="tag">힐링</div><div class="tag">자연</div><div class="tag">맛집</div><div class="tag">감성</div>
+</div>
+
+<h3>인기 지역</h3>
+<div class="region">
+<div class="rItem"><div class="iconBox"><img src="./icons/coloricons/mynaui_mountain-snow.svg"></div>제주도</div>
+<div class="rItem"><div class="iconBox"><img src="./icons/coloricons/hugeicons_city-01.svg"></div>부산</div>
+<div class="rItem"><div class="iconBox"><img src="./icons/coloricons/f7_cloud-sun.svg"></div>강릉</div>
+<div class="rItem"><div class="iconBox"><img src="./icons/coloricons/mingcute_palace-line.svg"></div>전주</div>
+<div class="rItem"><div class="iconBox"><img src="./icons/coloricons/boxicons_horizon-sea.svg"></div>여수</div>
+</div>
+
+<div class="menu">
+<div class="row">
+<img src="./icons/streamline-flex_search-category.svg">
+<div class="text"><b>테마로 찾기</b><span>자연, 액티비티, 문화 등</span></div>
+<img class="arrow" src="./icons/weui_arrow-outlined.svg">
+</div>
+<div class="row">
+<img src="./icons/fluent-mdl2_people.svg">
+<div class="text"><b>여행 스타일</b><span>혼자, 커플, 가족 친구</span></div>
+<img class="arrow" src="./icons/weui_arrow-outlined.svg">
+</div>
+<div class="row">
+<img src="./icons/ep_calendar.svg">
+<div class="text"><b>여행 시기</b><span>봄, 여름, 가을, 겨울</span></div>
+<img class="arrow" src="./icons/weui_arrow-outlined.svg">
+</div>
+<div class="row">
+<img src="./icons/ph_coins-light.svg">
+<div class="text"><b>예산</b><span>예산에 맞는 여행지</span></div>
+<img class="arrow" src="./icons/weui_arrow-outlined.svg">
+</div>
+</div>
+</div>
+
+<nav>
+<a href="wayblemain.html"><img src="./icons/iconamoon_home-light.svg">홈</a>
+<a class="active" href=""><img src="./icons/coloricons/iconamoon_search-thin blue.svg">검색</a>
+<a href="wayblelist.html"><img src="./icons/solar_heart-linear.svg">저장</a>
+<a href="waybletravle.html"><img src="./icons/streamline-flex_suitcase-rolling.svg">여행</a>
+<a href="wayblemy.html"><img src="./icons/mynaui_user.svg">MY</a>
+</nav>
+</div>
+</body>
+</html>

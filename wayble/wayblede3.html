@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>추천 결과</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Pretendard,sans-serif}
+body{background:#f2f2f2;display:flex;justify-content:center}
+.app{width:390px;height:100svh;background:#fff;overflow-y:auto;display:flex;flex-direction:column}
+header{height:56px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:5}
+.back{position:absolute;left:16px;background:none;border:none}
+.back img{width:24px}
+.content{padding:24px 24px 90px}
+.title{font-size:20px;font-weight:700;margin-bottom:20px}
+.card{border:1px solid #e8e8e8;border-radius:14px;overflow:hidden}
+.photo{position:relative}
+.photo img.main{width:100%;display:block}
+.heart{position:absolute;right:14px;top:14px;width:22px}
+.info{padding:16px}
+.info h2{font-size:20px;margin-bottom:8px}
+.info .sub{color:#3367e8;font-weight:600;margin-bottom:10px}
+.info .date{color:#666}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 0}
+.q{text-align:center}
+.qbox{width:52px;height:52px;background:#dce9ff;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
+.qbox img{width:24px}
+.primary{width:100%;height:48px;border:none;border-radius:8px;background:#3367e8;color:#fff;font-size:17px;cursor:pointer}
+nav{margin-top:auto;height:72px;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(5,1fr)}
+nav a{text-decoration:none;color:#222;font-size:12px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+nav img{width:22px;margin-bottom:4px}
+.active{color:#3367e8;font-weight:700}
+/* popup */
+.popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);justify-content:center;align-items:center;z-index:999}
+.popup.show{display:flex}
+.popupBox{width:335px;background:#fff;border-radius:24px;padding:24px}
+.check{width:82px;height:82px;background:#dce9ff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.check img{width:42px}
+.popupBox h2{text-align:center;font-size:28px;margin-bottom:12px}
+.popupBox p{text-align:center;color:#666;line-height:1.6;margin-bottom:20px}
+.table{border:1px solid #dbe5ff;border-radius:12px;padding:16px;margin-bottom:22px}
+.line{display:flex;justify-content:space-between;font-size:14px;padding:8px 0}
+.line span:first-child{color:#666}
+.homeBtn{width:100%;height:48px;border:1px solid #ddd;border-radius:8px;background:#fff;color:#3367e8;font-size:16px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<button class="back" onclick="history.back()"><img src="./icons/line-md_arrow-left.svg"></button>
+<div>AI 여행 시작</div>
+</header>
+
+<div class="content">
+<div class="title">당신에게 추천하는 여행이에요!</div>
+
+<div class="card">
+<div class="photo">
+<img class="main" src="./images/main 1.png">
+<img class="heart" src="">
+</div>
+<div class="info">
+<h2>제주도 감성 여행 3일</h2>
+<div class="sub">제주 · 힐링 · 맛집</div>
+<div class="date">2026.08.25 (화) 출발</div>
+</div>
+</div>
+
+<div class="quick">
+<div class="q"><div class="qbox"><img src="./icons/coloricons/blue ep_calendar.svg"></div>일정</div>
+<div class="q"><div class="qbox"><img src="./icons/coloricons/blue material-symbols-light_list-alt-outline-rounded.svg"></div>예약</div>
+<div class="q"><div class="qbox"><img src="./icons/coloricons/bluestreamline_arrow-roadmap.svg"></div>코스</div>
+<div class="q"><div class="qbox"><img src="./icons/coloricons/blue prime_clock.svg"></div>정보</div>
+</div>
+
+<button class="primary" id="reserveBtn" onclick="reserveTrip()">예약하기</button>
+</div>
+
+<nav>
+<a href="wayblemain.html"><img src="./icons/iconamoon_home-light.svg">홈</a>
+<a href="wayblesearch.html"><img src="./icons/iconamoon_search-light.svg">검색</a>
+<a href="wayblelist.html"><img src="./icons/solar_heart-linear.svg">저장</a>
+<a class="active"><img src="./icons/coloricons/blue streamline-flex_suitcase-rolling.svg">여행</a>
+<a href="wayblemy.html"><img src="./icons/mynaui_user.svg">MY</a>
+</nav>
+</div>
+
+<div class="popup" id="popup">
+<div class="popupBox">
+<div class="check"><img src="./icons/coloricons/blue ic_outline-check.svg"></div>
+<h2>예약이 완료되었습니다!</h2>
+<p>제주 감성 여행 3일 일정의<br>예약이 성공적으로 완료되었어요.</p>
+
+<div class="table">
+<div class="line"><span>예약번호</span><strong>WB-2026-0825-001</strong></div>
+<div class="line"><span>예약상품</span><strong>제주 감성 여행 3일</strong></div>
+<div class="line"><span>여행기간</span><strong>2026.08.25 ~ 08.27</strong></div>
+</div>
+
+<button class="homeBtn" onclick="location.href='wayblemain.html'">홈으로 돌아가기</button>
+</div>
+</div>
+
+<script>
+function reserveTrip(){
+ const btn=document.getElementById('reserveBtn');
+ btn.disabled=true;
+ btn.innerText='예약 중...';
+ setTimeout(()=>{
+   document.getElementById('popup').classList.add('show');
+   btn.innerText='예약하기';
+   btn.disabled=false;
+ },500);
+}
+</script>
+</body>
+</html>

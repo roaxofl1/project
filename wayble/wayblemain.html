@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>WAYBLE Home</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Pretendard,sans-serif}
+body{background:#efefef;display:flex;justify-content:center}
+.app{width:390px;height:100svh;background:#fff;overflow-y:auto}
+header{display:flex;justify-content:space-between;align-items:center;padding:26px 24px 18px}
+.logo{font-size:30px;font-weight:800;color:#1f5cff}
+header img{width:26px}
+.wrap{padding:0 24px 90px}
+h1{font-size:22px;line-height:1.4;margin-bottom:18px}
+.search{height:44px;border:1px solid #ddd;border-radius:10px;display:flex;align-items:center;padding:0 14px;color:#aaa;font-size:14px}
+.search img{width:18px;margin-right:8px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 28px}
+.box{height:80px;border-radius:14px;border:1px solid #cfe0ff;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#2f62e8;font-weight:700}
+.box.blue{background:#dce9ff;border:none}
+.box img{width:28px;margin-bottom:8px}
+.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.title h2{font-size:18px}
+.title a{text-decoration:none;color:#999;font-size:13px}
+.card{border:1px solid #e5e5e5;border-radius:10px;overflow:hidden}
+.photo{position:relative}
+.photo img{width:100%;display:block}
+.heart{position:absolute;right:12px;top:12px;width:22px}
+.info{padding:14px}
+.info h3{font-size:18px;margin-bottom:10px}
+.sub{color:#2f62e8;font-weight:600;margin-bottom:12px}
+.star{color:#222}
+.star span{color:#f8c229}
+nav{position:sticky;bottom:0;height:72px;border-top:1px solid #ddd;background:#fff;display:grid;grid-template-columns:repeat(5,1fr)}
+nav a{display:flex;flex-direction:column;justify-content:center;align-items:center;text-decoration:none;color:#222;font-size:12px}
+nav img{width:22px;margin-bottom:4px}
+.active{color:#2f62e8;font-weight:700}
+.back{position:fixed;left:calc(50% - 195px + 10px);top:10px;border:none;background:none}
+</style>
+</head>
+<body>
+<div class="app">
+
+<header>
+<div class="logo">WAYBLE</div>
+<img src="./images/Logo.svg" alt="">
+</header>
+
+<div class="wrap">
+<h1>나에게 딱 맞는<br>여행을 찾아보세요</h1>
+
+<a href="wayblesearch.html"><div class="search">
+<img src="./icons/coloricons/iconamoon_search-thin.svg">
+어디로 떠나고 싶으신가요?
+</div>
+</a>
+<div class="menu">
+<div class="box blue">
+<img src="./icons/coloricons/humbleicons_ai.svg">
+AI 여행 시작
+</div>
+<div class="box">
+<img src="./icons/coloricons/material-symbols_map-outline-rounded.svg">
+여행지 둘러보기
+</div>
+</div>
+
+<div class="title">
+<h2>오늘의 추천 여행지</h2>
+<a href="#">더보기 ></a>
+</div>
+
+<div class="card">
+<div class="photo">
+<img src="./images/main 1.png">
+<img class="heart" src="./icons/heart_fill.png">
+</div>
+<div class="info">
+<h3>제주도 감성 여행 3일</h3>
+<div class="sub">제주 · 힐링 · 맛집</div>
+<div class="star"><span>★</span> 4.8 (1,234)</div>
+</div>
+</div>
+
+</div>
+
+<nav>
+<a class="active" href="index.html"><img src="./icons/coloricons/iconamoon_home-light.svg ">홈</a>
+<a href="wayblesearch.html"><img src="./icons/iconamoon_search-light.svg">검색</a>
+<a href="wayblelist.html"><img src="./icons/solar_heart-linear.svg">저장</a>
+<a href="waybletravle.html"><img src="./icons/streamline-flex_suitcase-rolling.svg">여행</a>
+<a href="wayblemy.html"><img src="./icons/mynaui_user.svg">MY</a>
+</nav>
+
+</div>
+</body>
+</html>

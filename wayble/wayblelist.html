@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>저장</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Pretendard,sans-serif}
+body{background:#f2f2f2;display:flex;justify-content:center}
+.app{width:390px;height:100svh;background:#fff;overflow-y:auto}
+header{position:sticky;top:0;background:#fff;padding:18px 24px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:center;z-index:5}
+.back{position:absolute;left:16px;border:none;background:none}
+.back img{width:24px}
+header h1{font-size:20px}
+.wrap{padding:24px 24px 90px}
+h2{font-size:18px;margin-bottom:14px}
+.collection{background:#dce9ff;border-radius:12px;padding:18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.collection b{font-size:20px}
+.collection span{display:block;color:#555;margin-top:4px}
+.collection img{width:20px}
+.menu .row{display:flex;align-items:center;padding:16px 0;border-bottom:1px solid #ececec}
+.row>img:first-child{width:26px;margin-right:14px}
+.label{flex:1;font-size:18px}
+.count{font-size:18px;margin-right:12px}
+.arrow{width:18px}
+.section{margin-top:26px}
+.trip{background:#dce9ff;border-radius:12px;padding:18px;display:flex;justify-content:space-between;align-items:center}
+.trip b{font-size:20px;display:block}
+.trip p{margin-top:6px;color:#666}
+.badge{background:#fff;color:#2f62e8;font-weight:700;padding:6px 10px;border-radius:8px}
+.card{display:flex;gap:14px;padding:12px;border:1px solid #e7e7e7;border-radius:8px;margin-top:12px}
+.card img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+.info b{font-size:18px;display:block}
+.info span{color:#666}
+nav{position:sticky;bottom:0;height:72px;border-top:1px solid #ddd;background:#fff;display:grid;grid-template-columns:repeat(5,1fr)}
+nav a{text-decoration:none;color:#222;font-size:12px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+nav img{width:22px;margin-bottom:4px}
+.active{color:#2f62e8;font-weight:700}
+</style>
+</head>
+<body>
+<div class="app">
+
+<header>
+<button class="back" onclick="history.back()"><img src="./icons/line-md_arrow-left.svg"></button>
+<h1>저장</h1>
+</header>
+
+<div class="wrap">
+
+<h2>저장 여행지 목록</h2>
+
+<div class="collection">
+<div>
+<b>내 컬렉션</b>
+<span>3개</span>
+</div>
+<img src="./icons/coloricons/blue weui_arrow-outlined.svg">
+</div>
+
+<div class="menu">
+<div class="row"><img src="./icons/solar_heart-linear.svg"><div class="label">찜한 여행지</div><div class="count">12</div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+<div class="row"><img src="./icons/material-symbols-light_keep-outline.svg"><div class="label">저장한 코스</div><div class="count">5</div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+<div class="row"><img src="./icons/material-symbols-light_local-see-outline.svg"><div class="label">보고 싶은 장소</div><div class="count">8</div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+</div>
+
+<div class="section">
+<h2>다가오는 여행</h2>
+<div class="trip">
+<div>
+<b>제주 감성 여행 3일</b>
+<p>2024.08.25 (화) 출발</p>
+</div>
+<div class="badge">D-7</div>
+</div>
+</div>
+
+<div class="section">
+<h2>최근 본 여행</h2>
+
+<div class="card">
+<img src="./images/search busan.png">
+<div class="info">
+<b>부산 바다 여행 2일</b>
+<span>2026.08.25 (화) 출발</span>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/search seoul.jpg">
+<div class="info">
+<b>서울 감성 산책</b>
+<span>2026.08.25 (화) 출발</span>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/search jeju.jpg">
+<div class="info">
+<b>제주도 낭만 여행 4일</b>
+<span>2026.08.25 (화) 출발</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<nav>
+<a href="wayblemain.html"><img src="./icons/iconamoon_home-light.svg">홈</a>
+<a href="wayblesearch.html"><img src="./icons/iconamoon_search-thin.svg">검색</a>
+<a href="#" class="active"><img src="./icons/coloricons/blue solar_heart-linear.svg">저장</a>
+<a href="waybletravle.html"><img src="./icons/streamline-flex_suitcase-rolling.svg">여행</a>
+<a href="wayblemy.html"><img src="./icons/mynaui_user.svg">MY</a>
+</nav>
+
+</div>
+</body>
+</html>
