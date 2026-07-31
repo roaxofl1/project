@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>검색결과</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Pretendard,sans-serif}
+body{background:#eee;display:flex;justify-content:center}
+.app{width:390px;height:100svh;background:#fff;overflow-y:auto}
+.header{position:sticky;top:0;height:56px;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:center;z-index:10}
+.header h1{font-size:22px}
+.back{position:absolute;left:18px;background:none;border:none}
+.back img{width:24px}
+.list{padding-bottom:80px}
+.item{display:flex;gap:14px;padding:18px 20px;border-bottom:1px solid #efefef;position:relative}
+.thumb{width:100px;height:100px;border-radius:10px;object-fit:cover}
+.info{flex:1}
+.title{font-size:18px;font-weight:700;margin-bottom:4px}
+.addr{font-size:14px;color:#555;line-height:1.4}
+.tags{display:flex;gap:6px;margin-top:10px}
+.tag{background:#5d74bc;color:#fff;font-size:12px;padding:5px 10px;border-radius:20px}
+.bookmark{position:absolute;right:20px;top:20px;width:22px}
+.distance{position:absolute;right:20px;bottom:26px;color:#5671bd;font-size:18px;font-weight:600}
+nav{position:sticky;bottom:0;height:66px;border-top:1px solid #ddd;background:#fff;display:grid;grid-template-columns:repeat(5,1fr)}
+nav a{text-decoration:none;color:#111;font-size:12px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+nav img{width:24px;margin-bottom:4px}
+.active{color:#5671bd;font-weight:700}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="header">
+<button class="back" onclick="history.back()"><img src="./icons/arrow.svg"></button>
+<h1>검색결과</h1>
+</header>
+
+<div class="list">
+
+<div class="item">
+<img class="thumb" src="./images/main.png">
+<div class="info">
+<div class="title">망원한강공원</div>
+<div class="addr">서울 마포구 망원동 205-4</div>
+<div class="tags"><span class="tag">차크닉</span><span class="tag">주차장</span></div>
+</div>
+<img class="bookmark" src="./icons/Property 1=off.svg">
+<div class="distance">11.1km</div>
+</div>
+
+<div class="item">
+<img class="thumb" src="./images/main-1.png">
+<div class="info">
+<div class="title">광교호수공원</div>
+<div class="addr">서울 마포구 망원동 205-4</div>
+<div class="tags"><span class="tag">도심</span><span class="tag">주차장</span></div>
+</div>
+<img class="bookmark" src="./icons/Property 1=off.svg">
+<div class="distance">26km</div>
+</div>
+
+<div class="item">
+<img class="thumb" src="./images/main-2.png">
+<div class="info">
+<div class="title">강릉 안반데기</div>
+<div class="addr">대기리 2214-207</div>
+<div class="tags"><span class="tag">오션뷰</span><span class="tag">주차장</span></div>
+</div>
+<img class="bookmark" src="./icons/Property 1=off.svg">
+<div class="distance">108km</div>
+</div>
+
+<div class="item">
+<img class="thumb" src="./images/main-3.png">
+<div class="info">
+<div class="title">화성 궁평항</div>
+<div class="addr">경기도 화성시 서신면 궁평항로 1049-24</div>
+<div class="tags"><span class="tag">차크닉</span><span class="tag">주차장</span></div>
+</div>
+<img class="bookmark" src="./icons/Property 1=off.svg">
+<div class="distance">58km</div>
+</div>
+
+<div class="item">
+<img class="thumb" src="./images/main-4.png">
+<div class="info">
+<div class="title">서귀포 돈내코</div>
+<div class="addr">제주특별자치도 서귀포시 돈내코로 114</div>
+<div class="tags"><span class="tag">이색</span><span class="tag">주차장</span></div>
+</div>
+<img class="bookmark" src="./icons/Property 1=off.svg">
+<div class="distance">483km</div>
+</div>
+
+<div class="item">
+<img class="thumb" src="./images/main-5.png">
+<div class="info">
+<div class="title">영종도 마시안해변</div>
+<div class="addr">덕교동 662-9</div>
+<div class="tags"><span class="tag">수도권</span><span class="tag">주차장</span></div>
+</div>
+<img class="bookmark" src="./icons/Property 1=off.svg">
+<div class="distance">32km</div>
+</div>
+
+</div>
+
+<nav>
+<a href="main2_.html"><img src="./icons/home.svg">홈</a>
+<a href="" class="active"><img src="./icons/icons/search.svg">검색</a>
+<a href="#"><img src="./icons/community.svg">모임</a>
+<a href="#"><img src="./icons/live.svg">LIVE</a>
+<a href="#"><img src="./icons/user.svg">MY</a>
+</nav>
+</div>
+</body>
+</html>

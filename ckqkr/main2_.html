@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAMBAK Home</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Pretendard,sans-serif}
+body{background:#eef1f6;display:flex;justify-content:center}
+.app{width:390px;min-height:100svh;background:#fff;overflow-y:auto}
+.hero img{width:100%;display:block}
+.section{padding:24px}
+h2{font-size:18px;color:#516db7;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 12px}
+.item{text-align:center}
+.item img{width:46px;height:46px;margin:auto}
+.item p{margin-top:8px;font-size:13px}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0}
+.quick div{background:#edf2ff;border-radius:12px;height:52px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;color:#4d67b2}
+.rank{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rank img{width:100%;border-radius:10px}
+.card{margin:28px 0;padding:20px;border:1px solid #eee;border-radius:16px;position:relative}
+.bookmark{position:absolute;right:20px;top:20px;width:22px}
+.addr{margin:14px 0;color:#666;font-size:14px}
+.btns{display:flex;gap:12px}
+.btns button{flex:1;height:48px;border-radius:10px;font-size:16px;font-weight:700}
+.fill{background:#5b73bf;color:#fff;border:none}
+.line{background:#fff;border:1px solid #5b73bf}
+nav{position:sticky;bottom:0;background:#fff;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(5,1fr);padding:10px 0}
+nav div{text-align:center;font-size:12px}
+nav img{width:24px;display:block;margin:0 auto 4px}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="hero"><img src="./images/HOME MAIN.svg"></div>
+
+<div class="section">
+<h2>테마별 카테고리</h2>
+<div class="grid">
+<div class="item"><img src="./icons/flowers.svg"><p>꽃놀이</p></div>
+<div class="item"><img src="./icons/fire.svg"><p>불멍</p></div>
+<div class="item"><img src="./icons/city.svg"><p>도심</p></div>
+<div class="item"><img src="./icons/star.svg"><p>별감상</p></div>
+<div class="item"><img src="./icons/dog.svg"><p>반려견</p></div>
+<div class="item"><img src="./icons/mountain.svg"><p>오지</p></div>
+<div class="item"><img src="./icons/bbq.svg"><p>바베큐</p></div>
+<div class="item"><img src="./icons/camp.svg"><p>장비</p></div>
+</div>
+
+<div class="quick">
+<div><img src="./icons/icons/coupon.svg" width="20">쿠폰</div>
+<div><img src="./icons/icons/event.svg" width="20">이벤트</div>
+<div><img src="./icons/icons/gift.svg" width="20">혜택</div>
+</div>
+
+<h2>장소 랭킹 TOP10</h2>
+<div class="rank">
+<img src="./images/HOME ILL 1.jpg">
+<img src="./images/HOME ILL 2.jpg">
+<img src="./images/HOME ILL 3.jpg" style="grid-column:1/3">
+</div>
+
+<div class="card">
+<img class="bookmark" src="./icons/Property 1=off.svg">
+<h3>테마별 카테고리</h3>
+<p class="addr">강원도 원주시 치악면 치악산 1번지</p>
+<div class="btns">
+<button class="fill">길찾기</button>
+<button class="line">해제하기</button>
+</div>
+</div>
+</div>
+
+<nav>
+<div><img src="./icons/icons/home.svg">홈</div>
+<div><a href="search.html"><img src="./icons/search.svg">검색</a></div>
+<div><img src="./icons/community.svg">모임</div>
+<div><img src="./icons/live.svg">LIVE</div>
+<div><img src="./icons/user.svg">MY</div>
+</nav>
+</div>
+</body>
+</html>
