@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델3</title>
+    <style>
+    *{padding: 0; margin: 0;}
+    .box{
+        /* 박스 가로사이즈/ 박스 세로 사이즈 */
+        width: 1000px; height: 300px; 
+        /* 박스 테두리선 두께 / 실선 / 테두리선 색상 */
+        border: 5px solid #000;
+        /* 박스 가운데 정렬 */
+        margin: auto;
+        /* 자식 프레임 가운데 정렬 / 자식 프레임 간격 */
+        display: flex; gap: 20px;}
+        .box div{width: 320px; height: 300px;
+                background-color: #ff0;}
+        
+        ul{width: 1000px;height: 300px; 
+            border: 5px solid #000;
+            margin: auto;
+            display: flex; gap: 20px;}
+        /* list들 앞에 똥구라미 없애기 */
+        ul li{list-style: none;
+            width: 320px; height: 300px; 
+            background-color: #ff0;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>박스1</div>
+        <div>박스2</div>
+        <div>박스3</div>
+    </div>
+
+    <!-- 순서 없는 목록을 사용하여 구현 -->
+    <ul>
+        <li>박스1</li>
+        <li>박스2</li>
+        <li>박스3</li>
+    </ul>
+    <script>
+
+    </script>
+</body>
+</html>
