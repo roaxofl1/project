@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Malgun Gothic",sans-serif;
+    color:#111;
+}
+
+section{
+    padding:78px 0;
+}
+
+.wrap{
+    width:1200px;
+    margin:0 auto;
+}
+
+/* 상단 타이틀 */
+
+.title-box{
+    margin-bottom:40px;
+}
+
+.title-box h2{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.title-box p{
+    font-size:13px;
+    color:#666;
+}
+
+/* 카드 */
+
+.list{
+    display:grid;
+    grid-template-columns:repeat(4,282px);
+    gap:24px;
+}
+
+.card img{
+    width:282px;
+    height:212px;
+    object-fit:cover;
+    display:block;
+}
+
+.category{
+    margin-top:14px;
+    font-size:13px;
+    color:#6c72b5;
+}
+
+.name{
+    margin-top:8px;
+    font-size:15px;
+    font-weight:700;
+    line-height:1.45;
+}
+
+.hash{
+    margin-top:8px;
+    font-size:13px;
+    color:#444;
+}
+
+.price{
+    margin-top:18px;
+    font-size:16px;
+    font-weight:700;
+}
+
+.price strong{
+    font-size:18px;
+}
+
+.label{
+    display:inline-block;
+    margin-top:14px;
+    padding:5px 10px;
+    border:1px solid #bbb;
+    font-size:12px;
+    color:#444;
+}
+
+/* 중간 타이틀 */
+
+.middle{
+    margin-top:80px;
+    margin-bottom:40px;
+}
+
+.middle h2{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.middle p{
+    font-size:13px;
+    color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section>
+
+<div class="wrap">
+
+    <div class="title-box">
+        <h2>가격이 내려갔어요↘</h2>
+        <p>지금 할인하는 상품들만 모았어요!</p>
+    </div>
+
+    <div class="list">
+
+        <div class="card">
+            <img src="./images/1.jpg" alt="">
+            <div class="category">패키지</div>
+            <div class="name">[인천/청주/부산/대구] 나트랑/달랏 5,6일</div>
+            <div class="hash">#타임세일 #NO옵션 #전일정5성급호텔</div>
+            <div class="price"><strong>549,000</strong>원~</div>
+            <div class="label">🤿호핑투어</div>
+        </div>
+
+        <div class="card">
+            <img src="./images/2.jpg" alt="">
+            <div class="category">패키지</div>
+            <div class="name">[인천/부산/대구] 태항산4,5일</div>
+            <div class="hash">#타임세일 #보천대협곡 #태항대협곡</div>
+            <div class="price"><strong>899,900</strong>원~</div>
+            <div class="label">🙅‍♀️NO쇼핑/옵션/팁</div>
+        </div>
+
+        <div class="card">
+            <img src="./images/3.jpg" alt="">
+            <div class="category">패키지</div>
+            <div class="name">이탈리아 일주 9일</div>
+            <div class="hash">#타임세일 #가성비 VS 하나팩2.0</div>
+            <div class="price"><strong>1,899,000</strong>원~</div>
+            <div class="label">전일정 4성급 호텔</div>
+        </div>
+
+        <div class="card">
+            <img src="./images/4.jpg" alt="">
+            <div class="category">패키지</div>
+            <div class="name">스페인 일주 9일</div>
+            <div class="hash">#세일위크 #하나팩2.0 #NO쇼핑/팁</div>
+            <div class="price"><strong>3,249,000</strong>원~</div>
+            <div class="label">스페셜 가우디투어&와인</div>
+        </div>
+
+    </div>
+
+    <div class="middle">
+        <h2>황금 연휴! 늦기 전에 클릭</h2>
+        <p>추석연휴 포함! 가을 여행 지금 준비하세요</p>
+    </div>
+
+    <div class="list">
+
+        <div class="card">
+            <img src="./images/5.jpg" alt="">
+            <div class="category">패키지</div>
+            <div class="name">장가계 4,5,6일</div>
+            <div class="hash">#천문산&칠성산케이블카</div>
+            <div class="price"><strong>499,000</strong>원~</div>
+            <div class="label">전일정 리무진서비스</div>
+        </div>
+
+        <div class="card">
+            <img src="./images/6.jpg" alt="">
+            <div class="category">패키지vs자유</div>
+            <div class="name">푸꾸옥 5,6일</div>
+            <div class="hash">#5성급 추천리조트 #연휴 특가상품</div>
+            <div class="price"><strong>509,000</strong>원~</div>
+            <div class="label">선셋타운&현지맛집 특식</div>
+        </div>
+
+        <div class="card">
+            <img src="./images/7.jpg" alt="">
+            <div class="category">패키지</div>
+            <div class="name">괌 4,5일</div>
+            <div class="hash">#PIC 리조트 #골드패스</div>
+            <div class="price"><strong>749,000</strong>원~</div>
+            <div class="label">가족여행 베스트 셀러</div>
+        </div>
+
+        <div class="card">
+            <img src="./images/8.jpg" alt="">
+            <div class="category">패키지</div>
+            <div class="name">동유럽 3/4국 9일</div>
+            <div class="hash">#하나팩2.0 #NO쇼핑/가이드기사경비</div>
+            <div class="price"><strong>3,699,000</strong>원~</div>
+            <div class="label">2대 낭만 야간투어 포함</div>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</body>
+</html>
