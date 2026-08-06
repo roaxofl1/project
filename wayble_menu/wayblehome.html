@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WAYBLE - 홈</title>
+    <style>
+        /* Reset & Base Layout */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* App Container (반응형 배제, 모바일 100svh 고정) */
+        #app-container {
+            width: 100%;
+            max-width: 430px;
+            height: 100svh;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header (상단 메뉴바: 좌측 햄버거, 우측 로고) */
+        .header {
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            background-color: #ffffff;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .header .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header .menu-btn img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .header .logo {
+            height: 22px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Main Content Scroll Area */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 20px 80px 20px;
+        }
+
+        /* Title Area */
+        .main-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111111;
+            line-height: 1.35;
+            margin-bottom: 20px;
+        }
+
+        /* Search Input Bar */
+        .search-box {
+            width: 100%;
+            height: 48px;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .search-box img {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+            color: #a0aec0;
+            background: transparent;
+            pointer-events: none;
+        }
+
+        /* Quick Card Menu (AI 여행 시작, 여행지 둘러보기) */
+        .quick-cards {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .card-btn {
+            flex: 1;
+            height: 100px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        .card-btn.ai {
+            background-color: #e8f0fe;
+        }
+
+        .card-btn.browse {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card-btn img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .card-btn span {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2b6cb0;
+        }
+
+        /* Section Title */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111111;
+        }
+
+        .more-link {
+            font-size: 13px;
+            color: #a0aec0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        /* Travel Card Item */
+        .travel-card {
+            width: 100%;
+            border: 1px solid #edf2f7;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #ffffff;
+            text-decoration: none;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .card-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 190px;
+        }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .heart-icon {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 24px;
+            height: 24px;
+        }
+
+        .card-body {
+            padding: 16px;
+            position: relative;
+        }
+
+        .card-item-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .card-tags {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3182ce;
+            margin-bottom: 12px;
+        }
+
+        .arrow-right-icon {
+            position: absolute;
+            right: 16px;
+            bottom: 40px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .card-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .card-rating img {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Bottom Nav (홈 / 검색 / 저장 / 여행 / MY) */
+        .bottom-nav {
+            height: 65px;
+            border-top: 1px solid #f1f3f5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #ffffff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #a0aec0;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .nav-item.active {
+            color: #2b6cb0;
+            font-weight: 700;
+        }
+
+        .nav-item img {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 4px;
+        }
+
+        /* ---------------- [Slide Mobile Menu Panel] ---------------- */
+        .sidebar-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar-menu {
+            position: absolute;
+            top: 0;
+            left: -80%; /* 좌측 오프셋 숨김 */
+            width: 80%;
+            height: 100%;
+            background-color: #ffffff;
+            z-index: 100;
+            transition: left 0.3s ease-in-out;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            border-top-right-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+        .sidebar-menu.active {
+            left: 0; /* 슬라이드 인 */
+        }
+
+        /* Side Menu Header */
+        .side-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .side-logo img {
+            height: 28px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .close-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* User Profile */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            text-decoration: none;
+        }
+
+        .profile-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-info .name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .profile-info .email {
+            font-size: 12px;
+            color: #a0aec0;
+            margin-top: 2px;
+        }
+
+        .profile-arrow {
+            margin-left: auto;
+            width: 14px;
+            height: 14px;
+        }
+
+        /* AI Recommendation Banner Box */
+        .ai-banner-box {
+            background-color: #f0f5ff;
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            margin-bottom: 24px;
+        }
+
+        .ai-banner-box img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .ai-banner-text .title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .ai-banner-text .sub {
+            font-size: 11px;
+            color: #718096;
+            margin-top: 2px;
+        }
+
+        /* Menu Links List */
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #2d3748;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .menu-item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-item-left img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .menu-arrow {
+            width: 14px;
+            height: 14px;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #edf2f7;
+            margin-bottom: 24px;
+        }
+
+        /* Bottom Promo Box */
+        .promo-card {
+            background-color: #f0f5ff;
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .promo-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .promo-left img {
+            width: 36px;
+            height: 36px;
+        }
+
+        .promo-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .promo-sub {
+            font-size: 11px;
+            color: #718096;
+            margin-top: 2px;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            width: 100%;
+            height: 44px;
+            background-color: #f0f5ff;
+            border: none;
+            border-radius: 10px;
+            color: #3182ce;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logout-btn img {
+            width: 18px;
+            height: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app-container">
+
+        <!-- 1. Header (메뉴바: 좌측 햄버거 버튼, 우측 로고) -->
+        <header class="header">
+            <button class="menu-btn" id="btn-hamburger">
+                <img src="./icons/coloricons/ri_menu-fill.svg" alt="메뉴열기">
+            </button>
+            <div class="logo">
+                <a href="home.html"><img src="./images/lll.png" alt="WAYBLE 로고"></a>
+            </div>
+        </header>
+
+        <!-- 2. Main Content Area -->
+        <main class="main-content">
+            <h1 class="main-title">나에게 딱 맞는<br>여행을 찾아보세요</h1>
+
+            <!-- 검색 입력 바 -->
+            <a href="search.html" class="search-box">
+                <img src="./icons/iconamoon_search-light.svg" alt="검색 아이콘">
+                <input type="text" placeholder="어디로 떠나고 싶으신가요?" readonly>
+            </a>
+
+            <!-- Quick Cards (AI 여행 시작, 여행지 둘러보기) -->
+            <div class="quick-cards">
+                <a href="ai_travel.html" class="card-btn ai">
+                    <img src="./icons/coloricons/humbleicons_ai.svg" alt="AI 여행 시작">
+                    <span>AI 여행 시작</span>
+                </a>
+                <a href="search.html" class="card-btn browse">
+                    <img src="./icons/material-symbols_map-outline-rounded.svg" alt="여행지 둘러보기">
+                    <span>여행지 둘러보기</span>
+                </a>
+            </div>
+
+            <!-- 오늘의 추천 여행지 Section -->
+            <div class="section-header">
+                <h2 class="section-title">오늘의 추천 여행지</h2>
+                <a href="search.html" class="more-link">
+                    <span>더보기</span>
+                    <span>&gt;</span>
+                </a>
+            </div>
+
+            <!-- 여행지 카드 -->
+            <a href="search.html" class="travel-card">
+                <div class="card-img-wrap">
+                    <img src="./images/main 1.png" alt="제주도 감성 여행">
+                
+                </div>
+                <div class="card-body">
+                    <div class="card-item-title">제주도 감성 여행 3일</div>
+                    <div class="card-tags">제주 · 힐링 · 맛집</div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="arrow-right-icon" alt="상세보기">
+                    <div class="card-rating">
+                        <img src="./icons/emojione_star.svg" alt="별점">
+                        <span>4.8 (1,234)</span>
+                    </div>
+                </div>
+            </a>
+        </main>
+
+        <!-- 3. Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item active">
+                <img src="./icons/coloricons/iconamoon_home-light.svg" alt="홈">
+                <span>홈</span>
+            </a>
+            <a href="search.html" class="nav-item">
+                <img src="./icons/iconamoon_search-light.svg" alt="검색">
+                <span>검색</span>
+            </a>
+            <a href="bookmark.html" class="nav-item">
+                <img src="./icons/solar_heart-linear.svg" alt="저장">
+                <span>저장</span>
+            </a>
+            <a href="trip.html" class="nav-item">
+                <img src="./icons/streamline-flex_suitcase-rolling.svg" alt="여행">
+                <span>여행</span>
+            </a>
+            <a href="my.html" class="nav-item">
+                <img src="./icons/mynaui_user.svg" alt="MY">
+                <span>MY</span>
+            </a>
+        </nav>
+
+        <!-- 4. Slide Mobile Menu Panel (Overlay & Sidebar) -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        
+        <aside class="sidebar-menu" id="sidebar-menu">
+            <!-- Side Menu Header (WAYBLE+ 로고 & 닫기 X 버튼) -->
+            <div class="side-header">
+                <div class="side-logo">
+                    <img src="./images/lll.png" alt="WAYBLE+ 로고">
+                </div>
+                <button class="close-btn" id="btn-close-menu">
+                    <img src="./icons/material-symbols_close-rounded.svg" alt="닫기">
+                </button>
+            </div>
+
+            <!-- Profile Area -->
+            <a href="my.html" class="user-profile">
+                <img src="./images/pro.png" alt="김웨이블 프로필" class="profile-img">
+                <div class="profile-info">
+                    <div class="name">김웨이블</div>
+                    <div class="email">wayble@example.com</div>
+                </div>
+                <img src="./icons/weui_arrow-outlined.svg" class="profile-arrow" alt="상세">
+            </a>
+
+            <!-- AI 추천 배너 -->
+            <a href="ai_travel.html" class="ai-banner-box">
+                <img src="./icons/coloricons/humbleicons_ai.svg" alt="AI 맞춤 여행">
+                <div class="ai-banner-text">
+                    <div class="title">AI 맞춤 여행</div>
+                    <div class="sub">당신의 취향과 상황에 맞는 여행을 추천드려요.</div>
+                </div>
+                <img src="./icons/weui_arrow-outlined.svg" class="profile-arrow" alt="이동">
+            </a>
+
+            <!-- Navigation Links List -->
+            <div class="menu-list">
+                <a href="./wayblehome.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/coloricons/iconamoon_home-light.svg" alt="홈">
+                        <span>홈</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+                <a href="./wayblesearch.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/iconamoon_search-light.svg" alt="탐색">
+                        <span>탐색</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+                <a href="./wayblelist.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/mynaui_bookmark.svg" alt="저장">
+                        <span>저장</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+                <a href="./waybletravle.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/streamline-flex_suitcase-rolling.svg" alt="여행">
+                        <span>여행</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+                <a href="notice.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/mynaui_bell.svg" alt="알림">
+                        <span>알림</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+                <a href="./wayblemy.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/mynaui_user.svg" alt="MY">
+                        <span>MY</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- 하단 추천 프로모션 카드 -->
+            <a href="share.html" class="promo-card">
+                <div class="promo-left">
+                    <img src="./images/bag.png" alt="프로모션">
+                    <div>
+                        <div class="promo-title">함께 떠나볼까요?</div>
+                        <div class="promo-sub">친구에게 WAYBLE을 추천해보세요!</div>
+                    </div>
+                </div>
+                <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+            </a>
+
+            <!-- 로그아웃 버튼 -->
+            <a href="login.html" class="logout-btn">
+                <img src="./icons/material-symbols-light_logout.svg" alt="로그아웃">
+                <span>로그아웃</span>
+            </a>
+        </aside>
+
+    </div>
+
+    <!-- 5. JavaScript (Slide Menu Controls) -->
+    <script>
+        const btnHamburger = document.getElementById('btn-hamburger');
+        const btnCloseMenu = document.getElementById('btn-close-menu');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        function openSidebar() {
+            sidebarMenu.classList.add('active');
+            sidebarOverlay.classList.add('active');
+        }
+
+        function closeSidebar() {
+            sidebarMenu.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        }
+
+        btnHamburger.addEventListener('click', openSidebar);
+        btnCloseMenu.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>여행</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Pretendard,sans-serif}
+body{background:#f4f4f4;display:flex;justify-content:center}
+.app{width:390px;height:100svh;background:#fff;overflow-y:auto}
+header{position:sticky;top:0;height:64px;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:center;z-index:10}
+.back{position:absolute;left:16px;border:none;background:none}
+.back img{width:24px;height:24px}
+header h1{font-size:20px}
+.wrap{padding:24px 24px 90px}
+h2{font-size:16px;margin-bottom:16px;color:#222}
+.trip{background:#dce9ff;border-radius:12px;padding:18px;display:flex;justify-content:space-between;align-items:center}
+.trip b{font-size:18px;display:block}
+.trip span{display:block;color:#7a8798;margin-top:4px}
+.dday{background:#fff;color:#2f62e8;font-weight:700;padding:6px 10px;border-radius:8px}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:22px 0 28px}
+.q{text-align:center}
+.qbox{width:52px;height:52px;background:#dce9ff;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.qbox img{width:24px}
+.q p{font-size:13px;color:#444}
+.menu{border-top:1px solid #ececec}
+.row{display:flex;align-items:center;padding:22px 0;border-bottom:1px solid #ececec}
+.row>img:first-child{width:26px;margin-right:16px}
+.txt{flex:1}
+.txt b{display:block;font-size:18px;margin-bottom:4px}
+.txt span{font-size:14px;color:#666}
+.arrow{width:18px}
+nav{position:sticky;bottom:0;height:72px;background:#fff;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(5,1fr)}
+nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;color:#222;font-size:12px}
+nav img{width:22px;margin-bottom:4px}
+.active{color:#2f62e8;font-weight:700}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<button class="back" onclick="history.back()"><img src="./icons/line-md_arrow-left.svg" alt="back"></button>
+<h1>여행</h1>
+</header>
+
+<div class="wrap">
+<h2>다가오는 여행</h2>
+
+<div class="trip">
+<div>
+<b>제주 감성 여행 3일</b>
+<span>2024.08.25 (화) 출발</span>
+</div>
+<div class="dday">D-7</div>
+</div>
+
+<div class="quick">
+<div class="q"><div class="qbox"><img src="./icons/coloricons/blue ep_calendar.svg"></div><p>일정 보기</p></div>
+<div class="q"><div class="qbox"><img src="./icons/coloricons/blue ic_outline-check.svg"></div><p>예약 확인</p></div>
+<div class="q"><div class="qbox"><img src="./icons/coloricons/blue material-symbols-light_list-alt-outline-rounded.svg"></div><p>체크리스트</p></div>
+<div class="q"><div class="qbox"><img src="./icons/coloricons/blue icons8_info.svg"></div><p>여행 정보</p></div>
+</div>
+
+<a href="wayblede1.html"><div class="menu">
+<div class="row">
+<img src="./icons/humbleicons_ai.svg">
+<div class="txt"><b>AI 일정 제안</b><span>맞춤 일정이 준비되어 있어요.</span></div>
+<img class="arrow" src="./icons/weui_arrow-outlined.svg">
+</div>
+</a>
+
+<div class="row">
+<img src="./icons/material-symbols-light_flights-and-hotels-outline.svg">
+<div class="txt"><b>예약</b><span>항공, 숙소, 렌터카 등</span></div>
+<img class="arrow" src="./icons/weui_arrow-outlined.svg">
+</div>
+
+<div class="row">
+<img src="./icons/material-symbols-light_list-alt-outline-rounded.svg">
+<div class="txt"><b>체크리스트</b><span>여행 준비물 확인</span></div>
+<img class="arrow" src="./icons/weui_arrow-outlined.svg">
+</div>
+
+<div class="row">
+<img src="./icons/icons8_info.svg">
+<div class="txt"><b>실시간 정보</b><span>날씨, 교통, 현지 정보</span></div>
+<img class="arrow" src="./icons/weui_arrow-outlined.svg">
+</div>
+</div>
+
+</div>
+
+<nav>
+<a href="wayblemain.html"><img src="./icons/iconamoon_home-light.svg">홈</a>
+<a href="wayblesearch.html"><img src="./icons/iconamoon_search-light.svg">검색</a>
+<a href="wayblelist.html"><img src="./icons/solar_heart-linear.svg">저장</a>
+<a href="#" class="active"><img src="./icons/coloricons/blue streamline-flex_suitcase-rolling.svg">여행</a>
+<a href="wayblemy.html"><img src="./icons/mynaui_user.svg">MY</a>
+</nav>
+</div>
+</body>
+</html>
