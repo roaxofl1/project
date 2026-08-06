@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WAYBLE - 홈</title>
+
+    <!-- Swiper CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- 외부 스타일시트 연결 -->
+    <link rel="stylesheet" href="./css/wayblemain.css">
+    
+    <!-- Swiper JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+    <div id="app-container">
+
+        <!-- 1. Header (메뉴바: 좌측 햄버거 버튼, 우측 로고) -->
+        <header class="header">
+            <button class="menu-btn" id="btn-hamburger">
+                <img src="./icons/coloricons/ri_menu-fill.svg" alt="메뉴열기">
+            </button>
+            <div class="logo">
+                <a href="home.html"><img src="./images/lll.png" alt="WAYBLE 로고"></a>
+            </div>
+        </header>
+
+        <!-- 2. Main Content Area -->
+        <main class="main-content">
+            
+            <!-- 메인 상단 배너 Swiper 슬라이드 (3개 이미지) -->
+            <div class="swiper main-banner-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./images/bn1.jpg" alt="메인배너 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/bn2.jpg" alt="메인배너 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/bn3.jpg" alt="메인배너 3">
+                    </div>
+                </div>
+                <!-- 페이지네이션(인디케이터) -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <!-- 메인 컨텐츠 영역 -->
+            <div class="content-body">
+                <h1 class="main-title">나에게 딱 맞는<br>여행을 찾아보세요</h1>
+
+                <!-- 검색 입력 바 -->
+                <a href="search.html" class="search-box">
+                    <img src="./icons/iconamoon_search-light.svg" alt="검색 아이콘">
+                    <input type="text" placeholder="어디로 떠나고 싶으신가요?" readonly>
+                </a>
+
+                <!-- Quick Cards (AI 여행 시작, 여행지 둘러보기) -->
+                <div class="quick-cards">
+                    <a href="ai_travel.html" class="card-btn ai">
+                        <img src="./icons/coloricons/humbleicons_ai.svg" alt="AI 여행 시작">
+                        <span>AI 여행 시작</span>
+                    </a>
+                    <a href="search.html" class="card-btn browse">
+                        <img src="./icons/coloricons/material-symbols_map-outline-rounded.svg" alt="여행지 둘러보기">
+                        <span>여행지 둘러보기</span>
+                    </a>
+                </div>
+
+                <!-- 오늘의 추천 여행지 Section -->
+                <div class="section-header">
+                    <h2 class="section-title">오늘의 추천 여행지</h2>
+                    <a href="search.html" class="more-link">
+                        <span>더보기</span>
+                        <span>&gt;</span>
+                    </a>
+                </div>
+
+                <!-- 여행지 카드 -->
+                <a href="search.html" class="travel-card">
+                    <div class="card-img-wrap">
+                        <img src="./images/main 1.png" alt="제주도 감성 여행">
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="card-item-title">제주도 감성 여행 3일</div>
+                        <div class="card-tags">제주 · 힐링 · 맛집</div>
+                        <img src="./icons/weui_arrow-outlined.svg" class="arrow-right-icon" alt="상세보기">
+                        <div class="card-rating">
+                            <img src="./icons/emojione_star.svg" alt="별점">
+                            <span>4.8 (1,234)</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </main>
+
+        <!-- 3. Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="./swayble.html" class="nav-item active">
+                <img src="./icons/coloricons/iconamoon_home-light.svg" alt="홈">
+                <span>홈</span>
+            </a>
+            <a href="./wayblesearch.html" class="nav-item">
+                <img src="./icons/iconamoon_search-light.svg" alt="검색">
+                <span>검색</span>
+            </a>
+            <a href="./wayblelist.html" class="nav-item">
+                <img src="./icons/solar_heart-linear.svg" alt="저장">
+                <span>저장</span>
+            </a>
+            <a href="./waybletravle.html" class="nav-item">
+                <img src="./icons/streamline-flex_suitcase-rolling.svg" alt="여행">
+                <span>여행</span>
+            </a>
+            <a href="./wayblemy.html" class="nav-item">
+                <img src="./icons/mynaui_user.svg" alt="MY">
+                <span>MY</span>
+            </a>
+        </nav>
+
+        <!-- 4. Slide Mobile Menu Panel (Overlay & Sidebar) -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        
+        <aside class="sidebar-menu" id="sidebar-menu">
+            <div class="side-header">
+                <div class="side-logo">
+                    <img src="./images/lll.png" alt="WAYBLE+ 로고">
+                </div>
+                <button class="close-btn" id="btn-close-menu">
+                    <img src="./icons/material-symbols_close-rounded.svg" alt="닫기">
+                </button>
+            </div>
+
+            <a href="./wayblemy.html" class="user-profile">
+                <img src="./images/pro.png" alt="김웨이블 프로필" class="profile-img">
+                <div class="profile-info">
+                    <div class="name">김웨이블</div>
+                    <div class="email">wayble@example.com</div>
+                </div>
+                <img src="./icons/weui_arrow-outlined.svg" class="profile-arrow" alt="상세">
+            </a>
+
+            <a href="ai_travel.html" class="ai-banner-box">
+                <img src="./icons/coloricons/humbleicons_ai.svg" alt="AI 맞춤 여행">
+                <div class="ai-banner-text">
+                    <div class="title">AI 맞춤 여행</div>
+                    <div class="sub">당신의 취향과 상황에 맞는 여행을 추천드려요.</div>
+                </div>
+                <img src="./icons/weui_arrow-outlined.svg" class="profile-arrow" alt="이동">
+            </a>
+
+            <div class="menu-list">
+                <a href="./swayble.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/coloricons/iconamoon_home-light.svg" alt="홈">
+                        <span>홈</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+                <a href="./wayblesearch.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/iconamoon_search-light.svg" alt="탐색">
+                        <span>탐색</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+                <a href="./wayblelist.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/solar_heart-linear.svg" alt="저장">
+                        <span>저장</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+                <a href="./waybletravle.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/streamline-flex_suitcase-rolling.svg" alt="여행">
+                        <span>여행</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+                <a href="notice.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/mynaui_bell.svg" alt="알림">
+                        <span>알림</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+                <a href="./wayblemy.html" class="menu-item">
+                    <div class="menu-item-left">
+                        <img src="./icons/mynaui_user.svg" alt="MY">
+                        <span>MY</span>
+                    </div>
+                    <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+                </a>
+            </div>
+
+            <div class="divider"></div>
+
+            <a href="share.html" class="promo-card">
+                <div class="promo-left">
+                    <img src="./images/bag.png" alt="프로모션">
+                    <div>
+                        <div class="promo-title">함께 떠나볼까요?</div>
+                        <div class="promo-sub">친구에게 WAYBLE을 추천해보세요!</div>
+                    </div>
+                </div>
+                <img src="./icons/weui_arrow-outlined.svg" class="menu-arrow" alt="이동">
+            </a>
+
+            <a href="login.html" class="logout-btn">
+                <img src="./icons/material-symbols-light_logout.svg" alt="로그아웃">
+                <span>로그아웃</span>
+            </a>
+        </aside>
+
+    </div>
+
+    <!-- 외부 스크립트 연결 -->
+    <script src="./js/wayblemain.js"></script>
+</body>
+</html>

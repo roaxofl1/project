@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MY</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Pretendard,sans-serif}
+body{background:#f3f3f3;display:flex;justify-content:center}
+.app{width:390px;height:100svh;background:#fff;overflow-y:auto}
+header{position:sticky;top:0;height:56px;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:center;z-index:10}
+header h1{font-size:18px;font-weight:700;color:#222}
+.back{position:absolute;left:16px;border:none;background:none}
+.back img{width:24px;height:24px}
+.wrap{padding:24px 24px 90px}
+.profile{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.profile img{width:56px;height:56px;border-radius:50%}
+.name{font-size:20px;font-weight:700;color:#2f62e8}
+.mail{font-size:14px;color:#666;margin-top:4px}
+h2{font-size:16px;margin:18px 0 14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:#dce9ff;border-radius:12px;padding:10px 0}
+.stat{text-align:center;border-right:1px solid rgba(255,255,255,.7)}
+.stat:last-child{border-right:none}
+.num{font-size:18px;font-weight:700;color:#222}
+.lab{font-size:12px;color:#555;margin-top:4px}
+.menu{margin-top:8px;border-top:1px solid #ececec}
+.row{display:flex;align-items:center;padding:18px 0;border-bottom:1px solid #ececec}
+.row>img:first-child{width:24px;margin-right:16px}
+.txt{flex:1;font-size:17px}
+.arrow{width:18px}
+.logo{font-size:18px;font-weight:800;color:#1455ff;text-align:right;margin-top:18px}
+nav{position:sticky;bottom:0;height:72px;border-top:1px solid #ddd;background:#fff;display:grid;grid-template-columns:repeat(5,1fr)}
+nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;color:#222;font-size:12px}
+nav img{width:22px;margin-bottom:4px}
+.active{color:#2f62e8;font-weight:700}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<button class="back" onclick="history.back()"><img src="./icons/line-md_arrow-left.svg" alt=""></button>
+<h1>MY</h1>
+</header>
+
+<div class="wrap">
+<div class="profile">
+<img src="./images/pro.png" alt="">
+<div>
+<div class="name">김웨이블</div>
+<div class="mail">wayble@example.com</div>
+</div>
+</div>
+
+<h2>나의 여행 통계</h2>
+<div class="stats">
+<div class="stat"><div class="num">12</div><div class="lab">여행</div></div>
+<div class="stat"><div class="num">45</div><div class="lab">지역</div></div>
+<div class="stat"><div class="num">8</div><div class="lab">특가</div></div>
+<div class="stat"><div class="num">32</div><div class="lab">도시</div></div>
+</div>
+
+<h2>나의 기록</h2>
+<div class="menu">
+<div class="row"><img src="./icons/streamline-flex_suitcase-rolling.svg"><div class="txt">최근 여행</div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+<div class="row"><img src="./icons/humbleicons_ai.svg"><div class="txt">AI 추천 기록</div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+<div class="row"><img src="./icons/starlist.svg"><div class="txt">나의 리뷰</div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+</div>
+
+<h2>Service</h2>
+<div class="menu">
+<div class="row"><img src="./icons/lsicon_setting-outline.svg"><div class="txt">설정</div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+<div class="row"><img src="./icons/mdi_customer-service.svg"><div class="txt">고객센터</div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+<div class="row"><img src="./icons/tabler_brand-webflow.svg"><div class="txt">서비스 소개</div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+</div>
+
+<div class="logo">WAYBLE</div>
+</div>
+
+<nav>
+<a href="wayblemain.html"><img src="./icons/iconamoon_home-light.svg">홈</a>
+<a href="wayblesearch.html"><img src="./icons/iconamoon_search-light.svg">검색</a>
+<a href="wayblelist.html"><img src="./icons/solar_heart-linear.svg">저장</a>
+<a href="waybletravle.html"><img src="./icons/streamline-flex_suitcase-rolling.svg">여행</a>
+<a href="#" class="active"><img src="./icons/coloricons/blue lets-icons_user-light.svg">MY</a>
+</nav>
+</div>
+</body>
+</html>
