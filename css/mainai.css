@@ -1,0 +1,230 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:"Pretendard", sans-serif;
+    background:#ffffff;
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+button{
+    border:0;
+    background:none;
+    cursor:pointer;
+}
+
+
+
+/* ===========================
+   APP
+=========================== */
+
+body{
+    width:100%;
+    height:100svh;
+}
+
+
+
+/* ===========================
+   HEADER
+=========================== */
+
+.header{
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height: 45px;
+
+    background:#33353f;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 12px;
+
+    z-index:9999;
+
+}
+
+.menu-btn,
+.search-btn{
+
+    width:28px;
+    height:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+}
+
+.menu-btn img,
+.search-btn img{
+
+    width:24px;
+
+}
+
+.logo{
+
+    width:132px;
+}
+
+.logo img{
+
+    width:100%; height: 42px;
+}
+
+
+
+/* ===========================
+   MAIN BANNER
+=========================== */
+
+.main-banner{
+
+    width:100%;
+    height:268px;
+
+    margin-top:42px;
+
+    position:relative;
+
+}
+
+
+
+.bannerSwiper{
+
+    width:100%;
+    height:100%;
+
+}
+
+.swiper-wrapper{
+
+    height:100%;
+
+}
+
+.swiper-slide{
+
+    width:100%;
+    height:100%;
+
+}
+
+.swiper-slide img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+
+/* ===========================
+   PAGINATION
+=========================== */
+
+.swiper-pagination{
+
+    bottom:12px !important;
+
+}
+
+.swiper-pagination-bullet{
+
+    width:8px;
+    height:8px;
+
+    background:#ffffff;
+    opacity:.5;
+
+}
+
+.swiper-pagination-bullet-active{
+
+    width:20px;
+    border-radius:20px;
+
+    opacity:1;
+
+    background:#0099a8;
+
+}
+
+
+
+/* ===========================
+   ARROW
+=========================== */
+
+.swiper-button-prev,
+.swiper-button-next{
+
+    width:34px;
+    height:34px;
+
+    color:#ffffff;
+
+    transform:scale(.55);
+
+}
+
+.swiper-button-prev{
+
+    left:6px;
+
+}
+
+.swiper-button-next{
+
+    right:6px;
+
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after{
+
+    font-weight:bold;
+
+}
+
+
+
+/* ===========================
+   ETC
+=========================== */
+
+.swiper-slide::after{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+}
