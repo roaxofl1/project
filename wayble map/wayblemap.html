@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>감성 여행지 검색 App</title>
+    
+    <!-- 카카오 지도 API (발급받으신 Kakao App Key로 수정해 사용하세요) -->
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=792c4fcc7500aad7c2b2dc926b64b8ee"></script>
+
+    <style>
+        /* CSS Reset 및 기초 설정 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 모바일 전용 앱 컨테이너 (100svh 고정) */
+        #app-container {
+            width: 100%;
+            max-width: 430px;
+            height: 100svh;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Screen 전환용 공통 스타일 */
+        .screen {
+            width: 100%;
+            height: 100svh;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+            z-index: 1;
+        }
+
+        .screen.active {
+            display: flex;
+            z-index: 2;
+        }
+
+        /* ---------------- [1. 검색 결과 목록 화면] ---------------- */
+        .header {
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid #f1f3f5;
+            flex-shrink: 0;
+        }
+
+        .header .back-btn {
+            position: absolute;
+            left: 16px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .header .back-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .header .title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111111;
+        }
+
+        .content-list {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 65px; /* 하단 탭바 간격 */
+        }
+
+        .travel-item-card {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid #f8f9fa;
+            cursor: pointer;
+        }
+
+        .travel-thumb {
+            width: 96px;
+            height: 96px;
+            border-radius: 14px;
+            object-fit: cover;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .travel-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .travel-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .travel-date {
+            font-size: 14px;
+            color: #767676;
+            font-weight: 400;
+        }
+
+        /* 하단 고정 Navigation Bar (홈 / 검색 / 저장 / 여행 / MY) */
+        .bottom-nav {
+            height: 65px;
+            border-top: 1px solid #f1f3f5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #ffffff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333333;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .nav-item.active {
+            color: #111111;
+            font-weight: 700;
+        }
+
+        .nav-item img {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 4px;
+        }
+
+        /* ---------------- [2. 상세 지도 화면] ---------------- */
+        #screen-map {
+            position: relative;
+        }
+
+        /* 지도 위 뒤로가기 Floating 버튼 */
+        .map-header-btn {
+            position: absolute;
+            top: 20px;
+            left: 16px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            cursor: pointer;
+        }
+
+        .map-header-btn img {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* 카카오 지도 레이어 */
+        #map {
+            width: 100%;
+            height: calc(100svh - 180px);
+        }
+
+        /* 상세 지도 하단 카드 패널 */
+        .map-bottom-card {
+            height: 180px;
+            width: 100%;
+            background-color: #ffffff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+            padding: 16px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .map-card-info-wrap {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .item-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .item-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 4px;
+        }
+
+        .item-address {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .bookmark-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 2px;
+        }
+
+        .bookmark-btn img {
+            width: 18px;
+            height: 22px;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tag-group {
+            display: flex;
+            gap: 6px;
+        }
+
+        .tag {
+            background-color: #5b73ba;
+            color: #ffffff;
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .distance {
+            font-size: 14px;
+            color: #5b73ba;
+            font-weight: 600;
+        }
+
+        /* 내 위치 기준 길찾기 액션 버튼 */
+        .navi-route-btn {
+            width: 100%;
+            height: 44px;
+            background-color: #5b73ba;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .navi-route-btn:active {
+            background-color: #4a5f9c;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app-container">
+
+        <!-- [화면 1] 감성 여행지 검색 결과 화면 -->
+        <div id="screen-list" class="screen active">
+            <header class="header">
+                <button class="back-btn"><img src="./icons/line-md_arrow-left.svg" alt="뒤로가기"></button>
+                <h1 class="title">검색 결과</h1>
+            </header>
+
+            <main class="content-list" id="travel-list">
+                <!-- JS 동적 생성 영역 -->
+            </main>
+
+            <nav class="bottom-nav">
+                <a href="#" class="nav-item">
+                    <img src="./icons/iconamoon_home-light.svg" alt="홈">
+                    <span>홈</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <img src="./icons/coloricons/iconamoon_search-thin blue.svg" alt="검색">
+                    <span>검색</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./icons/solar_heart-linear.svg" alt="저장">
+                    <span>저장</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./icons/streamline-flex_suitcase-rolling.svg" alt="여행">
+                    <span>여행</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./icons/mynaui_user.svg" alt="MY">
+                    <span>MY</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- [화면 2] 상세 지도 화면 (각 선택지에 맞춰 위치 변환) -->
+        <div id="screen-map" class="screen">
+            <button class="map-header-btn" id="btn-map-back">
+                <img src="./icons/line-md_arrow-left.svg" alt="뒤로가기">
+            </button>
+            
+            <!-- Kakao Map Area -->
+            <div id="map"></div>
+
+            <!-- 하단 핀 정보 & 길찾기 카드 -->
+            <div class="map-bottom-card" id="map-card-detail">
+                <!-- JS Dynamic Render -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 시안(첫 번째 이미지) 기반 감성 여행지 데이터 셋
+        const travelData = [
+            {
+                id: 1,
+                title: "부산 바다 감성 여행 2일",
+                date: "2026.08.25 (화) 출발",
+                address: "부산 해운대구 우동 광안대교 전망대",
+                tags: ["바다뷰", "주차장"],
+                distance: "325km",
+                thumb: "./images/busan.png.",
+                lat: 35.153198,
+                lng: 129.118928,
+                bookmarked: false
+            },
+            {
+                id: 2,
+                title: "제주 감성 여행 3일",
+                date: "2026.08.25 (화) 출발",
+                address: "제주특별자치도 제주시 조천읍 함덕리 1008",
+                tags: ["오션뷰", "카페"],
+                distance: "450km",
+                thumb: "./images/jeju.jpg",
+                lat: 33.543422,
+                lng: 126.669275,
+                bookmarked: false
+            },
+            {
+                id: 3,
+                title: "서울 감성 여행 3일",
+                date: "2026.08.29 (토) 출발",
+                address: "서울 용산구 남산공원길 105 N서울타워",
+                tags: ["도심뷰", "야경"],
+                distance: "12km",
+                thumb: "./images/seoul.jpg",
+                lat: 37.551169,
+                lng: 126.988227,
+                bookmarked: false
+            },
+            {
+                id: 4,
+                title: "안동 감성 한옥 2일",
+                date: "2026.08.29 (토) 출발",
+                address: "경상북도 안동시 풍천면 하회종가길 40",
+                tags: ["한옥", "힐링"],
+                distance: "210km",
+                thumb: "./images/andong.jpg",
+                lat: 36.538555,
+                lng: 128.517316,
+                bookmarked: false
+            },
+            {
+                id: 5,
+                title: "감성 템플스테이 1일",
+                date: "2026.08.30 (일) 출발",
+                address: "부산 기장군 기장읍 기장해안로 267 용궁사",
+                tags: ["템플", "명상"],
+                distance: "330km",
+                thumb: "./images/tem.jpg",
+                lat: 35.188444,
+                lng: 129.223361,
+                bookmarked: false
+            },
+            {
+                id: 6,
+                title: "경주 감성 문화지 탐방",
+                date: "2026.09.04 (수) 출발",
+                address: "경상북도 경주시 원화로 102 동궁과 월지",
+                tags: ["유적지", "야경"],
+                distance: "280km",
+                thumb: "./images/gyeogju.jpg",
+                lat: 35.834167,
+                lng: 129.226667,
+                bookmarked: false
+            },
+            {
+                id: 7,
+                title: "강원도 감성 여행 3일",
+                date: "2026.09.05 (목) 출발",
+                address: "강원특별자치도 속초시 해오름로 186",
+                tags: ["동해 바다", "산책"],
+                distance: "185km",
+                thumb: "./images/gangwon.jpg",
+                lat: 38.190556,
+                lng: 128.601667,
+                bookmarked: false
+            },
+            {
+                id: 8,
+                title: "대전 감성 카페 투어",
+                date: "2026.09.07 (토) 출발",
+                address: "대전 중구 대종로480번길 15 성심당 본점",
+                tags: ["카페", "디저트"],
+                distance: "140km",
+                thumb: "./images/daejeon.jpg",
+                lat: 36.327685,
+                lng: 127.427329,
+                bookmarked: false
+            }
+        ];
+
+        let kakaoMap = null;
+        let mapMarker = null;
+        let selectedItem = null;
+        let userPos = null; // 유저의 현재 GPS 좌표
+
+        // 1. 유저 위치 획득 (Geolocation)
+        function getUserLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => {
+                        userPos = {
+                            lat: pos.coords.latitude,
+                            lng: pos.coords.longitude
+                        };
+                    },
+                    (err) => {
+                        console.warn("GPS 수신 실패. 기본 위치 기반으로 안내합니다.");
+                    }
+                );
+            }
+        }
+
+        // 2. 검색 목록 화면 렌더링
+        function renderTravelList() {
+            const container = document.getElementById('travel-list');
+            container.innerHTML = '';
+
+            travelData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'travel-item-card';
+                card.onclick = () => showMapScreen(item);
+
+                card.innerHTML = `
+                    <img src="${item.thumb}" class="travel-thumb" alt="${item.title}">
+                    <div class="travel-info">
+                        <div class="travel-title">${item.title}</div>
+                        <div class="travel-date">${item.date}</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // 3. 지도 하단 정보 카드 렌더링 (북마크 & 내 위치 기반 길찾기 포함)
+        function renderMapCard(item) {
+            const tagsHtml = item.tags.map(t => `<span class="tag">${t}</span>`).join('');
+            const bookmarkImg = item.bookmarked 
+                ? './icons/coloricons/blue mynaui_bookmark.svg' 
+                : './icons/mynaui_bookmark.svg';
+
+            document.getElementById('map-card-detail').innerHTML = `
+                <div class="map-card-info-wrap">
+                    <img src="${item.thumb}" class="travel-thumb" style="width:75px; height:75px;" alt="${item.title}">
+                    <div class="item-info">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">${item.title}</div>
+                                <div class="item-address">${item.address}</div>
+                            </div>
+                            <button class="bookmark-btn" onclick="toggleBookmark(${item.id})">
+                                <img src="${bookmarkImg}" alt="북마크">
+                            </button>
+                        </div>
+                        <div class="item-footer">
+                            <div class="tag-group">${tagsHtml}</div>
+                            <div class="distance">${item.distance}</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="navi-route-btn" onclick="startKakaoNavi(${item.lat}, ${item.lng}, '${item.title}')">
+                    내 위치 기준 길찾기
+                </button>
+            `;
+        }
+
+        // 4. 북마크 토글 함수
+        function toggleBookmark(id) {
+            const item = travelData.find(d => d.id === id);
+            if (item) {
+                item.bookmarked = !item.bookmarked;
+                if (selectedItem && selectedItem.id === id) {
+                    renderMapCard(selectedItem);
+                }
+            }
+        }
+
+        // 5. 내 위치 기반 카카오 길찾기 실행 함수
+        function startKakaoNavi(lat, lng, name) {
+            if (userPos) {
+                // 내 위치 정보 수집 성공 시 (출발지: 내위치 -> 목적지: 선택한 여행지)
+                const naviUrl = `https://map.kakao.com/link/to/${encodeURIComponent(name)},${lat},${lng}/from/내위치,${userPos.lat},${userPos.lng}`;
+                window.open(naviUrl, '_blank');
+            } else {
+                // 내 위치 정보 없을 때 대안 (목적지로 바로 길찾기 연결)
+                alert("현재 내 위치를 조회 중입니다. 목적지 기준 카카오 길찾기로 연결합니다.");
+                const fallbackUrl = `https://map.kakao.com/link/to/${encodeURIComponent(name)},${lat},${lng}`;
+                window.open(fallbackUrl, '_blank');
+            }
+        }
+
+        // 6. 목록 -> 지도 화면 스위칭
+        function showMapScreen(item) {
+            selectedItem = item;
+            document.getElementById('screen-list').classList.remove('active');
+            document.getElementById('screen-map').classList.add('active');
+
+            renderMapCard(item);
+            initKakaoMap(item.lat, item.lng);
+        }
+
+        // 7. 지도 -> 목록 화면 복귀
+        document.getElementById('btn-map-back').addEventListener('click', () => {
+            selectedItem = null;
+            document.getElementById('screen-map').classList.remove('active');
+            document.getElementById('screen-list').classList.add('active');
+        });
+
+        // 8. 카카오 지도 세팅 및 마커 바인딩
+        function initKakaoMap(lat, lng) {
+            const container = document.getElementById('map');
+            const targetPos = new kakao.maps.LatLng(lat, lng);
+
+            const options = {
+                center: targetPos,
+                level: 5
+            };
+
+            if (!kakaoMap) {
+                kakaoMap = new kakao.maps.Map(container, options);
+            } else {
+                kakaoMap.setCenter(targetPos);
+            }
+
+            // 기존 마커 제거 후 신규 핀 세팅
+            if (mapMarker) mapMarker.setMap(null);
+            mapMarker = new kakao.maps.Marker({
+                position: targetPos
+            });
+            mapMarker.setMap(kakaoMap);
+
+            // 레이아웃 리사이즈 대응
+            setTimeout(() => {
+                kakaoMap.relayout();
+                kakaoMap.setCenter(targetPos);
+            }, 100);
+        }
+
+        // 앱 초기화
+        window.onload = () => {
+            getUserLocation();
+            renderTravelList();
+        };
+    </script>
+</body>
+</html>
