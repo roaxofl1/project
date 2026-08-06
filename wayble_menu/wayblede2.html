@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI 여행 시작 - 지역 선택</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Pretendard,sans-serif}
+body{background:#f3f3f3;display:flex;justify-content:center}
+.app{width:390px;height:100svh;background:#fff;overflow-y:auto;display:flex;flex-direction:column}
+header{position:sticky;top:0;height:56px;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:center;z-index:10}
+header h1{font-size:18px;font-weight:700;color:#1f2430}
+.back{position:absolute;left:16px;border:none;background:none;cursor:pointer}
+.back img{width:24px;height:24px}
+.content{flex:1;padding:28px 24px 24px}
+.title{font-size:18px;font-weight:700;text-align:center;color:#1f2430;margin-top:8px}
+.sub{text-align:center;color:#666;font-size:14px;margin:16px 0 24px}
+.list{display:flex;flex-direction:column;gap:18px}
+.card{display:flex;align-items:center;padding:16px;border:1px solid #e6e6e6;border-radius:12px}
+.icon{width:50px;height:50px;background:#dce9ff;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-right:14px}
+.icon img{width:26px}
+.info{flex:1}
+.info b{display:block;font-size:18px;margin-bottom:4px}
+.info span{font-size:13px;color:#666}
+.arrow{width:18px}
+.next{margin-top:20px;width:100%;height:46px;border:none;border-radius:8px;background:#3367e8;color:#fff;font-size:18px}
+nav{position:sticky;bottom:0;height:72px;border-top:1px solid #ddd;background:#fff;display:grid;grid-template-columns:repeat(5,1fr)}
+nav a{text-decoration:none;color:#222;font-size:12px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+nav img{width:22px;margin-bottom:4px}.active{color:#2f62e8;font-weight:700}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<button class="back" onclick="history.back()"><img src="./icons/line-md_arrow-left.svg" alt="이전"></button>
+<h1>AI 여행 시작</h1>
+</header>
+
+<div class="content">
+<div class="title">어디로 떠나고 싶으신가요?</div>
+<div class="sub">선호하는 지역을 선택해주세요.</div>
+
+<div class="list">
+<div class="card"><div class="icon"><img src="./icons/coloricons/mynaui_mountain-snow.svg"></div><div class="info"><b>제주도</b><span>자연 · 힐링 · 맛집</span></div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+<div class="card"><div class="icon"><img src="./icons/coloricons/hugeicons_city-01.svg"></div><div class="info"><b>부산</b><span>바다 · 도시 · 미식</span></div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+<div class="card"><div class="icon"><img src="./icons/coloricons/f7_cloud-sun.svg"></div><div class="info"><b>강릉</b><span>바다 · 감성 · 카페</span></div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+<div class="card"><div class="icon"><img src="./icons/coloricons/mingcute_palace-line.svg"></div><div class="info"><b>전주</b><span>문화 · 역사 · 한옥</span></div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+<div class="card"><div class="icon"><img src="./icons/coloricons/boxicons_horizon-sea.svg"></div><div class="info"><b>여수</b><span>문화 · 야경 · 맛집</span></div><img class="arrow" src="./icons/weui_arrow-outlined.svg"></div>
+</div>
+
+<button class="next" onclick="location.href='wayblede3.html'">다음</button>
+</div>
+
+<nav>
+<a href="wayblemain.html"><img src="./icons/iconamoon_home-light.svg">홈</a>
+<a href="wayblesearch.html"><img src="./icons/iconamoon_search-light.svg">검색</a>
+<a href="wayblelist.html"><img src="./icons/solar_heart-linear.svg">저장</a>
+<a href="waybletravle.html" class="active"><img src="./icons/coloricons/blue streamline-flex_suitcase-rolling.svg">여행</a>
+<a href="wayblemy.html"><img src="./icons/mynaui_user.svg">MY</a>
+</nav>
+</div>
+</body>
+</html>
