@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 모바일 뷰포트 고정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>캠핑장 검색 모바일 App</title>
+    
+    <!-- 카카오 지도 API (YOUR_KAKAO_APP_KEY 부분을 실제 발급받으신 자바스크립트 키로 대체해 주세요) -->
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=792c4fcc7500aad7c2b2dc926b64b8ee"></script>
+
+    <style>
+        /* CSS Reset 및 기초 설정 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 100svh 적용 및 모바일 고정 레이아웃 */
+        #app-container {
+            width: 100%;
+            max-width: 430px;
+            height: 100svh; /* 모바일 브라우저 가변 바에 맞춘 Small Viewport Height */
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Screen 전환용 공통 스크린 클래스 */
+        .screen {
+            width: 100%;
+            height: 100svh;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+            z-index: 1;
+        }
+
+        .screen.active {
+            display: flex;
+            z-index: 2;
+        }
+
+        /* ---------------- [1. 검색 결과 목록 화면] ---------------- */
+        .header {
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid #f1f3f5;
+            flex-shrink: 0;
+        }
+
+        .header .back-btn {
+            position: absolute;
+            left: 16px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .header .back-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .header .title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111111;
+        }
+
+        .content-list {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 65px; /* 하단 네비게이션바 간격 */
+        }
+
+        .item-card {
+            display: flex;
+            padding: 16px;
+            border-bottom: 1px solid #f8f9fa;
+            cursor: pointer;
+        }
+
+        .item-thumb {
+            width: 90px;
+            height: 90px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-right: 14px;
+            flex-shrink: 0;
+        }
+
+        .item-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .item-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 4px;
+        }
+
+        .item-address {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .bookmark-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 2px;
+        }
+
+        .bookmark-btn img {
+            width: 18px;
+            height: 22px;
+            transition: transform 0.1s ease-in-out;
+        }
+
+        .bookmark-btn:active img {
+            transform: scale(1.2);
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tag-group {
+            display: flex;
+            gap: 6px;
+        }
+
+        .tag {
+            background-color: #5b73ba;
+            color: #ffffff;
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .distance {
+            font-size: 14px;
+            color: #5b73ba;
+            font-weight: 600;
+        }
+
+        /* 하단 탭바 */
+        .bottom-nav {
+            height: 65px;
+            border-top: 1px solid #f1f3f5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #ffffff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333333;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .nav-item.active {
+            color: #3b5998;
+        }
+
+        .nav-item img {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 4px;
+        }
+
+        /* ---------------- [2. 상세 지도 화면] ---------------- */
+        #screen-map {
+            position: relative;
+        }
+
+        /* 뒤로가기 버튼 */
+        .map-header-btn {
+            position: absolute;
+            top: 20px;
+            left: 16px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            cursor: pointer;
+        }
+
+        .map-header-btn img {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* 카카오 지도 레이어 */
+        #map {
+            width: 100%;
+            height: calc(100svh - 180px); /* 하단 카드 세로 크기 제외 높이 */
+        }
+
+        /* 상세 지도 하단 간략 정보 및 길찾기 버튼 카드 */
+        .map-bottom-card {
+            height: 180px;
+            width: 100%;
+            background-color: #ffffff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+            padding: 16px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .map-card-info-wrap {
+            display: flex;
+        }
+
+        /* 내 위치 기반 길찾기 실행 버튼 */
+        .navi-route-btn {
+            width: 100%;
+            height: 44px;
+            background-color: #5b73ba;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .navi-route-btn img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .navi-route-btn:active {
+            background-color: #4a5f9c;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app-container">
+
+        <!-- [화면 1] 캠핑 장소 검색 결과 화면 -->
+        <div id="screen-list" class="screen active">
+            <header class="header">
+                <button class="back-btn"><img src="./images/arrow.svg" alt="뒤로가기"></button>
+                <h1 class="title">검색결과</h1>
+            </header>
+
+            <main class="content-list" id="place-list">
+                <!-- JavaScript 동적 생성 리스트 영역 -->
+            </main>
+
+            <nav class="bottom-nav">
+                <a href="#" class="nav-item">
+                    <img src="./images/home.svg" alt="홈">
+                    <span>홈</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <img src="./images/search.svg" alt="검색">
+                    <span>검색</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./images/community.svg" alt="모임">
+                    <span>모임</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./images/live.svg" alt="LIVE">
+                    <span>LIVE</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./images/user.svg" alt="MY">
+                    <span>MY</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- [화면 2] 상세 지도 화면 -->
+        <div id="screen-map" class="screen">
+            <button class="map-header-btn" id="btn-map-back">
+                <img src="./images/arrow.svg" alt="뒤로가기">
+            </button>
+            
+            <!-- 카카오 지도 표출 영역 -->
+            <div id="map"></div>
+
+            <!-- 하단 선택 카드 영역 -->
+            <div class="map-bottom-card" id="map-card-detail">
+                <!-- JavaScript dynamic elements -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 데이터 모델
+        const campingData = [
+            {
+                id: 1,
+                name: "망원한강공원",
+                address: "서울 마포구 망원동 205-4",
+                tags: ["차박닉", "주차장"],
+                distance: "11.1km",
+                thumb: "./images/main.png",
+                lat: 37.555833,
+                lng: 126.896944,
+                bookmarked: false
+            },
+            {
+                id: 2,
+                name: "광교호수공원",
+                address: "서울 마포구 망원동 205-4",
+                tags: ["도심", "주차장"],
+                distance: "26km",
+                thumb: "./images/main-1.png",
+                lat: 37.284167,
+                lng: 127.058889,
+                bookmarked: false
+            },
+            {
+                id: 3,
+                name: "강릉 안반데기",
+                address: "대기리 2214-207",
+                tags: ["오션뷰", "주차장"],
+                distance: "108km",
+                thumb: "./images/main-2.png",
+                lat: 37.625833,
+                lng: 128.981667,
+                bookmarked: false
+            },
+            {
+                id: 4,
+                name: "화성 궁평항",
+                address: "경기도 화성시 서신면 궁평항로 1049-24",
+                tags: ["차박닉", "주차장"],
+                distance: "58km",
+                thumb: "./images/main-3.png",
+                lat: 37.116111,
+                lng: 126.680556,
+                bookmarked: false
+            },
+            {
+                id: 5,
+                name: "서귀포 돈내코",
+                address: "제주특별자치도 서귀포시 돈내코로 114",
+                tags: ["이색", "주차장"],
+                distance: "483km",
+                thumb: "./images/main-4.png",
+                lat: 33.305278,
+                lng: 126.586111,
+                bookmarked: false
+            },
+            {
+                id: 6,
+                name: "영종도 마시안해변",
+                address: "덕교동 662-9",
+                tags: ["수도권", "주차장"],
+                distance: "32km",
+                thumb: "./images/main-5.png",
+                lat: 37.433056,
+                lng: 126.421667,
+                bookmarked: false
+            }
+        ];
+
+        let kakaoMap = null;
+        let mapMarker = null;
+        let myLocationMarker = null;
+        let selectedItem = null;
+        let userCurrentPos = null; // 사용자의 현재 위치 { lat, lng }
+
+        // 1. 현재 사용자 좌표 획득 (Geolocation)
+        function fetchUserLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        userCurrentPos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                    },
+                    (error) => {
+                        console.warn("위치 정보를 불러올 수 없습니다. 기본 위치로 대체됩니다.");
+                    }
+                );
+            }
+        }
+
+        // 2. 북마크 상태 토글 함수
+        function toggleBookmark(id) {
+            const item = campingData.find(d => d.id === id);
+            if (item) {
+                item.bookmarked = !item.bookmarked;
+                renderList();
+                if (selectedItem && selectedItem.id === id) {
+                    renderMapBottomCard(selectedItem);
+                }
+            }
+        }
+
+        // 3. 검색 결과 목록 UI 렌더링
+        function renderList() {
+            const listContainer = document.getElementById('place-list');
+            listContainer.innerHTML = '';
+
+            campingData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'item-card';
+                card.onclick = () => showMapScreen(item);
+
+                const tagsHtml = item.tags.map(t => `<span class="tag">${t}</span>`).join('');
+                const bookmarkImg = item.bookmarked 
+                    ? './images/ic_bookmark_active.png' 
+                    : './images/ic_bookmark.png';
+
+                card.innerHTML = `
+                    <img src="${item.thumb}" class="item-thumb" alt="${item.name}">
+                    <div class="item-info">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">${item.name}</div>
+                                <div class="item-address">${item.address}</div>
+                            </div>
+                            <button class="bookmark-btn" onclick="event.stopPropagation(); toggleBookmark(${item.id})">
+                                <img src="./images/save.svg" alt="북마크">
+                            </button>
+                        </div>
+                        <div class="item-footer">
+                            <div class="tag-group">${tagsHtml}</div>
+                            <div class="distance">${item.distance}</div>
+                        </div>
+                    </div>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+
+        // 4. 상세 지도 하단 카드 UI 렌더링 (길찾기 버튼 포함)
+        function renderMapBottomCard(item) {
+            const tagsHtml = item.tags.map(t => `<span class="tag">${t}</span>`).join('');
+            const bookmarkImg = item.bookmarked 
+                ? './images/ic_bookmark_active.png' 
+                : './images/ic_bookmark.png';
+
+            document.getElementById('map-card-detail').innerHTML = `
+                <div class="map-card-info-wrap">
+                    <img src="${item.thumb}" class="item-thumb" alt="${item.name}">
+                    <div class="item-info">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">${item.name}</div>
+                                <div class="item-address">${item.address}</div>
+                            </div>
+                            <button class="bookmark-btn" onclick="toggleBookmark(${item.id})">
+                                <img src="./images/save.svg" alt="북마크">
+                            </button>
+                        </div>
+                        <div class="item-footer">
+                            <div class="tag-group">${tagsHtml}</div>
+                            <div class="distance">${item.distance}</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="navi-route-btn" onclick="openKakaoNavi(${item.lat}, ${item.lng}, '${item.name}')">
+                    <img src="./images/search12.svg" alt="길찾기">
+                    <span>내 위치 기준 길찾기</span>
+                </button>
+            `;
+        }
+
+        // 5. 카카오 길찾기 서비스 연동 (현재 내 위치 -> 목적지)
+        function openKakaoNavi(destLat, destLng, destName) {
+            if (userCurrentPos) {
+                // 현재 내 위치 좌표가 수집된 경우
+                const url = `https://map.kakao.com/link/to/${encodeURIComponent(destName)},${destLat},${destLng}/from/내위치,${userCurrentPos.lat},${userCurrentPos.lng}`;
+                window.open(url, '_blank');
+            } else {
+                // 내 위치 좌표 수집 권한 거부/대기 중인 경우, 목적지만 전달하는 길찾기로 대안 처리
+                alert("현재 위치 정보를 확인하는 중입니다. 목적지로 직접 길찾기를 연동합니다.");
+                const fallbackUrl = `https://map.kakao.com/link/to/${encodeURIComponent(destName)},${destLat},${destLng}`;
+                window.open(fallbackUrl, '_blank');
+            }
+        }
+
+        // 6. 지도 화면 전환
+        function showMapScreen(item) {
+            selectedItem = item;
+            document.getElementById('screen-list').classList.remove('active');
+            document.getElementById('screen-map').classList.add('active');
+
+            renderMapBottomCard(item);
+            initKakaoMap(item.lat, item.lng);
+        }
+
+        // 7. 검색 목록 화면 복귀
+        document.getElementById('btn-map-back').addEventListener('click', () => {
+            selectedItem = null;
+            document.getElementById('screen-map').classList.remove('active');
+            document.getElementById('screen-list').classList.add('active');
+        });
+
+        // 8. 카카오 지도 세팅 및 마커 표시
+        function initKakaoMap(lat, lng) {
+            const container = document.getElementById('map');
+            const targetPos = new kakao.maps.LatLng(lat, lng);
+
+            const options = {
+                center: targetPos,
+                level: 4
+            };
+
+            if (!kakaoMap) {
+                kakaoMap = new kakao.maps.Map(container, options);
+            } else {
+                kakaoMap.setCenter(targetPos);
+            }
+
+            // 캠핑장 도착지 마커 
+            if (mapMarker) mapMarker.setMap(null);
+            mapMarker = new kakao.maps.Marker({
+                position: targetPos
+            });
+            mapMarker.setMap(kakaoMap);
+
+            // 레이아웃 재계산
+            setTimeout(() => {
+                kakaoMap.relayout();
+                kakaoMap.setCenter(targetPos);
+            }, 100);
+        }
+
+        // 초기화
+        window.onload = () => {
+            fetchUserLocation();
+            renderList();
+        };
+    </script>
+</body>
+</html>
