@@ -1,4 +1,3 @@
-```javascript
 
 console.log("script.js 정상 실행됨");
 
@@ -36,4 +35,3 @@ form.addEventListener("submit", (e) => {
       msg.innerHTML = "전송에 실패했습니다.";
     });
 });
-```
