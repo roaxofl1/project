@@ -1,4 +1,14 @@
 ```javascript
+
+console.log("script.js 정상 실행됨");
+
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbxpUL_0jFlC5yJS01LwUpr5LH9daEJ4GvtxXwWcOZ87oLjRXQHwInJXYWHKu1yECk9y/exec";
+
+const form = document.forms["submit-to-google-sheet"];
+
+console.log("form:", form);
+
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbxpUL_0jFlC5yJS01LwUpr5LH9daEJ4GvtxXwWcOZ87oLjRXQHwInJXYWHKu1yECk9y/exec";
 
