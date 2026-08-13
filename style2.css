@@ -1,0 +1,41 @@
+@charset "utf-8";
+body{font-family: "맑은 고딕","malgun gothic",sans-serif;}
+*{margin: 0;padding: 0; box-sizing: border-box;}
+
+.pa{width: 1000px; height: 1000px;
+background:#87ceea; margin: auto; position: relative;}
+
+/* 자식 상자 전체에 해당하는 명령 */
+.pa div {width: 200px; height: 200px;
+border: 1px solid #000;}
+
+/* 각각의 자식 상자 디자인 */
+.pa .box1{background: #81007f; position: absolute; left: 0; top: 0;}
+.pa .box2{background: #ffff00; position: absolute; left: 100px; top: 100px;}
+.pa .box3{background: #fe0000; position: absolute; left: 200px; top: 200px;}
+
+.pa .box4{background: #81007f; position: absolute; right: 0; top: 0;}
+.pa .box5{background: #ffff00; position: absolute; right: 100px; top: 100px;}
+.pa .box6{background: #fe0000; position: absolute; right: 200px; top: 200px;}
+
+.pa .box7{background: #81007f; position: absolute; right: 0; bottom: 0;}
+.pa .box8{background: #ffff00; position: absolute; right: 100px; bottom: 100px;}
+.pa .box9{background: #fe0000; position: absolute; right: 200px; bottom: 200px;}
+
+.pa .box10{background: #81007f; position: absolute; left: 0; bottom: 0;}
+.pa .box11{background: #ffff00; position: absolute; left: 100px; bottom: 100px;}
+.pa .box12{background: #fe0000; position: absolute; left: 200px; bottom: 200px;}
+
+.pa .box13 {
+    width: 200px;
+    height: 200px;
+    background: #000;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    margin-left: -100px;
+    margin-top: -100px;
+}
