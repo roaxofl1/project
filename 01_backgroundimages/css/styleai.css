@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+}
+
+
+/* ========================================
+   전체 배너
+======================================== */
+
+.banner {
+    width: 1180px;
+    height: 160px;
+
+    margin: 73px auto 0;
+
+    display: flex;
+}
+
+
+/* ========================================
+   각각의 박스
+======================================== */
+
+.banner-box {
+    position: relative;
+
+    width: calc(1180px / 3);
+    height: 160px;
+
+    color: #fff;
+}
+
+
+/* RESERVE */
+
+.reserve {
+    background-color: #967a5a;
+}
+
+
+/* SAVE POINT */
+
+.save {
+    background-color: #414141;
+}
+
+
+/* DELIVERY */
+
+.delivery {
+    background-color: #d00000;
+}
+
+
+/* ========================================
+   제목 / 설명
+======================================== */
+
+.text {
+    position: absolute;
+
+    left: 30px;
+    top: 26px;
+}
+
+.text h2 {
+    font-family: Arial, sans-serif;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+.text p {
+    margin-top: 6px;
+
+    font-size: 16px;
+
+
+    line-height: 1;
+}
+
+
+/* ========================================
+   RESERVE 아이콘
+======================================== */
+
+.reserve-icon {
+    position: absolute;
+
+    width: 80px;
+    height: 70px;
+
+    right: 45px;
+    top: 50px;
+
+    background-image: url("../images/speed_menu_icon_02.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* ========================================
+   SAVE POINT 아이콘
+======================================== */
+
+.save-icon {
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    right: 45px;
+    top: 50px;
+
+    background-image: url("../images/speed_menu_icon_03.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* ========================================
+   DELIVERY 로고
+======================================== */
+
+.delivery-icon {
+    position: absolute;
+
+    width: 110px;
+    height: 60px;
+
+    right: 45px;
+    top: 48px;
+
+    background-image: url("../images/speed_menu_icon_04.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* ========================================
+   하단 화살표
+======================================== */
+
+.arrow {
+    position: absolute;
+
+    left: 30px;
+    bottom: 37px;
+
+    width: 40px;
+    height: 1px;
+
+    background-color: #fff;
+}
+
+
+/* 화살표 끝부분 */
+
+.arrow::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    top: -2px;
+
+    width: 5px;
+    height: 5px;
+
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+
+    transform: rotate(45deg);
+}
