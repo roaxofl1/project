@@ -1,0 +1,39 @@
+@charset "utf-8";
+body{
+    font-family: "맑은 고딕","malgun gothic",sans-serif;
+    background: #fff; color: #333;
+}
+*{margin: 0;padding: 0; box-sizing: border-box;}
+header{width: 1200px;height: 100px; background: antiquewhite; margin: 0 auto; display: flex; 
+    /* 자식 컨텐츠들을 각각 양 옆으로 보내는 명령 */
+    justify-content: space-between;
+    align-items: center;}
+
+header .logo{width: 200px;height: 40px; 
+background: bisque;}
+
+header nav{width: 600px;height: 100px;
+background: cadetblue;}
+
+.slide{width: 1200px; height: 300px;
+background: darkblue; margin: auto;}
+
+.contents{width: 1200px; height: 200px;
+background: firebrick; margin: auto; display: flex;}
+
+.contents .notice{width: 400px; height: 200px;
+background: gold;}
+.contents .banner{width: 400px; height: 200px;
+background: hotpink;}
+.contents .go{width: 400px; height: 200px;
+background: indianred;}
+
+footer{width: 1200px; height: 100px;
+background: khaki; margin: auto; display: flex;}
+
+footer .logoo{width: 200px;height: 100px;
+background: lavender;}
+footer .copy{width: 800px; height: 100px;
+background: magenta;}
+footer .sns{width: 200px; height: 100px;
+background: navajowhite;}
