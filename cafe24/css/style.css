@@ -963,169 +963,124 @@ a {
     flex-shrink: 0;
 }
 
-/* =========================
-   REASON SECTION
-========================= */
+/* ========================================
+   REASON SECTION - MOBILE
+======================================== */
 
 .reason {
     width: 100%;
-    height: 509px;
-
-    background-color: #fffdf9;
+    height: auto;
+    padding: 35px 0 0;
+    box-sizing: border-box;
 }
-
-
-/* =========================
-   REASON INNER
-========================= */
 
 .reason-inner {
-    width: 1280px;
-    height: 509px;
-
+    width: 100%;
+    height: auto;
     margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-/* =========================
-   REASON TITLE
-========================= */
-
+/* REASON 제목 */
 .reason-title {
     width: 100%;
-
-    margin-bottom: 32px;
-
+    margin-bottom: 25px;
     text-align: center;
 }
 
 .reason-title h2 {
-    color: #4b3021;
-
-    font-size: 40px;
-    font-weight: 700;
-
-    line-height: 1.2;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: center;
 }
 
-
-/* =========================
-   REASON LIST
-========================= */
+/* ----------------------------------------
+   REASON CARD LIST
+   모바일에서는 50% / 50% 2열
+---------------------------------------- */
 
 .reason-list {
-    width: 1280px;
-    height: 221px;
-
-    display: flex;
-    align-items: stretch;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-/* =========================
+/* ----------------------------------------
    REASON CARD
-========================= */
+---------------------------------------- */
 
 .reason-card {
-    width: 256px;
-    height: 221px;
+    width: 100%;
+    height: 170px;
+    padding: 20px 10px;
 
-    flex-shrink: 0;
+    box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+
+    text-align: center;
 
     border-right: 1px solid #eadfce;
+    border-bottom: 1px solid #eadfce;
 }
 
-
-/* 마지막 카드 구분선 제거 */
-
-.reason-card:last-child {
+/* 오른쪽 열은 오른쪽 선 제거 */
+.reason-card:nth-child(2n) {
     border-right: none;
 }
 
-
-/* =========================
+/* ----------------------------------------
    REASON ICON
-========================= */
+---------------------------------------- */
 
-.reason-icon {
-    width: 64px;
-    height: 64px;
+.reason-card img {
+    width: 52px;
+    height: 52px;
 
-    margin-top: 0;
-    margin-bottom: 22px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* 아이콘 이미지 */
-
-.reason-icon img {
-    width: 100%;
-    height: 100%;
+    object-fit: contain;
 
     display: block;
 
-    object-fit: contain;
+    margin: 0 auto 10px;
 }
 
+/* ----------------------------------------
+   REASON CARD TITLE
+---------------------------------------- */
 
-/* =========================
-   REASON CONTENT
-========================= */
-
-.reason-content {
+.reason-card h3 {
     width: 100%;
+    margin: 0 0 5px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
 
     text-align: center;
 }
 
+/* ----------------------------------------
+   REASON CARD TEXT
+---------------------------------------- */
 
-/* =========================
-   REASON CARD TITLE
-========================= */
+.reason-card p {
+    width: 100%;
+    margin: 0;
 
-.reason-content h3 {
-    margin-bottom: 18px;
-
-    color: #4b3021;
-
-    font-size: 24px;
-    font-weight: 400;
-
-    line-height: 1.2;
-
-    white-space: nowrap;
-}
-
-
-/* =========================
-   REASON CARD DESCRIPTION
-========================= */
-
-.reason-content p {
-    color: #75675d;
-
-    font-size: 16px;
-    font-weight: 400;
-
+    font-size: 11px;
     line-height: 1.5;
 
     text-align: center;
 }
-
 /* =========================================
    STORE SECTION
 ========================================= */
@@ -2136,5 +2091,789 @@ a {
     font-weight: 400;
 
     line-height: 1;
+
+}
+/* =========================================================
+   MOBILE RESPONSIVE
+   767px 이하
+   ========================================================= */
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   767px 이하
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+    /* =====================================================
+       기본 설정
+       ===================================================== */
+
+    html,
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    header {
+        width: 100%;
+        height: auto;
+    }
+
+    .header-inner {
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        flex-shrink: 0;
+    }
+
+    .gnb {
+        width: auto;
+        display: flex;
+        gap: 10px;
+        white-space: nowrap;
+        font-size: 8px;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+        width: 100%;
+        height: auto;
+
+        background-image: none;
+        background-color: #fffdf9;
+
+        overflow: hidden;
+    }
+
+    .hero-inner {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 190px;
+
+        order: 1;
+        overflow: hidden;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-content {
+        width: 100%;
+        height: auto;
+
+        order: 2;
+
+        padding: 18px 15px 25px;
+
+        text-align: left;
+    }
+
+    .hero-label {
+        font-size: 9px;
+        margin-bottom: 8px;
+    }
+
+    .hero-title {
+        font-size: 20px;
+        line-height: 1.35;
+        margin-bottom: 10px;
+    }
+
+    .hero-description {
+        font-size: 10px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .hero-buttons button,
+    .hero-buttons a {
+        height: 30px;
+        padding: 0 12px;
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       INTRO
+       ===================================================== */
+
+    .intro {
+        width: 100%;
+        height: auto;
+
+        padding: 30px 10px;
+        overflow: hidden;
+    }
+
+    .intro-inner {
+        width: 100%;
+        height: auto;
+
+        text-align: center;
+    }
+
+    .intro-title {
+        margin-bottom: 15px;
+    }
+
+    .intro-title h2 {
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    .intro-description {
+        font-size: 10px;
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+
+    /*
+       INTRO 카드
+       모바일에서는 2개씩 배치
+    */
+
+    .intro-list {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 0;
+    }
+
+    .intro-item {
+        width: 100%;
+        min-height: 120px;
+
+        padding: 18px 8px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        border-right: 1px solid #ead9c3;
+        border-bottom: 1px solid #ead9c3;
+    }
+
+    .intro-item:nth-child(2n) {
+        border-right: none;
+    }
+
+    .intro-item img,
+    .intro-item .icon {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+
+        margin-bottom: 10px;
+    }
+
+    .intro-item h3 {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .intro-item p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       MENU
+       오늘의 추천 메뉴
+       ===================================================== */
+
+    .menu {
+        width: 100%;
+        height: auto;
+
+        padding: 30px 0;
+
+        overflow: hidden;
+    }
+
+    .menu-inner {
+        width: 100%;
+        height: auto;
+    }
+
+    .menu-title {
+        padding: 0 10px;
+        margin-bottom: 20px;
+
+        text-align: center;
+    }
+
+    .menu-title h2 {
+        font-size: 22px;
+    }
+
+    .menu-title a {
+        font-size: 8px;
+    }
+
+    /*
+       ⭐ 중요
+       모바일에서도 카드가 가로 스크롤됨
+       데스크탑에서 모바일 화면을 볼 때도 동일하게 작동
+    */
+
+    .menu-list {
+        width: 100%;
+
+        display: flex;
+        flex-wrap: nowrap;
+
+        gap: 8px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        padding: 0 10px 10px;
+
+        -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: none;
+    }
+
+    .menu-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-card {
+        flex: 0 0 240px;
+        width: 240px;
+        height: 350px;
+
+        padding: 10px;
+
+        overflow: hidden;
+    }
+
+    .menu-card img {
+        width: 192px;
+        height: 190px;
+
+        object-fit: cover;
+    }
+
+    .menu-card h3 {
+        font-size: 14px;
+    }
+
+    .menu-card p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    .menu-card .price {
+        font-size: 10px;
+    }
+
+
+    /* =====================================================
+       USE
+       이용방법
+       ===================================================== */
+
+    .use {
+        width: 100%;
+        height: auto;
+
+        padding: 30px 0;
+
+        overflow: hidden;
+    }
+
+    .use-inner {
+        width: 100%;
+        height: auto;
+    }
+
+    .use-title {
+        padding: 0 10px;
+        margin-bottom: 20px;
+
+        text-align: center;
+    }
+
+    .use-title h2 {
+        font-size: 22px;
+    }
+
+    /*
+       ⭐ USE 카드도 모바일에서 가로 스크롤
+    */
+
+    .use-list {
+        width: 100%;
+
+        display: flex;
+        flex-wrap: nowrap;
+
+        gap: 10px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        padding: 0 10px 10px;
+
+        -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: none;
+    }
+
+    .use-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .use-item {
+        flex: 0 0 280px;
+        width: 280px;
+
+        min-height: 120px;
+
+        padding: 15px;
+    }
+
+    .use-item img,
+    .use-item .icon {
+        max-width: 45px;
+        height: 45px;
+        object-fit: contain;
+    }
+
+    .use-item h3 {
+        font-size: 13px;
+    }
+
+    .use-item p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       REASON
+       카페온24가 특별한 이유
+       ===================================================== */
+
+    .reason {
+        width: 100%;
+        height: auto;
+
+        padding: 30px 10px;
+
+        overflow: hidden;
+    }
+
+    .reason-inner {
+        width: 100%;
+        height: auto;
+    }
+
+    .reason-title {
+        margin-bottom: 20px;
+
+        text-align: center;
+    }
+
+    .reason-title h2 {
+        font-size: 22px;
+    }
+
+    /*
+       ⭐ 아이콘 카드 2개씩
+    */
+
+    .reason-list {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 0;
+    }
+
+    .reason-item {
+        width: 100%;
+        min-height: 150px;
+
+        padding: 20px 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        border-right: 1px solid #ead9c3;
+        border-bottom: 1px solid #ead9c3;
+    }
+
+    .reason-item:nth-child(2n) {
+        border-right: none;
+    }
+
+    .reason-item img,
+    .reason-item .icon {
+        width: 45px;
+        height: 45px;
+
+        object-fit: contain;
+
+        margin-bottom: 10px;
+    }
+
+    .reason-item h3 {
+        font-size: 14px;
+        line-height: 1.4;
+
+        margin-bottom: 7px;
+    }
+
+    .reason-item p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+
+   /* ========================================
+   STORE MOBILE
+   ======================================== */
+
+@media screen and (max-width: 767px) {
+
+    /* STORE SECTION */
+    .store {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    /* STORE INNER */
+    .store-inner {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 60px 12px;
+        box-sizing: border-box;
+    }
+
+    /* STORE TITLE */
+    .store-title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .store-title h2 {
+        font-size: 28px;
+        line-height: 1.3;
+        white-space: nowrap;
+    }
+
+    /* STORE CONTENT */
+    .store-content {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        box-sizing: border-box;
+    }
+
+    /* STORE CARD */
+    .store-card {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 300px;
+        box-sizing: border-box;
+    }
+
+    /* STORE CARD TITLE */
+    .store-card-title {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .store-card-title h3 {
+        font-size: 20px;
+    }
+
+    /* STORE CARD CONTENT */
+    .store-card p,
+    .store-card span {
+        font-size: 13px;
+    }
+
+    /* STORE BUTTON AREA */
+    .store-buttons {
+        width: 100%;
+        display: flex;
+        gap: 6px;
+        box-sizing: border-box;
+    }
+
+    .store-buttons button {
+        box-sizing: border-box;
+    }
+
+    /* MAP */
+    .store-map {
+        width: 100%;
+        min-width: 0;
+        height: 300px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .store-map img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}
+    /* =====================================================
+       FAQ
+       ===================================================== */
+
+    .faq {
+        width: 100%;
+        height: auto;
+
+        padding: 30px 10px;
+
+        overflow: hidden;
+    }
+
+    .faq-inner {
+        width: 100%;
+        height: auto;
+    }
+
+    .faq-title {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .faq-title h2 {
+        font-size: 22px;
+    }
+
+    .faq-list {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .faq-item {
+        width: 100%;
+        height: 48px;
+
+        flex-shrink: 0;
+
+        font-size: 10px;
+    }
+
+
+    /* =====================================================
+       BANNER
+       ===================================================== */
+
+    .banner {
+        width: 100%;
+        height: auto;
+
+        padding: 30px 10px;
+
+        overflow: hidden;
+    }
+
+    .banner-inner {
+        width: 100%;
+        height: 220px;
+
+        background-size: cover;
+        background-position: center;
+
+        overflow: hidden;
+    }
+
+    .banner-content {
+    position: absolute;
+
+    left: 58%;   /* ← 기존 50%보다 오른쪽 */
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+    .banner-content h2 {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .banner-content p {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .banner-buttons {
+        display: flex;
+        gap: 6px;
+    }
+
+    .banner-buttons a,
+    .banner-buttons button {
+        height: 30px;
+
+        padding: 0 10px;
+
+        font-size: 9px;
+    }
+
+
+    /* ========================================
+   FOOTER MOBILE
+======================================== */
+
+@media screen and (max-width: 767px) {
+
+    /* FOOTER 전체 */
+    footer {
+        width: 100%;
+        height: auto;
+    }
+
+    /* FOOTER INNER */
+    .footer-inner {
+        width: 100%;
+        height: auto;
+        padding: 30px 20px 0;
+        box-sizing: border-box;
+    }
+
+    /* 회사 정보 영역 */
+    .footer-info {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    /* 회사 로고 / 설명 / SNS */
+    .footer-info p,
+    .footer-info .footer-desc,
+    .footer-info .footer-sns {
+        display: none;
+    }
+
+    /* 메뉴 전체 */
+    .footer-menu {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        box-sizing: border-box;
+    }
+
+    /* 메뉴 제목만 표시 */
+    .footer-menu h3,
+    .footer-menu h4 {
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+        margin: 0;
+    }
+
+    /* 메뉴 안의 세부 목록 전부 숨김 */
+    .footer-menu ul,
+    .footer-menu li,
+    .footer-menu p,
+    .footer-menu a {
+        display: none;
+    }
+
+    /* COPYRIGHT */
+    .footer-bottom {
+        width: 100%;
+        margin-top: 25px;
+        padding: 12px 0;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .footer-bottom p {
+        font-size: 10px;
+        margin: 0;
+    }
+
+}
+
+    /*
+       ⭐ copyright 영역
+       선은 화면 전체
+    */
+
+    .copyright {
+        width: 100%;
+
+        border-top: 1px solid rgba(255,255,255,0.4);
+
+        padding: 15px 10px;
+
+        text-align: center;
+
+        font-size: 8px;
+    }
 
 }
