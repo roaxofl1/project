@@ -1,25 +1,26 @@
 @charset "utf-8";
+
 body{
-    font-family: "맑은 고딕","malgun gothic", sans-serif;
-    background: #fff; color: #333;}
-*{margin: 0; padding: 0; box-sizing: border-box;}
 
-    header{width: 1200px; height: 100px;
-    background: green; margin: auto; display: flex;
-    justify-content: space-between;
-    align-items: center;}
+}
 
-    header .logo1{width: 200px; height: 100px; background: blanchedalmond;}
-    header .nv{width: 600px; height: 100px; background: aqua;}
+*{ margin: 0; padding: 0;
+    box-sizing: border-box;}
 
-    .slide{width: 1200px; height: 300px; background: aquamarine; margin: auto;}
+.red{width: 100%; height: 300px; background: red; position: relative;}
+.blue{width: 100px; height: 300px; background: blue; position: absolute; left: 0; top: 0;}
+.green{width: 100px; height: 300px; background: green; position: absolute; right: 0; top: 0;}
 
-    .contents{width: 1200px; height: 200px; background: palegoldenrod; margin: auto; display: flex;}
-    .contents .notice{width: 400px; height: 200px; background: violet;}
-    .contents .ban{width: 400px; height: 200px; background: fuchsia;}
-    .contents .go{width: 400px; height: 200px; background: rebeccapurple;}
+/* note */
+    @media (min-width: 992px) and (max-width: 1119px)
+    {.green{position: static; width: 100%; height: 100px;}}
 
-    footer{width: 1200px; height: 100px; background: darkgrey; margin: auto; display: flex;}
-    footer .logo2{width: 200px; height: 100px; background: khaki;}
-    footer .menu{width: 1000px; height: 50%; background: chartreuse;}
-    footer .copy{width: 1000px; height: 50%; background: darkcyan;}
+/* tab */
+    @media (min-width:768px) and (max-width:991px)
+    {.blue{position: static; width: 100%;height: 100px;} .green{position: static; width: 100%; height: 100px;}}
+
+/* mob */
+    @media (min-width:320px) and (max-width:767px)
+    {.red{height: 600px;} .blue{position: static; width: 100%; height: 600px;} .green{position: static; width: 100%; height: 600px;}}
+
+    
