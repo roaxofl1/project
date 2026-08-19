@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 이벤트 처리</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>[Jquery 스타일 변경 메서드]</h1>
+    <ol>
+        <li>$("선택자").css() -> 프로그램적으로 css 접근 함수</li>
+        <li>$("선택자").show() -> 선택자를 숨겨져 있는 요소를 보이게 하는 함수</li>
+        <li>$("선택자").hide() -> 선택자를 숨기는 함수</li>
+        <li>$("선택자").toggle() -> 선택자를 한 번 클릭하면 보이고, 한 번 클릭하면 숨기는 함수</li>
+        <li>$("선택자").width() -> 선택자를 프로그램적 가로 사이즈를 조정하는 함수</li>
+        <li>$("선택자").height() -> 선택자를 프로그램적 세로 사이즈를 조정하는 함수</li>
+    </ol>
+
+    <button class="bt1">Hide</button>
+    <button id="bt2">Show</button>
+    <button id="bt3">Toggle</button>
+    <button id="bt4">Big</button>
+    <button id="bt5">Small</button>
+    
+    <hr>
+
+    <div class="parent">
+        <div class="box1">Show / Hide</div>
+        <div class="box2">Toggle</div>
+        <div class="box3">Width / Height</div>
+    </div>
+
+
+
+    <!-- 제이쿼리 사용시 라이브러리 다운 필수! -->
+    <script src="./js/jquery-4.0.0.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
