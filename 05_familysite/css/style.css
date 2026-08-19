@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* =====================
+   Footer
+===================== */
+
+.footer {
+    width: 100%;
+    height: 204px;
+
+    margin-top: 1000px;
+
+    background: #fff;
+
+    border-top: 1px solid #ddd;
+}
+
+
+.footer_inner {
+    width: 1140px;
+    height: 204px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    position: relative;
+}
+
+
+/* =====================
+   로고
+===================== */
+
+.footer_logo {
+    width: 160px;
+
+    padding-top: 31px;
+}
+
+
+.footer_logo img {
+    width: 120px;
+
+    display: block;
+}
+
+
+/* =====================
+   가운데 정보
+===================== */
+
+.footer_info {
+    padding-top: 27px;
+}
+
+
+/* 메뉴 */
+
+.footer_menu {
+    display: flex;
+
+    margin-bottom: 18px;
+}
+
+
+.footer_menu a {
+    font-size: 14px;
+
+    margin-right: 16px;
+
+    position: relative;
+}
+
+
+/* 메뉴 사이 | */
+
+.footer_menu a::after {
+    content: "";
+
+    width: 1px;
+    height: 10px;
+
+    background: #ddd;
+
+    position: absolute;
+
+    right: -8px;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+.footer_menu a:last-child {
+    font-weight: bold;
+
+    margin-right: 0;
+}
+
+
+.footer_menu a:last-child::after {
+    display: none;
+}
+
+
+/* 회사 정보 */
+
+.footer_info p {
+    font-size: 12px;
+
+    line-height: 19px;
+
+    color: #999;
+}
+
+
+/* =====================
+   오른쪽
+===================== */
+
+.footer_right {
+    width: 240px;
+
+    margin-left: auto;
+
+    padding-top: 29px;
+}
+
+
+/* SNS */
+
+.sns {
+    display: flex;
+
+    gap: 17px;
+
+    margin-bottom: 13px;
+}
+
+
+.sns img {
+    width: 15px;
+    height: 15px;
+
+    display: block;
+}
+
+
+/* =====================
+   Family Site
+===================== */
+
+.family {
+    width: 240px;
+
+    position: relative;
+}
+
+
+/* 버튼 */
+
+.family_btn {
+    width: 240px;
+    height: 42px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+
+    padding: 0 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    color: #555;
+}
+
+
+/* =====================
+   Family List
+===================== */
+
+.family_list {
+    width: 240px;
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 42px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+
+    display: none;
+
+    z-index: 10;
+}
+
+
+.family_list li {
+    width: 100%;
+    height: 35px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.family_list li:last-child {
+    border-bottom: 0;
+}
+
+
+.family_list li a {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    font-size: 12px;
+
+    color: #555;
+}
+
+
+.family_list li a:hover {
+    background: #f5f5f5;
+}
