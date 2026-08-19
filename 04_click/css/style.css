@@ -1,28 +1,32 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
 body {
     padding: 8px;
     font-family: Arial, sans-serif;
 }
+
 
 h1 {
     font-size: 28px;
     margin-bottom: 20px;
 }
 
+
 ol {
     margin-left: 25px;
     margin-bottom: 20px;
 }
 
+
 ol li {
     line-height: 20px;
 }
+
 
 .buttons {
     display: flex;
@@ -30,10 +34,12 @@ ol li {
     margin-bottom: 15px;
 }
 
+
 button {
     padding: 2px 8px;
     font-size: 13px;
 }
+
 
 hr {
     border: 0;
@@ -43,62 +49,77 @@ hr {
 
 
 /* 부모 박스 */
+
 .parent {
     width: 640px;
-    height: 210px;
+    height: 200px;
 
     border: 5px solid #ccc;
 
     display: flex;
     gap: 20px;
 
-    padding: 0;
-
-    overflow: hidden;
+    box-sizing: content-box;
 }
 
+/* 두 번째 부모 */
 
-/* 두 부모 사이 간격 */
 .parent2 {
     margin-top: 50px;
 }
 
 
 /* 자식 박스 */
-.box {
-    flex: 0 0 200px;
 
+.box {
     width: 200px;
     height: 200px;
+
+    flex: 0 0 200px;
 
     font-size: 16px;
 }
 
 
-/* 첫 번째 부모 */
+/* 빨간색 */
+
 .box1 {
     background-color: red;
 }
 
+
+/* 초록색 */
+
 .box2 {
     background-color: green;
 }
+
+
+/* 빈 박스 */
 
 .box3 {
     background-color: white;
 }
 
 
-/* 두 번째 부모 */
+/* 오렌지색 */
+
 .box4 {
     background-color: #ffc800;
 }
+
+
+/* 연두색 */
 
 .box5 {
     background-color: #baff00;
 }
 
+
+/* 파란색 */
+
 .box6 {
     background-color: #18bde8;
+
     position: relative;
 }
