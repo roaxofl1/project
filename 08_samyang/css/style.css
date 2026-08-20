@@ -1,0 +1,548 @@
+@charset "utf-8";
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    color: #222;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+#header {
+    width: 100%;
+    height: 111px;
+
+    background: #fff;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    position: relative;
+    z-index: 100;
+}
+
+
+/* =========================
+   HEADER INNER
+========================= */
+
+.header-inner {
+    width: 1140px;
+    height: 111px;
+
+    margin: 0 auto;
+
+    position: relative;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    position: absolute;
+
+    left: 0;
+    top: 31px;
+
+    width: 190px;
+    height: 45px;
+}
+
+.logo a {
+    display: block;
+}
+
+.logo img {
+    width: 188px;
+    height: auto;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+.nav-wrap {
+    position: absolute;
+
+    left: 360px;
+    top: 0;
+
+    width: 780px;
+    height: 111px;
+}
+
+
+/* =========================
+   1차 메뉴
+========================= */
+
+.gnb {
+    width: 780px;
+    height: 111px;
+}
+
+.gnb > ul {
+    width: 780px;
+    height: 111px;
+
+    display: grid;
+
+    /*
+        시안 실제 메뉴 위치 기준
+
+        회사소개       100
+        홍보관         146
+        지속가능경영   163
+        브랜드         148
+        제품           119
+        고객지원       104
+    */
+
+    grid-template-columns:
+        100px
+        146px
+        163px
+        148px
+        119px
+        104px;
+}
+
+
+/* 각각의 주메뉴 */
+
+.gnb > ul > li {
+    width: 100%;
+    height: 111px;
+
+    position: relative;
+}
+
+
+/* 주메뉴 텍스트 */
+
+.gnb > ul > li > a {
+    width: 100%;
+    height: 111px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    padding-top: 1px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* =========================
+   주메뉴 hover 밑줄
+========================= */
+
+.gnb > ul > li > a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 20px;
+
+    width: 62px;
+    height: 4px;
+
+    background: #ff6b00;
+
+    transform: translateX(-50%) scaleX(0);
+
+    transform-origin: center;
+
+    transition: transform 0.2s ease;
+}
+
+
+/* hover 된 메뉴만 밑줄 */
+
+.gnb > ul > li:hover > a::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+
+/* =========================
+   2단 메뉴
+========================= */
+
+.depth2 {
+    position: fixed;
+
+    left: 0;
+    top: 111px;
+
+    width: 100%;
+    height: 306px;
+
+    background: #fff;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    display: none;
+
+    z-index: 90;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   2단 메뉴 INNER
+========================= */
+
+.depth2-inner {
+    width: 1140px;
+    height: 306px;
+
+    margin: 0 auto;
+
+    /*
+        주메뉴와 똑같은 위치를 사용
+        ★ 핵심
+    */
+
+    padding-left: 360px;
+
+    display: grid;
+
+    grid-template-columns:
+        100px
+        146px
+        163px
+        148px
+        119px
+        104px;
+}
+
+
+/* =========================
+   2단 각 열
+========================= */
+
+.depth2-inner > ul {
+    width: 100%;
+
+    padding-top: 26px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   2단 메뉴 항목
+========================= */
+
+
+
+.depth2-inner > ul > li {
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+
+/* 2단 기본 글씨 */
+
+.depth2-inner > ul > li > a {
+    display: block;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.25;
+
+    color: #888;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.15s ease;
+}
+
+
+/* =========================
+   현재 선택된 메뉴만 검정
+========================= */
+
+/*
+    depth2에 active 클래스가 붙으면
+    해당 열만 검정색
+*/
+
+
+
+
+/* =========================
+   2단 메뉴 자체 hover
+========================= */
+
+/*
+    2단 전체에 hover했다고
+    전체가 검정이 되면 안 됨.
+
+    그래서 전체 hover 스타일은 없음.
+*/
+
+
+/* =========================
+   2단 개별 항목 hover
+========================= */
+
+.depth2-inner > ul > li > a:hover {
+    color: #000;
+}
+
+/* ==========================================
+   SLIDE SECTION
+========================================== */
+
+.slide-section {
+    width: 100%;
+    height: 600px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   SWIPER
+========================================== */
+
+.mainSwiper {
+    width: 100%;
+    height: 600px;
+}
+
+
+/* ==========================================
+   SLIDE 공통
+========================================== */
+
+.mainSwiper .swiper-slide {
+    width: 100%;
+    height: 600px;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+/* ==========================================
+   슬라이드 배경 이미지
+
+   ★ 실제 파일명으로 변경
+========================================== */
+
+.slide01 {
+    background-image: url("../images/sl1.jpg");
+}
+
+.slide02 {
+    background-image: url("../images/sl2.jpg");
+}
+
+.slide03 {
+    background-image: url("../images/sl3.jpg");
+}
+
+
+/* ==========================================
+   좌우 버튼 공통
+========================================== */
+
+.slide-prev,
+.slide-next {
+    position: absolute;
+
+    top: 50%;
+
+    width: 60px;
+    height: 80px;
+
+    z-index: 10;
+
+    transform: translateY(-50%);
+
+    /* 회색 네모 제거 */
+    background: none !important;
+    border: none !important;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* ==========================================
+   왼쪽 버튼 위치
+========================================== */
+
+.slide-prev {
+    left: calc(50% - 640px);
+}
+
+
+/* ==========================================
+   오른쪽 버튼 위치
+========================================== */
+
+.slide-next {
+    right: calc(50% - 640px);
+}
+
+
+/* ==========================================
+   왼쪽 화살표
+========================================== */
+
+.slide-prev::before {
+    content: "";
+
+    position: absolute;
+
+    left: 22px;
+    top: 27px;
+
+    width: 20px;
+    height: 20px;
+
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+
+    transform: rotate(45deg);
+}
+
+
+.slide-next::before {
+    content: "";
+
+    position: absolute;
+
+    right: 22px;
+    top: 27px;
+
+    width: 20px;
+    height: 20px;
+
+    border-right: 3px solid #fff;
+    border-top: 3px solid #fff;
+
+    transform: rotate(45deg);
+}
+
+/* ==========================================
+   페이지 번호
+========================================== */
+
+.slide-page {
+    position: absolute;
+
+    left: 50%;
+    bottom: 28px;
+
+    z-index: 10;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #fff;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+}
+
+
+/* 현재 페이지 */
+
+.slide-page .current {
+    font-weight: 700;
+}
+
+
+/* 가운데 선 */
+
+.slide-page .bar {
+    width: 18px;
+    height: 1px;
+
+    background: #fff;
+
+    opacity: 0.7;
+}
+
+
+/* 전체 페이지 */
+
+.slide-page .total {
+    opacity: 0.7;
+}
+
+
+/* ==========================================
+   화면이 작아졌을 때 버튼
+========================================== */
+
+@media screen and (max-width: 1300px) {
+
+    .slide-prev {
+        left: 30px;
+    }
+
+    .slide-next {
+        right: 30px;
+    }
+
+}
