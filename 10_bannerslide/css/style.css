@@ -1,0 +1,360 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+}
+
+
+/* ========================================
+   추천 섹션
+======================================== */
+
+.recommend {
+    width: 100%;
+    height: 950px;
+    padding-top: 96px;
+    background: #fff;
+}
+
+
+/* ========================================
+   INNER
+======================================== */
+
+.recommend .inner {
+    width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+/* ========================================
+   섹션 제목
+======================================== */
+
+.recommend h2 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 40px;
+}
+
+
+/* ========================================
+   SWIPER
+======================================== */
+
+.recommend-swiper {
+    width: 100%;
+    height: 600px;
+
+    position: relative;
+
+    /* ★ 3개 이외의 슬라이드는 절대 보이지 않게 */
+    overflow: hidden;
+}
+
+
+/* ========================================
+   SLIDE
+======================================== */
+
+.recommend-swiper .swiper-slide {
+    height: 600px;
+
+    /* Swiper가 3개를 정확하게 계산 */
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   제품 이미지 영역
+
+   배경이미지로 넣기 때문에
+   나중에 background-image 부분의
+   파일명만 변경하면 됨.
+======================================== */
+
+.product-img {
+    width: 100%;
+    height: 436px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    background-color: #f3f3f3;
+}
+
+
+/* ========================================
+   제품 이미지
+======================================== */
+
+.img01 {
+    background-image: url("../images/6b9f3559cc14821dcf2c20ddef61342b.jpg");
+}
+
+.img02 {
+    background-image: url("../images/9294c878fba51f049347d2125d4d1833.jpg");
+}
+
+.img03 {
+    background-image: url("../images/6cf3b992749064be16b9a491737e8878.jpg");
+}
+
+.img04 {
+    background-image: url("../images/bc086dd83d1c6e0a85d4e180d0fd12e7.jpg");
+}
+
+.img05 {
+    background-image: url("../images/5473f3bb2934a891190776f9269f1385.jpg");
+}
+
+.img06 {
+    background-image: url("../images/a68d687638f4e1d036afa9484b866cce.jpg");
+}
+
+
+/* ========================================
+   제품 정보
+======================================== */
+
+.product-info {
+    text-align: center;
+    padding-top: 20px;
+}
+
+
+/* 제품명 */
+
+.product-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+
+/* 영문 제품명 */
+
+.product-info p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+
+/* 가격 */
+
+.product-info strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    color: #111;
+}
+
+
+/* ========================================
+   좌우 버튼
+======================================== */
+
+.recommend-swiper .swiper-button-prev,
+.recommend-swiper .swiper-button-next {
+    width: 64px;
+    height: 64px;
+
+    top: 188px;
+
+    margin-top: 0;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    z-index: 10;
+}
+
+
+/* Swiper 기본 화살표 제거 */
+
+.recommend-swiper .swiper-button-prev::after,
+.recommend-swiper .swiper-button-next::after {
+    display: none;
+}
+
+
+/* 왼쪽 버튼 */
+
+.recommend-swiper .swiper-button-prev {
+    left: 0;
+}
+
+
+/* 오른쪽 버튼 */
+
+.recommend-swiper .swiper-button-next {
+    right: 0;
+}
+
+
+/* ========================================
+   아이콘 직접 넣을 위치
+======================================== */
+
+.recommend-swiper .swiper-button-prev span,
+.recommend-swiper .swiper-button-next span {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+}
+
+
+/* 예시
+.swiper-button-prev span {
+    background-image: url("../images/arrow-prev.png");
+}
+
+.swiper-button-next span {
+    background-image: url("../images/arrow-next.png");
+}
+*/
+
+
+/* ========================================
+   하단 슬라이드 컨트롤
+======================================== */
+
+.slide-control {
+    width: 396px;
+    height: 30px;
+
+    margin: 42px auto 0;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* ========================================
+   진행 막대
+======================================== */
+
+.progress {
+    width: 396px;
+    height: 4px;
+
+    position: relative;
+
+    background: #ddd;
+    overflow: hidden;
+}
+
+
+/* 진행되는 부분 */
+
+.progress-bar {
+    display: block;
+
+    width: 50%;
+    height: 100%;
+
+    background: #111;
+
+    transition: width 0.4s ease;
+}
+
+
+/* ========================================
+   일시정지 / 재생 버튼
+======================================== */
+
+/* ========================================
+   일시정지 / 재생 버튼
+======================================== */
+
+.pause-btn {
+    width: 20px;
+    height: 20px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* 버튼 안의 아이콘 */
+
+.pause-btn img {
+    width: 12px;
+    height: 12px;
+
+    object-fit: contain;
+}
+
+
+/* 처음에는 일시정지만 보이기 */
+
+.pause-icon {
+    display: block;
+}
+
+
+/* 재생 아이콘은 처음에는 숨기기 */
+
+.play-icon {
+    display: none;
+}
+
+/* ========================================
+   반응형
+======================================== */
+
+@media (max-width: 1440px) {
+
+    .recommend .inner {
+        width: calc(100% - 80px);
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .recommend {
+        height: auto;
+        padding-bottom: 100px;
+    }
+
+    .recommend-swiper {
+        height: 600px;
+    }
+
+    .recommend-swiper .swiper-slide {
+        width: 100%;
+    }
+
+}
