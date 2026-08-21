@@ -34,7 +34,221 @@ img {
     display: block;
 }
 
+/* ========================================
+   팝업창
+======================================== */
 
+.popup {
+    width: 424px;
+    background: #fff;
+
+    /* 화면 가운데 배치 */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 9999;
+
+    /* 팝업 그림자 */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ========================================
+   팝업 이미지
+======================================== */
+
+.popup-img {
+    width: 100%;
+}
+
+.popup-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* ========================================
+   오른쪽 위 X 버튼
+======================================== */
+
+.popup-close {
+    position: absolute;
+
+    right: -10px;
+    top: -10px;
+
+    width: 28px;
+    height: 28px;
+
+    border: 2px solid #222;
+    border-radius: 50%;
+
+    background: #fff;
+
+    font-size: 22px;
+    line-height: 22px;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+
+/* ========================================
+   팝업 하단
+======================================== */
+
+.popup-bottom {
+    width: 100%;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    padding: 0 8px;
+
+    border-top: 1px solid #ccc;
+
+    font-size: 12px;
+}
+
+
+/* 체크박스 + 문구 */
+
+.popup-bottom label {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+
+/* 닫기 버튼 */
+
+.popup-bottom button {
+    border: none;
+    background: none;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+/* ========================================
+   팝업 뒤 검은색 반투명 배경
+======================================== */
+.popup-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #000;
+
+    /* 너무 까맣지 않게 */
+    opacity: 0.5;
+
+    /* 팝업보다 뒤에 */
+    z-index: 999;
+}
+
+
+/* ========================================
+   팝업창
+======================================== */
+.popup {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 424px;
+
+    background: #fff;
+
+    /* 배경보다 위에 */
+    z-index: 1000;
+}
+
+
+/* 팝업 이미지 */
+.popup img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* ========================================
+   오른쪽 위 닫기 버튼
+======================================== */
+.popup-close {
+    position: absolute;
+
+    right: -10px;
+    top: -10px;
+
+    width: 28px;
+    height: 28px;
+
+    border: 2px solid #222;
+    border-radius: 50%;
+
+    background: #fff;
+
+    font-size: 20px;
+    line-height: 24px;
+
+    cursor: pointer;
+
+    z-index: 1001;
+}
+
+
+/* ========================================
+   팝업 하단
+======================================== */
+.popup-bottom {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    height: 30px;
+
+    padding: 0 5px;
+
+    font-size: 12px;
+
+    background: #fff;
+}
+
+
+/* 오늘 하루 닫기 체크박스 */
+.popup-bottom input {
+    vertical-align: middle;
+}
+
+
+/* 하단 닫기 버튼 */
+.popup-close-bottom {
+    border: 0;
+    background: none;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
 /* =========================
    HEADER
 ========================= */
@@ -1376,14 +1590,89 @@ img {
     text-decoration: none;
 }
 
-/* 첫 번째 Family Site */
-.family-list li:first-child a {
-    background: #777;
-    color: #fff;
-}
 
 /* 마우스 올렸을 때 */
 .family-list li a:hover {
     background: #ff6400;
     color: #fff;
+}
+
+/* ========================================
+   TOP 버튼
+======================================== */
+
+/* ========================================
+   TOP 버튼
+======================================== */
+
+#topBtn {
+    position: fixed;
+
+    right: 30px;
+    bottom: 30px;
+
+    width: 50px;
+    height: 50px;
+
+    background: #ff6801;
+    color: #fff;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    z-index: 9999;
+
+    /* 처음에는 숨김 */
+    display: none;
+
+    /* 가운데 정렬 */
+    align-items: center;
+    justify-content: center;
+}
+
+/* 스크롤했을 때 TOP 버튼 표시 */
+#topBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* TOP 글자 */
+#topBtn span {
+    font-size: 12px;
+    font-weight: 700;
+}
+/* ========================================
+   스크롤 시 HEADER 고정
+======================================== */
+
+#header.fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+}
+
+/* ========================================
+   TOP 버튼 - 기본적으로 숨김
+======================================== */
+
+#topBtn {
+    display: none;
+}
+
+
+/* ========================================
+   300px 이상 스크롤하면 표시
+======================================== */
+
+#topBtn.show {
+    display: flex;
 }

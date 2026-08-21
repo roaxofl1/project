@@ -223,3 +223,167 @@ $(".family-btn").on("click", function () {
     $(".family-list").stop(true, true).slideToggle(200);
 
 });
+
+/* ========================================
+   팝업창
+======================================== */
+
+$(function () {
+
+    const $popup = $("#popup");
+    const $popupClose = $("#popupClose");
+    const $popupCloseBottom = $("#popupCloseBottom");
+    const $todayClose = $("#todayClose");
+
+
+    /* ========================================
+       팝업 닫기 함수
+    ======================================== */
+
+// ========================================
+// 팝업 닫기
+// ========================================
+
+// X 버튼 클릭
+$("#popupClose").on("click", function () {
+
+    // 팝업창 닫기
+    $("#popup").hide();
+
+    // 어두운 배경도 같이 닫기
+    $(".popup-bg").hide();
+
+});
+
+
+// [닫기] 버튼 클릭
+$("#popupCloseBottom").on("click", function () {
+
+    // 팝업창 닫기
+    $("#popup").hide();
+
+    // 어두운 배경도 같이 닫기
+    $(".popup-bg").hide();
+
+});
+
+    /* ========================================
+       X 버튼 클릭
+    ======================================== */
+
+    $popupClose.on("click", function () {
+
+        closePopup();
+
+    });
+
+
+    /* ========================================
+       [닫기] 버튼 클릭
+    ======================================== */
+
+    $popupCloseBottom.on("click", function () {
+
+        /* 체크되어 있으면 오늘 하루 동안 다시 열지 않음 */
+
+        if ($todayClose.is(":checked")) {
+
+            /* 오늘 날짜를 저장 */
+            const today = new Date().toDateString();
+
+            localStorage.setItem("popupToday", today);
+
+        }
+
+        closePopup();
+
+    });
+
+
+    /* ========================================
+       페이지가 열릴 때
+       오늘 하루 닫기를 확인
+    ======================================== */
+
+    const savedDate = localStorage.getItem("popupToday");
+
+    const today = new Date().toDateString();
+
+
+    /* 저장된 날짜가 오늘이면 팝업 숨기기 */
+
+    if (savedDate === today) {
+
+        $popup.hide();
+
+    } else {
+
+        /* 오늘이 아니면 팝업 보여주기 */
+
+        $popup.show();
+
+    }
+
+});
+
+/* ========================================
+   TOP 버튼
+======================================== */
+
+$(function () {
+
+    $("#topBtn").on("click", function () {
+
+        // 페이지 맨 위로 부드럽게 이동
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+
+    });
+
+});
+/* ========================================
+   SCROLL HEADER + TOP BUTTON
+======================================== */
+
+$(window).on("scroll", function () {
+
+    /* 현재 스크롤 위치 */
+    const scrollTop = $(window).scrollTop();
+
+
+    /* ========================================
+       HEADER 고정
+       
+       스크롤이 조금이라도 내려가면
+       header를 고정
+    ======================================== */
+
+    if (scrollTop > 0) {
+
+        $("#header").addClass("fixed");
+
+    } else {
+
+        $("#header").removeClass("fixed");
+
+    }
+
+
+    /* ========================================
+       TOP 버튼 표시
+       
+       300px 이상 스크롤하면 표시
+    ======================================== */
+
+    if (scrollTop > 300) {
+
+        $("#topBtn").addClass("show");
+
+    } else {
+
+        $("#topBtn").removeClass("show");
+
+    }
+
+});
