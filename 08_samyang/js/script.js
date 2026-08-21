@@ -213,3 +213,13 @@ $(function () {
     });
 
 });
+
+/* ========================================
+   FAMILY SITE
+======================================== */
+
+$(".family-btn").on("click", function () {
+
+    $(".family-list").stop(true, true).slideToggle(200);
+
+});
