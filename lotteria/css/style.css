@@ -1,0 +1,2158 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+body {
+    font-family: "Pretendard", sans-serif;
+    color: #111;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    z-index: 9999;
+
+    background: #fff;
+}
+
+/* ========================================
+   UTIL
+======================================== */
+
+.util {
+    width: 100%;
+    height: 37px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.util-inner {
+    width: 1150px;
+    height: 37px;
+
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.util-inner ul {
+    display: flex;
+    align-items: center;
+}
+
+.util-inner li {
+    position: relative;
+
+    padding: 0 12px;
+}
+
+.util-inner li:last-child {
+    padding-right: 0;
+}
+
+.util-inner li::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    width: 1px;
+    height: 10px;
+
+    background: #ddd;
+
+    transform: translateY(-50%);
+}
+
+.util-inner li:last-child::after {
+    display: none;
+}
+
+.util-inner a {
+    font-size: 13px;
+    font-weight: 400;
+
+    color: #777;
+
+    white-space: nowrap;
+}
+
+.util-inner a:hover {
+    color: #111;
+}
+
+
+/* ========================================
+   HEADER MAIN
+======================================== */
+
+.header-main {
+    width: 100%;
+    height: 90px;
+
+    background: #fff;
+}
+
+.header-main .inner {
+    position: relative;
+
+    width: 1150px;
+    height: 90px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.logo {
+    width: 90px;
+
+    flex-shrink: 0;
+}
+
+.logo a {
+    display: block;
+}
+
+.logo img {
+    width: 75px;
+    height: auto;
+}
+
+
+/* ========================================
+   GNB
+======================================== */
+
+/* ========================================
+   GNB
+======================================== */
+
+.gnb {
+    height: 90px;
+    margin-left: 60px;
+}
+
+.gnb > ul {
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 75px;
+}
+
+.gnb > ul > li {
+    position: relative;
+
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* ========================================
+   주메뉴
+======================================== */
+
+.main-menu {
+    position: relative;
+
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* hover 밑줄 */
+
+.main-menu::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 17px;
+
+    width: 0;
+    height: 3px;
+
+    background: #43b9c7;
+
+    transition: width 0.25s ease;
+}
+
+
+/* hover 했을 때만 밑줄 */
+
+.gnb > ul > li:hover .main-menu::after {
+    width: 100%;
+}
+
+
+/* ========================================
+   2단 메뉴
+======================================== */
+
+.depth2 {
+    display: none;
+
+    position: absolute;
+
+    top: 90px;
+    left: 0;
+
+    width: 150px;
+    height: 300px;
+
+    z-index: 10001;
+}
+
+
+/* 2단 메뉴 리스트 */
+
+.depth2 ul {
+    padding-top: 15px;
+}
+.depth2 li {
+    width: 150px;
+}
+
+.depth2 a {
+    display: block;
+
+    width: 150px;
+
+    padding: 0;
+
+    margin-bottom: 13px;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 17px;
+
+    color: #333;
+
+    white-space: nowrap;
+
+    transition: color 0.2s ease;
+}
+
+
+/* 2단 메뉴 hover */
+
+.depth2 a:hover {
+    color: #43b9c7;
+}
+
+
+/* 첫 번째 메뉴 기본 포인트 색 */
+
+
+/* ========================================
+   전체 2단 메뉴 배경
+======================================== */
+
+.depth2-bg {
+    display: none;
+
+    position: absolute;
+
+    top: 127px;
+    left: 0;
+
+    width: 100%;
+    height: 300px;
+
+    background: #fff;
+
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+
+    z-index: 10000;
+}
+
+
+/* ========================================
+   HEADER RIGHT
+======================================== */
+
+.header-right {
+    margin-left: auto;
+
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+
+/* 장바구니 */
+
+.cart {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart img {
+    width: 24px;
+    height: 24px;
+
+    object-fit: contain;
+}
+
+
+/* ========================================
+   주문하기
+======================================== */
+
+.order {
+    width: 115px;
+    height: 44px;
+
+    border-radius: 24px;
+
+    background: #08a5b9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+
+    transition: background 0.2s ease;
+}
+
+.order:hover {
+    background: #008fa3;
+}
+
+.order-icon {
+    width: 21px;
+    height: 21px;
+
+    border-radius: 50%;
+
+    background: #ffd500;
+
+    color: #fff;
+
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==================================================
+   MAIN
+================================================== */
+
+main {
+    width: 100%;
+    
+}
+
+
+/* ==================================================
+   SLIDE SECTION
+================================================== */
+
+.slide-section {
+    width: 100%;
+    height: 340px;
+
+    margin-top: 150px;
+
+    background: #fff;
+}
+.slide-inner {
+    width: 1110px;
+    height: 340px;
+    margin: 0 auto;
+
+    display: flex;
+    gap: 20px;
+}
+
+
+/* ==================================================
+   MAIN SLIDE
+================================================== */
+
+.main-slide {
+    width: 800px;
+    height: 340px;
+    flex-shrink: 0;
+}
+
+.mainSwiper {
+    width: 800px;
+    height: 340px;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 20px;
+}
+
+.mainSwiper .swiper-slide {
+    width: 800px;
+    height: 340px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* ==================================================
+   ★ 슬라이드 이미지
+================================================== */
+
+.mainSwiper .slide01 {
+    background-image: url("../images/imgi_107_20260821100655138_9.webp");
+}
+/* ==================================================
+   슬라이드 안 텍스트
+================================================== */
+
+.slide-text {
+    position: absolute;
+
+    left: 43px;
+    top: 48px;
+
+    color: #fff;
+}
+
+
+/* 큰 제목 */
+
+.slide-text h2 {
+    margin: 0;
+
+    font-size: 34px;
+    line-height: 1.25;
+
+    font-weight: 700;
+}
+
+
+/* 아래 설명 */
+
+.slide-text p {
+    margin-top: 20px;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.mainSwiper .slide02 {
+    background-image: url("../images/imgi_103_20260821101108802_6.webp");
+}
+/* ==================================================
+   2번 슬라이드 텍스트
+================================================== */
+
+.slide02 .slide-text {
+    position: absolute;
+
+    left: 43px;
+    top: 48px;
+
+    color: #fff;
+}
+
+.slide02 .slide-text h2 {
+    margin: 0;
+
+    font-size: 34px;
+    line-height: 1.25;
+
+    font-weight: 700;
+}
+
+.slide02 .slide-text p {
+    margin-top: 14px;
+
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.mainSwiper .slide03 {
+    background-image: url("../images/imgi_102_2026082109513164_5.webp");
+}
+/* ==================================================
+   3번 슬라이드 텍스트
+================================================== */
+
+.slide03 .slide-text {
+    position: absolute;
+
+    left: 43px;
+    top: 48px;
+
+    color: #fff;
+}
+
+
+/* 제목 */
+
+.slide03 .slide-text h2 {
+    margin: 0;
+
+    font-size: 34px;
+    line-height: 1.4;
+
+    font-weight: 700;
+}
+
+
+/* 설명 */
+
+.slide03 .slide-text p {
+    margin-top: 14px;
+
+    font-size: 17px;
+    line-height: 1.4;
+
+    font-weight: 600;
+}
+
+/* ==================================================
+   SLIDE CONTROL
+================================================== */
+
+.slide-control {
+    position: absolute;
+
+    right: 25px;
+    bottom: 20px;
+
+    height: 38px;
+
+    padding: 0 5px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 20px;
+
+    background: #073b59;
+
+    z-index: 100;
+}
+
+
+/* 이전 / 다음 */
+
+.slide-prev,
+.slide-next {
+    width: 25px;
+    height: 30px;
+
+    border: 0;
+    background: none;
+
+    color: #fff;
+
+    font-size: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+
+/* 숫자 */
+
+.slide-count {
+    display: flex;
+    align-items: center;
+
+    color: #fff;
+
+    font-size: 13px;
+}
+
+.slide-count .current {
+    margin-right: 3px;
+}
+
+.slide-count .total {
+    color: #fff;
+}
+
+
+/* 일시정지 */
+
+.slide-pause {
+    width: 28px;
+    height: 30px;
+
+    border: 0;
+    background: none;
+
+    color: #fff;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+
+/* + 버튼 */
+
+.slide-more {
+    width: 38px;
+    height: 38px;
+
+    margin-left: 3px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #073b59;
+
+    color: #fff;
+
+    font-size: 27px;
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   EATZ MAIL
+================================================== */
+
+.eatz-mail {
+    width: 290px;
+    height: 340px;
+
+    padding: 25px 20px;
+
+    border-radius: 20px;
+    background: #414141;
+    color: #fff;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* EATZ MAIL 제목 */
+
+.mail-title {
+    width: 100%;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+}
+
+.mail-icon {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: #ffd900;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.mail-title > span:nth-child(2) {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.mail-arrow {
+    font-size: 20px;
+}
+
+
+/* 쿠폰 / 스탬프 */
+
+.mail-menu {
+    width: 100%;
+    height: 42px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    background: #5d5d5d;
+
+    display: flex;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+.mail-menu a {
+    width: 50%;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+}
+
+.mail-menu a + a {
+    border-left: 1px solid #777;
+}
+
+
+/* 회원정보 */
+
+.mail-member {
+    width: 100%;
+    height: 180px;
+
+    margin-top: 10px;
+
+    padding: 14px 12px;
+
+    border-radius: 10px;
+
+    background: #5d5d5d;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    flex-shrink: 0;
+}
+
+
+/* 회원등급 */
+
+.member-title {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.member-title strong {
+    font-size: 14px;
+}
+
+.member-title a {
+    font-size: 11px;
+    color: #ddd;
+}
+
+
+/* 로그인 안내 */
+
+.login-title {
+    margin-top: 14px;
+    margin-bottom: 3px;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.login-text {
+    margin: 0;
+
+    font-size: 12px;
+}
+
+
+/* 브랜드 아이콘 */
+
+.brand-icons {
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 3px;
+}
+
+.brand-icons span {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.brand-icons span:nth-child(1) {
+    background: #fff;
+    color: #222;
+}
+
+.brand-icons span:nth-child(2) {
+    background: #28a86b;
+    color: #fff;
+}
+
+.brand-icons span:nth-child(3) {
+    background: #ed1c24;
+    color: #fff;
+}
+
+/* ========================================
+   주문방식 SECTION
+======================================== */
+
+.order-type-section {
+    width: 1100px;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+.order-type-inner {
+     width: 800px;
+    height: 84px;
+
+    margin: 0;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 12px;
+
+    font-family: "Pretendard", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    background: #fff;
+}
+
+
+/* ========================================
+   EATZ 위치 선택
+======================================== */
+
+.eatz-location {
+    width: 205px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 17px;
+
+    white-space: nowrap;
+}
+
+.eatz-location strong {
+    font-size: 20px;
+    font-weight: 700;
+    color: #00a1b4;
+
+    margin-right: 5px;
+}
+
+.eatz-location span {
+    color: #222;
+}
+
+
+/* 위치 선택 버튼 */
+.location-btn {
+    width: 22px;
+    height: 22px;
+
+    margin-left: 5px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #444;
+    color: #fff;
+
+    font-size: 11px;
+    line-height: 22px;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   주문 방식 버튼 영역
+======================================== */
+
+.order-type-list {
+    display: flex;
+    gap: 4px;
+}
+
+
+/* 각각의 주문 버튼 */
+.order-type-btn {
+    width: 186px;
+    height: 57px;
+
+    border-radius: 12px;
+
+    background: #00A1B4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+/* ========================================
+   주문방식 아이콘
+======================================== */
+
+/* ========================================
+   주문방식 아이콘
+======================================== */
+
+.order-icon {
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border-radius: 0;
+
+    flex-shrink: 0;
+}
+
+
+/* SVG 아이콘 */
+.order-icon svg {
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+    stroke: #fff;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* 마우스 올렸을 때 */
+.order-type-btn:hover {
+    background: #008fa1;
+}
+
+/* ==================================================
+   지금 바로 쓸 수 있는 쿠폰 SECTION
+================================================== */
+.coupon-section {
+    width: 100%;
+    height: 498px;
+    background: #f5f6f7;
+
+    /* 섹션 자체 위치 */
+    margin-top: 40px;
+
+    /* 세로 중앙 정렬 */
+    display: flex;
+    align-items: center;
+}
+
+
+.coupon-inner {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   제목
+========================= */
+
+.coupon-title {
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.coupon-title span {
+    font-size: 23px;
+}
+
+/* =========================
+   슬라이드 영역
+========================= */
+
+.coupon-slider-wrap {
+    position: relative;
+
+    /* 카드 255 × 4개 + 간격 */
+    width: 1056px;
+    height: 273px;
+    
+    overflow: visible;
+}
+
+
+/* =========================
+   SWIPER
+========================= */
+
+.coupon-swiper {
+    width: 1056px;
+    height: 273px;
+    overflow: hidden;
+}
+
+
+/* =========================
+   카드
+========================= */
+
+.coupon-swiper .swiper-slide {
+    width: 255px !important;
+    height: 273px !important;
+
+    flex-shrink: 0;
+
+    background-color: #fff;
+    border-radius: 12px;
+
+    position: relative;
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   카드 이미지
+========================= */
+
+.coupon01 {
+    background-image: url("../images/imgi_1_x360.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+.coupon02 {
+    background-image: url("../images/imgi_2_x360.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+.coupon03 {
+    background-image: url("../images/imgi_3_x360.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+.coupon04 {
+    background-image: url("../images/imgi_12_x240.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+.coupon05 {
+    background-image: url("../images/imgi_13_x240.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+.coupon06 {
+    background-image: url("../images/imgi_14_x240.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+
+/* =========================
+   쿠폰 글씨
+========================= */
+
+.coupon-info {
+    position: absolute;
+
+    left: 22px;
+    right: 15px;
+
+    /* 기존 bottom: 76px → 조금 더 아래로 */
+    bottom: 70px;
+}
+
+.coupon-info .brand {
+    display: block;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    color: #f22;
+    margin-bottom: 5px;
+}
+
+.coupon-info p {
+    margin: 0 0 7px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #222;
+}
+
+.coupon-info strong {
+    font-size: 16px;
+    color: #000;
+}
+
+.coupon-info del {
+    margin-left: 4px;
+
+    font-size: 14px;
+    color: #999;
+}
+/* 모든 쿠폰 카드 할인율 */
+.discount {
+    color: #ff2b2b !important;
+    font-weight: 700;
+}
+
+/* =========================
+   쿠폰 받기
+========================= */
+
+.coupon-download {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 48px;
+
+    border-top: 1px dashed #ddd;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+    color: #222;
+
+    text-decoration: none;
+}
+
+
+/* =========================
+   좌우 버튼
+========================= */
+
+.coupon-prev,
+.coupon-next {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    border: 1px solid #eee;
+    background: #fff;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+    font-size: 22px;
+    color: #aaa;
+
+    z-index: 10;
+
+    cursor: pointer;
+}
+
+
+/* 왼쪽 */
+.coupon-prev {
+    left: -20px;
+}
+
+
+/* 오른쪽 */
+.coupon-next {
+    right: -20px;
+}
+
+
+/* 처음에는 왼쪽 버튼 숨김 */
+.coupon-prev.swiper-button-disabled {
+    display: none;
+}
+
+/* ========================================
+   쿠폰 카드 상품 이미지 크기
+======================================== */
+
+.coupon-card {
+    background-size: 120px auto;
+    background-repeat: no-repeat;
+    background-position: center 25px;
+}
+
+/* ========================================
+   이달의 핫메뉴 / TAB SECTION
+======================================== */
+
+.hot-menu {
+    width: 100%;
+    height: 522px;
+    background: #fff;
+    padding-top: 70px;
+    box-sizing: border-box;
+}
+
+
+/* 전체 콘텐츠 영역 */
+
+.hot-menu-inner {
+    width: 1081px;
+    margin: 0 auto;
+}
+
+
+/* 섹션 제목 */
+
+.hot-menu h2 {
+    font-size: 23px;
+    font-weight: 600;
+    margin: 0 0 16px;
+}
+
+
+/* ========================================
+   TAB MENU
+======================================== */
+
+.hot-tab {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 24px;
+    margin-bottom: 11px;
+}
+
+
+.hot-tab .tab-btn {
+    position: relative;
+    border: 0;
+    background: none;
+    padding: 0 16px;
+    font-size: 13px;
+    color: #999;
+    cursor: pointer;
+}
+
+
+/* 첫 번째 메뉴 왼쪽 여백 제거 */
+
+.hot-tab .tab-btn:first-child {
+    padding-left: 0;
+}
+
+
+/* 탭 사이 구분선 */
+
+.hot-tab .tab-btn + .tab-btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 12px;
+    background: #ddd;
+    transform: translateY(-50%);
+}
+
+
+/* 활성화된 TAB */
+
+.hot-tab .tab-btn.active {
+    color: #111;
+    font-weight: 600;
+}
+
+
+/* ========================================
+   CONTENT 영역
+======================================== */
+
+.tab-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+}
+
+
+/* ========================================
+   왼쪽 고정 메인 카드
+======================================== */
+
+.hot-main-card {
+    position: relative;
+    flex: 0 0 177px;
+    width: 177px;
+    height: 288px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+
+/* 메인 카드 이미지 */
+
+.hot-main-bg {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 20px;
+}
+
+/* 메인 카드 어두운 효과 */
+
+.hot-main-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+
+/* 메인 카드 글씨 */
+
+.hot-main-text {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 98px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+
+.hot-main-text strong {
+    display: block;
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+
+.hot-main-text a {
+    display: block;
+    margin-top: 12px;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+
+/* ========================================
+   상품 리스트
+======================================== */
+
+.product-list {
+    display: none;
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
+
+/* 활성화된 상품 리스트 */
+
+.product-list.active {
+    display: flex;
+}
+
+
+/* ========================================
+   상품 카드
+======================================== */
+
+.product-card {
+    flex: 0 0 165px;
+    width: 165px;
+}
+
+
+/* 상품 이미지 영역 */
+
+.product-img {
+    width: 165px;
+    height: 168px;
+
+    border: 1px solid #eee;
+    border-radius: 15px;
+
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    box-sizing: border-box;
+}
+
+
+/* 상품명 */
+
+.product-name {
+    margin: 12px 0 5px;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #111;
+}
+
+
+/* 가격 */
+
+.product-price {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+}
+
+
+/* ========================================
+   이미지 경로
+   ↓ 여기 이미지만 네 사진으로 교체하면 됨
+======================================== */
+
+
+/* 메인 고정 카드 */
+
+.hot-main-bg {
+    background-image: url("../images/imgi_11_hot_lotteria.png");
+}
+
+
+/* -------- 롯데리아 -------- */
+
+.lotte-img01 {
+    background-image: url("../images/imgi_8_x360.png");
+}
+
+.lotte-img02 {
+    background-image: url("../images/imgi_3_x360.png");
+}
+
+.lotte-img03 {
+    background-image: url("../images/imgi_4_x360.png");
+}
+
+.lotte-img04 {
+    background-image: url("../images/imgi_5_x360.png");
+}
+
+.lotte-img05 {
+    background-image: url("../images/imgi_12_x240.png");
+}
+
+
+/* -------- 크리스피크림 -------- */
+
+.krispy-img01 {
+    background-image: url("../images/imgi_24_x240.png");
+}
+
+
+/* -------- 플레:이팅 -------- */
+
+.plating-img01 {
+    background-image: url("../images/imgi_26_x240.jpg");
+}
+
+.plating-img02 {
+    background-image: url("../images/imgi_27_x240.jpg");
+}
+
+.plating-img03 {
+    background-image: url("../images/imgi_28_x240.jpg");
+}
+
+.plating-img04 {
+    background-image: url("../images/imgi_29_x240.jpg");
+}
+
+.plating-img05 {
+    background-image: url("../images/imgi_30_x240.jpg");
+}
+
+
+/* -------- 엔제리너스 -------- */
+
+.angel-img01 {
+    background-image: url("../images/imgi_18_x240.png");
+}
+
+.angel-img02 {
+    background-image: url("../images/imgi_19_x240.png");
+}
+
+.angel-img03 {
+    background-image: url("../images/imgi_20_x240.png");
+}
+
+.angel-img04 {
+    background-image: url("../images/imgi_21_x240.png");
+}
+
+.angel-img05 {
+    background-image: url("../images/imgi_22_x240.png");
+}
+
+/* ========================================
+   EATZ TV SECTION
+======================================== */
+
+.eatz-tv {
+    width: 100%;
+    height: 424px;
+
+    background: #192127;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   EATZ TV INNER
+======================================== */
+
+.eatz-tv-inner {
+    width: 1112px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    padding-top: 67px;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   EATZ TV 제목
+======================================== */
+
+.eatz-tv-title {
+    margin: 0 0 20px 0;
+
+    color: #fff;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+/* 제목 오른쪽 화살표 */
+.eatz-tv-title span {
+    margin-left: 3px;
+
+    font-size: 26px;
+    font-weight: 400;
+
+    vertical-align: -2px;
+}
+
+
+/* ========================================
+   카드 전체
+======================================== */
+
+.eatz-tv-list {
+    display: flex;
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+/* ========================================
+   개별 카드
+======================================== */
+
+.eatz-tv-card {
+    width: 269px;
+
+    flex: 0 0 269px;
+}
+
+
+/* ========================================
+   카드 이미지
+======================================== */
+
+.eatz-tv-img {
+    display: block;
+
+    width: 269px;
+    height: 153px;
+
+    border-radius: 18px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   이미지 경로
+   ↓ 여기만 네 이미지 파일명으로 변경
+======================================== */
+
+.eatz-tv-img.img01 {
+    background-image: url("../images/imgi_93_maxresdefault.jpg");
+}
+
+.eatz-tv-img.img02 {
+    background-image: url("../images/imgi_94_maxresdefault.jpg");
+}
+
+.eatz-tv-img.img03 {
+    background-image: url("../images/imgi_95_maxresdefault.jpg");
+}
+
+.eatz-tv-img.img04 {
+    background-image: url("../images/imgi_96_maxresdefault.jpg");
+}
+
+
+/* ========================================
+   카드 소개 문구
+======================================== */
+
+.eatz-tv-card p {
+    margin: 11px 0 0 0;
+
+    color: #fff;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.45;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+    width: 100%;
+    height: 432px;
+
+    background: #f8f8f8;
+
+    border-top: 2px solid #222;
+    border-bottom: 1px solid #ddd;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   FOOTER INNER
+======================================== */
+
+.footer-inner {
+    position: relative;
+
+    width: 1081px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    padding-top: 30px;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   FOOTER TOP
+======================================== */
+
+.footer-top {
+    position: relative;
+
+    width: 100%;
+    height: 45px;
+}
+
+
+/* ========================================
+   FOOTER LINKS
+======================================== */
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    height: 35px;
+}
+
+.footer-links a {
+    font-size: 12px;
+    font-weight: 400;
+
+    color: #333;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.footer-links a.point {
+    color: #00a1b4;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   FAMILY SITE
+======================================== */
+
+.family-site {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 180px;
+}
+
+
+/* ========================================
+   FAMILY SITE BUTTON
+======================================== */
+
+.family-btn {
+    width: 180px;
+    height: 44px;
+
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    color: #222;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+}
+
+.family-arrow {
+    font-size: 10px;
+}
+
+
+/* ========================================
+   FAMILY SITE LIST
+   → 삼양 때처럼 위쪽으로 펼쳐짐
+======================================== */
+
+.family-list {
+    position: absolute;
+
+    left: 0;
+    bottom: 44px;
+
+    width: 180px;
+
+    margin: 0;
+    padding: 5px 0;
+
+    display: none;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    list-style: none;
+
+    z-index: 1000;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   FAMILY SITE LIST ITEM
+======================================== */
+
+.family-list li {
+    width: 100%;
+}
+
+.family-list a {
+    display: block;
+
+    width: 100%;
+    height: 30px;
+
+    padding: 0 15px;
+
+    line-height: 30px;
+
+    font-size: 12px;
+
+    color: #333;
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+}
+
+.family-list a:hover {
+    background: #f3f3f3;
+    color: #00a1b4;
+}
+
+
+/* ========================================
+   FOOTER ROW
+======================================== */
+
+.footer-row {
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+
+    margin-top: 15px;
+}
+
+
+/* 왼쪽 제목 */
+
+.footer-row > strong {
+    flex: 0 0 135px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    color: #222;
+}
+
+
+/* ========================================
+   FOOTER BUTTON
+======================================== */
+
+.footer-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.footer-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 32px;
+
+    padding: 0 13px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    font-size: 11px;
+
+    color: #333;
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   BUSINESS INFO
+======================================== */
+
+.business-info {
+    margin-top: 18px;
+}
+
+.business-text {
+    font-size: 11px;
+    line-height: 1.9;
+
+    color: #777;
+}
+
+.business-text p {
+    margin: 0;
+}
+
+.business-text span {
+    margin-left: 20px;
+}
+
+.business-text a {
+    margin-left: 15px;
+
+    color: #333;
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   INQUIRY
+======================================== */
+
+.inquiry {
+    margin-top: 18px;
+}
+
+.inquiry-text {
+    font-size: 11px;
+    line-height: 2;
+
+    color: #777;
+}
+
+.inquiry-text p {
+    margin: 0;
+}
+
+.inquiry-text span {
+    margin-left: 20px;
+}
+
+
+/* ========================================
+   CERTIFICATION
+======================================== */
+
+.certification {
+    display: flex;
+    gap: 35px;
+
+    margin-top: 17px;
+    margin-left: 0;
+}
+
+
+/* 인증 하나 */
+
+.cert-item {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 10px;
+    line-height: 1.7;
+
+    color: #777;
+}
+
+.cert-item p {
+    margin: 0;
+}
+
+
+/* 인증 이미지 */
+
+.cert-img {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-img img {
+    max-width: 45px;
+    max-height: 45px;
+
+    display: block;
+}
+
+
+/* ========================================
+   FOOTER BOTTOM
+======================================== */
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+
+    margin-top: 13px;
+}
+
+
+/* copyright */
+
+.copyright {
+    margin: 0;
+
+    font-size: 11px;
+
+    color: #888;
+}
+
+
+/* ========================================
+   SNS
+======================================== */
+
+.sns {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-left: 25px;
+}
+
+.sns a {
+    font-size: 21px;
+    font-weight: 700;
+
+    color: #888;
+
+    text-decoration: none;
+}
