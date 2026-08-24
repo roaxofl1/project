@@ -8,13 +8,11 @@
     box-sizing: border-box;
 }
 
-
 button {
     border: 0;
     background: none;
     cursor: pointer;
 }
-
 
 img {
     display: block;
@@ -30,34 +28,22 @@ img {
     height: 477px;
 }
 
-
-/* ========================================
-   INNER
-======================================== */
-
 .banner .inner {
     width: 1905px;
     height: 477px;
-
     margin: 0 auto;
 }
 
 
 /* ========================================
-   SWIPER
+   BANNER SWIPER
 ======================================== */
 
 .banner-swiper {
     width: 100%;
     height: 477px;
-
     position: relative;
 }
-
-
-/* ========================================
-   SLIDE
-======================================== */
 
 .banner-swiper .swiper-slide {
     width: 100%;
@@ -70,9 +56,7 @@ img {
 
 
 /* ========================================
-   슬라이드 배경이미지
-
-   ★ 여기의 파일명만 네 이미지에 맞게 변경
+   BANNER IMAGE
 ======================================== */
 
 .slide01 {
@@ -101,7 +85,7 @@ img {
 
 
 /* ========================================
-   SWIPER 기본 화살표 제거
+   BANNER SWIPER 기본 화살표 제거
 ======================================== */
 
 .banner-swiper .swiper-button-prev::after,
@@ -109,8 +93,9 @@ img {
     display: none;
 }
 
+
 /* ========================================
-   첫 번째 배너 좌우 버튼
+   BANNER 좌우 버튼
 ======================================== */
 
 .banner-prev,
@@ -124,9 +109,7 @@ img {
     margin: 0;
     padding: 0;
 
-    border: none;
     border-radius: 50%;
-
     background: #fff;
 
     display: flex;
@@ -137,44 +120,32 @@ img {
 }
 
 
-/* 왼쪽 화살표 */
+/* 왼쪽 버튼 */
+
 .banner-prev {
     left: 360px;
 }
 
 
-/* 오른쪽 화살표 */
+/* 오른쪽 버튼 */
+
 .banner-next {
     left: 414px;
 }
 
 
-/* 화살표 이미지 */
+/* 버튼 이미지 */
+
 .banner-prev img,
 .banner-next img {
     width: 24px;
     height: 24px;
-
-    display: block;
     object-fit: contain;
 }
 
 
 /* ========================================
-   좌우 버튼 아이콘
-======================================== */
-
-.banner-swiper .swiper-button-prev img,
-.banner-swiper .swiper-button-next img {
-    width: 24px;
-    height: 24px;
-
-    object-fit: contain;
-}
-
-
-/* ========================================
-   페이지 숫자 영역
+   BANNER 페이지 숫자
 ======================================== */
 
 .page-count {
@@ -183,13 +154,12 @@ img {
     right: 360px;
     bottom: 25px;
 
-    height: 26px;
     min-width: 50px;
+    height: 26px;
 
     padding: 0 8px;
 
     border-radius: 20px;
-
     background: #888;
 
     color: #fff;
@@ -203,38 +173,12 @@ img {
     font-size: 13px;
     font-weight: 600;
 
-    z-index: 10;
+    z-index: 20;
 }
 
 
 /* ========================================
-   현재 페이지
-======================================== */
-
-.current-page {
-    color: #fff;
-}
-
-/* ========================================
-   페이지 구분선
-======================================== */
-
-.divider {
-    color: #ddd;
-}
-
-
-/* ========================================
-   전체 페이지
-======================================== */
-
-.total-page {
-    color: #fff;
-}
-
-
-/* ========================================
-   화면이 1905px보다 작을 경우
+   화면이 1905px보다 작을 때
 ======================================== */
 
 @media (max-width: 1905px) {
@@ -243,22 +187,19 @@ img {
         width: 100%;
     }
 
-
-    .banner-swiper .swiper-button-prev {
+    .banner-swiper .banner-prev {
         left: 19%;
     }
 
-
-    .banner-swiper .swiper-button-next {
+    .banner-swiper .banner-next {
         left: calc(19% + 54px);
     }
-
 
     .page-count {
         right: 19%;
     }
-
 }
+
 
 /* ========================================
    PRODUCT SECTION
@@ -266,46 +207,75 @@ img {
 
 .product-section {
     width: 100%;
-}
 
+    /* 위 / 아래 여백 */
+    padding: 70px 0 80px;
+}
 
 
 /* ========================================
-   INNER
+   MD 추천반찬 타이틀
+======================================== */
 
-   카드 4개
+.md-title {
+    text-align: center;
 
-   280 × 4 = 1120px
-   간격 14 × 3 = 42px
+    margin-bottom: 40px;
+}
 
-   총 1162px
+
+/* 메인 타이틀 */
+
+.md-title h2 {
+    margin: 0 0 12px;
+
+    font-size: 35px;
+    font-weight: 700;
+}
+
+
+/* 서브 타이틀 */
+
+.md-title p {
+    margin: 0;
+
+    font-size: 17px;
+    font-weight: 400;
+}
+
+
+/* ========================================
+   PRODUCT INNER
 ======================================== */
 
 .product-section .inner {
-    width: 1162px;
-    margin: 0 auto;
-}
 
+    /*
+        카드 4개
+
+        380 × 4 = 1520px
+        간격 20 × 3 = 60px
+
+        총 1580px
+    */
+
+    width: 1580px;
+
+    margin: 0 auto;
+
+    position: relative;
+}
 
 
 /* ========================================
    PRODUCT SWIPER
-
-   ★ 중요
-   overflow hidden으로
-   4개 이외의 카드는 안 보이게 함
 ======================================== */
 
 .product-swiper {
-    width: 1162px;
-    height: 380px;
-
-    position: relative;
-
+    width: 1166px;
+    margin: 0 auto;
     overflow: hidden;
 }
-
-
 
 /* ========================================
    SWIPER WRAPPER
@@ -316,81 +286,60 @@ img {
 }
 
 
-
-/* ========================================
-   SLIDE
-
-   ★ width를 직접 지정하지 않음
-
-   Swiper가
-   slidesPerView: 4를 기준으로
-   정확하게 계산함
-======================================== */
-
-
 /* ========================================
    PRODUCT CARD
+
+   ★ 카드 크기
+   380 × 380
 ======================================== */
 
-.product-card {
-    width: 280px;
-    height: 380px;
+.product-swiper .swiper-slide {
+    width: 280px !important;
+    height: auto;
+    flex-shrink: 0;
 }
-
-
 
 /* ========================================
    PRODUCT IMAGE
+
+   ★ 사진 크기
+   380 × 277
 ======================================== */
-
-.product-img {
+.product-swiper .product-img {
     width: 280px;
-    height: 273px;
-
-    position: relative;
-
-    background-repeat: no-repeat;
-    background-position: center;
+    height: 380px;
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-
-
 /* ========================================
-   ★ 상품 이미지
-
-   파일명은 네 실제 파일명으로 변경
+   상품 이미지
 ======================================== */
 
 .img01 {
     background-image: url("../images/1830_ZIP_P_9393_A.jpg");
 }
 
-
 .img02 {
-    background-image: url("../images/product02.jpg");
+    background-image: url("../images/imgi_232_ZIP_P_0214_A.png");
 }
-
 
 .img03 {
-    background-image: url("../images/product03.jpg");
+    background-image: url("../images/imgi_233_ZIP_P_0213_A.png");
 }
-
 
 .img04 {
-    background-image: url("../images/product04.jpg");
+    background-image: url("../images/imgi_234_main_5.jpg");
 }
-
 
 .img05 {
-    background-image: url("../images/product05.jpg");
+    background-image: url("../images/imgi_235_main_37.jpg");
 }
-
 
 .img06 {
-    background-image: url("../images/product06.jpg");
+    background-image: url("../images/imgi_236_ZIP_P_8073_A.jpg");
 }
-
 
 
 /* ========================================
@@ -398,6 +347,7 @@ img {
 ======================================== */
 
 .cart-btn {
+
     width: 38px;
     height: 38px;
 
@@ -418,12 +368,12 @@ img {
 }
 
 
-
 /* ========================================
    CART ICON
 ======================================== */
 
 .cart-icon {
+
     width: 14px;
     height: 13px;
 
@@ -437,10 +387,10 @@ img {
 }
 
 
-
 /* 장바구니 손잡이 */
 
 .cart-icon::before {
+
     content: "";
 
     width: 7px;
@@ -454,17 +404,16 @@ img {
     transform: translateX(-50%);
 
     border: 2px solid #fff;
-
     border-bottom: 0;
 
     border-radius: 5px 5px 0 0;
 }
 
 
-
 /* 장바구니 바퀴 */
 
 .cart-icon::after {
+
     content: "";
 
     width: 3px;
@@ -483,19 +432,16 @@ img {
 }
 
 
-
 /* ========================================
    PRODUCT INFO
 ======================================== */
 
-.product-info {
-    width: 280px;
+.product-swiper .product-info {
+
+     width: 280px;
 
     padding-top: 10px;
-
-    font-size: 17px;
 }
-
 
 
 /* ========================================
@@ -503,8 +449,8 @@ img {
 ======================================== */
 
 .product-label {
-    display: flex;
 
+    display: flex;
     align-items: center;
 
     gap: 3px;
@@ -512,12 +458,11 @@ img {
     margin-bottom: 4px;
 }
 
-
 .product-label span {
+
     padding: 2px 4px;
 
     font-size: 9px;
-
     line-height: 1;
 
     color: #f36b42;
@@ -526,28 +471,27 @@ img {
 }
 
 
-
 /* ========================================
    PRODUCT NAME
 ======================================== */
 
-.product-info h3 {
+.product-swiper .product-info h3 {
+
     margin-bottom: 4px;
 
     font-size: 17px;
-
     font-weight: 700;
 
     line-height: 1.25;
 }
 
 
-
 /* ========================================
    DESCRIPTION
 ======================================== */
 
-.product-info p {
+.product-swiper .product-info p {
+
     margin-bottom: 5px;
 
     font-size: 12px;
@@ -558,19 +502,17 @@ img {
 }
 
 
-
 /* ========================================
    PRICE
 ======================================== */
 
-.product-info strong {
-    font-size: 17px;
+.product-swiper .product-info strong {
 
+    font-size: 17px;
     font-weight: 700;
 
     color: #111;
 }
-
 
 
 /* ========================================
@@ -579,14 +521,16 @@ img {
 
 .product-prev,
 .product-next {
+
     width: 30px;
     height: 30px;
 
     position: absolute;
 
-    top: 120px;
+    top: 138px;
 
     margin: 0;
+    padding: 0;
 
     border-radius: 50%;
 
@@ -603,39 +547,19 @@ img {
 }
 
 
-
 /* ========================================
    LEFT BUTTON
-
-   ★ 처음에는 숨김
 ======================================== */
 
 .product-prev {
-    left: 0;
 
-    opacity: 0;
+    left: -15px;
 
-    visibility: hidden;
-
-    pointer-events: none;
-}
-
-
-
-/* ========================================
-   LEFT BUTTON
-
-   ★ 첫 번째 이동 후 등장
-======================================== */
-
-.product-prev.show {
     opacity: 1;
-
     visibility: visible;
 
     pointer-events: auto;
 }
-
 
 
 /* ========================================
@@ -643,122 +567,50 @@ img {
 ======================================== */
 
 .product-next {
-    right: 0;
+
+    right: -15px;
 
     opacity: 1;
-
     visibility: visible;
 
     pointer-events: auto;
 }
 
 
-
 /* ========================================
-   BUTTON IMAGE
+   PRODUCT BUTTON IMAGE
 ======================================== */
 
 .product-prev img,
 .product-next img {
+
     width: 10px;
     height: 10px;
 
     object-fit: contain;
 }
 
-.product-swiper .swiper-slide {
-    width: 380px !important;
-    height: 380px !important;
-
-    flex-shrink: 0;
-
-    box-sizing: border-box;
-
-    position: relative;
-}
-
 
 /* ========================================
-   상품 이미지 영역
+   화면이 1580px보다 작을 때
 ======================================== */
 
-.product-swiper .product-img {
-    width: 380px;
-    height: 277px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+@media (max-width: 1580px) {
 
-    position: relative;
-}
+    .product-section .inner {
+        width: 100%;
+        padding: 0 30px;
+    }
 
+    .product-swiper {
+        width: 100%;
+    }
 
-/* ========================================
-   상품 정보 영역
-======================================== */
+    .product-prev {
+        left: 15px;
+    }
 
-.product-swiper .product-info {
-    width: 380px;
-    height: 100px;
-
-    box-sizing: border-box;
-}
-
-
-/* 상품명 */
-.product-swiper .product-info h3 {
-    font-size: 17px;
-}
-
-
-/* 영문/설명 */
-.product-swiper .product-info p {
-    font-size: 17px;
-}
-
-
-/* 가격 */
-.product-swiper .product-info strong {
-    font-size: 17px;
-}
-
-/* ========================================
-   MD 추천반찬 타이틀
-======================================== */
-
-.md-title {
-    text-align: center;
-
-    /* 위 여백 */
-    padding-top: 50px;
-
-    /* 아래 여백 */
-    padding-bottom: 40px;
-}
-
-.md-title h2 {
-    margin: 0 0 12px;
-
-    font-size: 35px;
-    font-weight: 700;
-}
-
-.md-title p {
-    margin: 0;
-
-    font-size: 17px;
-    font-weight: 400;
-}
-
-/* ========================================
-   MD 상품 카드 이미지
-======================================== */
-
-.product-swiper .product-img {
-    width: 380px;
-    height: 277px;
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    .product-next {
+        right: 15px;
+    }
 }
