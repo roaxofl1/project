@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4f7cff">
+  <title>Weather App | 세계 날씨</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="header">
+      <a class="brand" href="#" aria-label="Weather App 홈">
+        <span class="brand-icon">☁️</span>
+        <span>WEATHER</span>
+      </a>
+      <div class="header-actions">
+        <button id="locationBtn" class="icon-btn" type="button" title="현재 위치">📍</button>
+        <button id="themeBtn" class="icon-btn" type="button" title="다크모드">🌙</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">GLOBAL WEATHER</p>
+        <h1>세계 어느 도시의<br><strong>날씨든 한눈에</strong></h1>
+        <p class="hero-copy">한글 또는 영문으로 도시를 검색해 보세요.</p>
+
+        <form id="searchForm" class="search-box">
+          <span>🔎</span>
+          <input id="cityInput" type="search" autocomplete="off"
+                 placeholder="예: 서울, Seoul, Tokyo, 뉴욕" aria-label="도시 검색">
+          <button type="submit">검색</button>
+          <div id="suggestions" class="suggestions" hidden></div>
+        </form>
+
+        <div id="popularCities" class="popular-cities" aria-label="인기 도시"></div>
+      </section>
+
+      <section id="status" class="status" aria-live="polite"></section>
+
+      <section id="weatherSection" class="weather-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CURRENT WEATHER</p>
+            <h2 id="locationName">Seoul, KR</h2>
+          </div>
+          <button id="favoriteBtn" class="favorite-btn" type="button">☆ 관심 도시</button>
+        </div>
+
+        <div class="current-grid">
+          <article class="current-card glass-card">
+            <div class="weather-main">
+              <img id="currentIcon" src="" alt="" class="weather-icon">
+              <div>
+                <p id="weatherDescription" class="weather-description">-</p>
+                <div class="temperature"><span id="currentTemp">--</span><sup>°C</sup></div>
+                <p class="feels">체감온도 <strong id="feelsLike">--</strong>°C</p>
+              </div>
+            </div>
+            <div class="temp-range">
+              <span>최고 <strong id="tempMax">--</strong>°</span>
+              <span>최저 <strong id="tempMin">--</strong>°</span>
+            </div>
+          </article>
+
+          <div class="details-grid">
+            <article class="detail-card"><span>💧</span><small>습도</small><strong id="humidity">--%</strong></article>
+            <article class="detail-card"><span>💨</span><small>풍속</small><strong id="wind">-- m/s</strong></article>
+            <article class="detail-card"><span>🧭</span><small>기압</small><strong id="pressure">-- hPa</strong></article>
+            <article class="detail-card"><span>👁️</span><small>가시거리</small><strong id="visibility">-- km</strong></article>
+            <article class="detail-card"><span>☁️</span><small>구름량</small><strong id="clouds">--%</strong></article>
+            <article class="detail-card"><span>🌅</span><small>일출 / 일몰</small><strong id="sunTime">-- / --</strong></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="forecast-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">HOURLY FORECAST</p><h2>시간별 날씨</h2></div>
+        </div>
+        <div id="hourlyList" class="hourly-list"></div>
+      </section>
+
+      <section class="forecast-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">5-DAY FORECAST</p><h2>5일 예보</h2></div>
+        </div>
+        <div id="dailyList" class="daily-list"></div>
+      </section>
+
+      <section class="forecast-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">TEMPERATURE</p><h2>기온 변화</h2></div>
+        </div>
+        <div class="chart-card">
+          <div id="tempChart" class="temp-chart"></div>
+        </div>
+      </section>
+
+      <section class="forecast-section favorites-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">FAVORITES</p><h2>관심 도시</h2></div>
+        </div>
+        <div id="favoritesList" class="favorites-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Weather data provided by OpenWeather</p>
+    </footer>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
