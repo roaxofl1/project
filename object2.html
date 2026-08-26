@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 응ㅇ용
+    
+        const book =["미드나잇 라이브러리","매트 헤이그","14,220원","2021-04-28","408","9791191056556(11791056554)"]
+        document.write(`책 제목:${book[0]}<br>`)
+        document.write(`저자:${book[1]}<br>`)
+        document.write(`가격:${book[2]}<br>`)
+        document.write(`출간일:${book[3]}<br>`)
+        document.write(`페이지수:${book[4]}<br>`)
+        document.write(`ISBN:${book[5]}<br>`)
+
+        document.write("<hr>")
+
+        const books = ["미드나잇 라이브러리","매트 헤이그","14,220원","2021-04-28","408","9791191056556(11791056554)"]
+        const title = [
+    "책 제목",
+    "저자",
+    "가격",
+    "출간일",
+    "페이지수",
+    "ISBN"
+]
+
+ for(let i = 0; i < books.length; i++){
+    document.write(`${title[i]}: ${books[i]}<br>`)
+}
+
+            document.write("<hr>")
+
+        // 객체
+        const book2 ={
+            na:"미드나잇 라이브러리",
+            ju:"매트 헤이그",
+            ga:"14,220원",
+            date:"2021-04-28",
+            page:"408",
+            isbn:"9791191056556(11791056554)"
+        }
+        document.write(`책 제목:${book2.na}<br>`)
+        document.write(`저자:${book2.ju}<br>`)
+        document.write(`가격:${book2.ga}<br>`)
+        document.write(`출간일:${book2.date}<br>`)
+        document.write(`페이지수:${book2.page}<br>`)
+        document.write(`ISBN:${book2.isbn}<br>`)
+
+            document.write("<hr>")
+
+            const bbook ={
+                책제목:"미드나잇 라이브러리",
+                제목:"매트 헤이그",
+                가격:"14,220원",
+                출간일:"2021-04-28",
+                페이지수:"408",
+                ISBN:"9791191056556(11791056554)"
+                        }
+                for(let key in bbook){document.write(`${key}:${bbook[key]}<br>`)}
+
+    </script>
+</body>
+</html>
