@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#f8f4ef">
+    <title>김민혁 ♥ 이서영 | Wedding Invitation</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- =========================================
+         KAKAO MAP API
+         ★ 여기 appkey 부분에 본인의 JavaScript 키 입력 ★
+         ========================================= -->
+    <script
+        type="text/javascript"
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=792c4fcc7500aad7c2b2dc926b64b8ee&libraries=services">
+    </script>
+</head>
+
+<body>
+<main class="invitation">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+        <div class="hero__ornament">WEDDING INVITATION</div>
+
+        <div class="hero__photo">
+            <img src="./images/we.m.png"
+                 alt="신랑 신부 웨딩 사진"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('photo-fallback')">
+        </div>
+
+        <div class="hero__content">
+            <p class="eyebrow">OUR WEDDING DAY</p>
+            <h1>김민혁 <span>♥</span> 이서영</h1>
+            <p class="hero__date">2026. 09. 01 TUE · PM 12:00</p>
+
+            <div class="hero__countdown">
+                <span>THE DAY</span>
+                <strong id="heroDday">D-</strong>
+            </div>
+        </div>
+
+        <div class="scroll-hint">
+            <span>SCROLL</span>
+            <i></i>
+        </div>
+    </section>
+
+    <!-- ================= INVITATION ================= -->
+    <section class="section reveal">
+        <p class="section-kicker">INVITATION</p>
+        <h2>초대합니다!</h2>
+
+        <div class="divider"><span>♥</span></div>
+
+        <p class="invitation-copy">
+            저희의 영원한 사랑을<br>
+            깨지지 않는 약속으로 하늘에 아로 새기어<br>
+            서로의 동반자가 되어 인생의 여정을 출발하고자 합니다.<br>
+            저희 두 사람의 약속이<br>
+            더욱 빛날 수 있도록<br>
+            부디 방문하시어 따뜻한 격려와 축복을 부탁드립니다.
+        </p>
+    </section>
+
+    <!-- ================= COUPLE ================= -->
+    <section class="section couple-section">
+        <div class="couple-card reveal">
+            <p class="role">GROOM</p>
+            <p class="parent">김대성의 아들</p>
+            <h2>김민혁</h2>
+        </div>
+
+        <div class="couple-heart reveal reveal--delay">♥</div>
+
+        <div class="couple-card reveal reveal--delay-2">
+            <p class="role">BRIDE</p>
+            <p class="parent">이완성의 딸</p>
+            <h2>이서영</h2>
+        </div>
+    </section>
+
+    <!-- ================= D-DAY ================= -->
+    <section class="section dday-section reveal">
+        <p class="section-kicker">OUR SPECIAL DAY</p>
+        <h2>우리의 결혼식까지</h2>
+
+        <div class="dday-number" id="ddayNumber">D-</div>
+        <p class="dday-message" id="ddayMessage">소중한 날을 기다리고 있습니다.</p>
+
+        <div class="date-card">
+            <strong>2026년 9월 1일 화요일</strong>
+            <span>낮 12시</span>
+            <span>서울 신라호텔 영빈관</span>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section contact-section">
+        <div class="reveal">
+            <p class="section-kicker">CONTACT</p>
+            <h2>언제든 연락주세요</h2>
+        </div>
+
+        <div class="contact-buttons reveal reveal--delay">
+            <!-- 실제 전화번호로 변경 -->
+            <a href="tel:010-0000-0000" class="contact-btn">
+                <span>GROOM</span>
+                <strong>지금 신랑에게 연락하세요.</strong>
+                <b>↗</b>
+            </a>
+
+            <!-- 실제 전화번호로 변경 -->
+            <a href="tel:010-0000-0000" class="contact-btn">
+                <span>BRIDE</span>
+                <strong>지금 신부에게 연락하세요.</strong>
+                <b>↗</b>
+            </a>
+        </div>
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+    <section class="section gallery-section">
+        <div class="reveal">
+            <p class="section-kicker">GALLERY</p>
+            <h2>우리의 순간</h2>
+        </div>
+
+        <div class="gallery">
+            <button class="gallery-item gallery-item--large reveal"
+                    data-image="./images/wedding01.jpg">
+                <img src="./images/1WE.png" alt="웨딩 사진 1">
+            </button>
+
+            <button class="gallery-item reveal reveal--delay"
+                    data-image="./images/wedding02.jpg">
+                <img src="./images/2WE.png" alt="웨딩 사진 2">
+            </button>
+
+            <button class="gallery-item reveal reveal--delay-2"
+                    data-image="./images/wedding03.jpg">
+                <img src="./images/we4.png" alt="웨딩 사진 3">
+            </button>
+
+            <button class="gallery-item reveal"
+                    data-image="./images/wedding04.jpg">
+                <img src="./images/we55.png" alt="웨딩 사진 4">
+            </button>
+
+            <button class="gallery-item reveal reveal--delay"
+                    data-image="./images/wedding05.jpg">
+                <img src="./images/we3.png" alt="웨딩 사진 5">
+            </button>
+        </div>
+    </section>
+
+    <!-- ================= CEREMONY ================= -->
+    <section class="section venue-section reveal">
+        <p class="section-kicker">WEDDING CEREMONY</p>
+        <h2>결혼식 안내</h2>
+
+        <div class="venue-info">
+            <p>2026. 09. 01 TUE</p>
+            <strong>12:00 PM</strong>
+
+            <div class="divider"><span>♥</span></div>
+
+            <p>서울 신라호텔 영빈관</p>
+        </div>
+    </section>
+
+    <!-- ================= KAKAO MAP ================= -->
+    <section class="section map-section">
+
+        <div class="reveal">
+            <p class="section-kicker">LOCATION</p>
+            <h2>오시는 길</h2>
+        </div>
+
+        <!-- ★ 실제 카카오맵이 표시되는 영역 -->
+        <div id="kakaoMap" class="kakao-map reveal reveal--delay"></div>
+
+        <div class="map-actions reveal reveal--delay-2">
+            <a
+                href="https://map.kakao.com/?q=서울신라호텔"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="outline-btn">
+                카카오맵에서 보기
+            </a>
+
+            <a
+                href="https://map.kakao.com/?q=서울신라호텔"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="outline-btn">
+                길찾기
+            </a>
+        </div>
+
+        <div class="transport reveal">
+            <div>
+                <strong>장소</strong>
+                <p>서울 신라호텔 영빈관</p>
+            </div>
+
+            <div>
+                <strong>주소</strong>
+                <p>서울특별시 중구 동호로 249</p>
+            </div>
+
+            <div>
+                <strong>교통 / 주차</strong>
+                <p>주차 : 신라호텔 주차장<br>
+                    지하철 : 동대입구역 5번 출구에서 404m
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ACCOUNT ================= -->
+    <section class="section account-section">
+
+        <div class="reveal">
+            <p class="section-kicker">GIFT</p>
+            <h2>마음 전하실 곳</h2>
+            <p class="sub-copy">
+                직접 참석하지 못하시는 분들을 위해<br>
+                마음을 전하실 수 있는 계좌를 안내드립니다.
+            </p>
+        </div>
+
+        <div class="account-card reveal reveal--delay">
+            <span>신랑측</span>
+            <strong>농협은행</strong>
+            <p>392-0897-5992-89</p>
+            <button class="copy-btn"
+                    data-copy="392-0897-5992-89">
+                계좌번호 복사
+            </button>
+        </div>
+
+        <div class="account-card reveal reveal--delay-2">
+            <span>신부측</span>
+            <strong>농협은행</strong>
+            <p>392-0897-5992-89</p>
+            <button class="copy-btn"
+                    data-copy="392-0897-5992-89">
+                계좌번호 복사
+            </button>
+        </div>
+    </section>
+
+    <!-- ================= GUESTBOOK ================= -->
+    <section class="section guestbook-section">
+
+        <div class="reveal">
+            <p class="section-kicker">GUESTBOOK</p>
+            <h2>축하의 마음을 남겨주세요</h2>
+            <p class="sub-copy">
+                두 사람에게 따뜻한 축하 메시지를 남겨주세요.
+            </p>
+        </div>
+
+        <form id="guestbookForm" class="guestbook-form reveal reveal--delay">
+
+            <label>
+                <span>이름</span>
+                <input
+                    id="guestName"
+                    type="text"
+                    maxlength="20"
+                    placeholder="이름을 입력해주세요"
+                    required>
+            </label>
+
+            <label>
+                <span>축하 메시지</span>
+                <textarea
+                    id="guestMessage"
+                    rows="4"
+                    maxlength="200"
+                    placeholder="축하 메시지를 입력해주세요"
+                    required></textarea>
+            </label>
+
+            <button type="submit" class="primary-btn">
+                방명록 남기기
+            </button>
+
+            <p id="guestbookStatus"></p>
+        </form>
+
+        <div id="guestbookList" class="guestbook-list"></div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <p>김민혁 <span>♥</span> 이서영</p>
+        <small>2026. 09. 01 · 12:00 PM</small>
+        <small>저희의 소중한 날에 함께해주셔서 감사합니다.</small>
+    </footer>
+
+</main>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+    <button id="lightboxClose">×</button>
+    <img id="lightboxImage" src="" alt="확대된 웨딩 사진">
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="./js/script.js"></script>
+</body>
+</html>
