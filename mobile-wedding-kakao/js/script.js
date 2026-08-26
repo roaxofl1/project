@@ -271,78 +271,143 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       6. GOOGLE SHEETS GUESTBOOK
-       ========================================= */
+   6. GOOGLE SHEETS GUESTBOOK
+========================================= */
 
-    /*
-       ★ Google Apps Script Web App URL을 여기에 입력
-       예:
-       const GOOGLE_SCRIPT_URL =
-       "https://script.google.com/macros/s/XXXX/exec";
-    */
+const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbwFfwDPGc9BPztwpDCFYXTcBZAq3MJLeGsXw9jtp3ayCfEpNGC2DcZBEQ_N9iE3s4rD3A/exec";
 
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwFfwDPGc9BPztwpDCFYXTcBZAq3MJLeGsXw9jtp3ayCfEpNGC2DcZBEQ_N9iE3s4rD3A/exec";
+const guestbookForm =
+    document.querySelector("#guestbookForm");
 
-    const guestbookForm = document.querySelector("#guestbookForm");
-    const guestbookStatus = document.querySelector("#guestbookStatus");
-    const guestbookList = document.querySelector("#guestbookList");
+const guestbookStatus =
+    document.querySelector("#guestbookStatus");
 
-    const demoMessages = [];
+const guestbookList =
+    document.querySelector("#guestbookList");
 
-    function escapeHtml(value) {
 
-        const div = document.createElement("div");
+/* 방명록 화면에 표시 */
+function renderGuestbook(messages) {
 
-        div.textContent = value;
+    guestbookList.innerHTML = "";
 
-        return div.innerHTML;
+    if (!messages.length) {
+
+        guestbookList.innerHTML = `
+            <p style="
+                padding:30px 10px;
+                color:#a49a92;
+                text-align:center;
+                font-size:12px;
+            ">
+                첫 번째 축하 메시지를 남겨주세요 ♥
+            </p>
+        `;
+
+        return;
     }
 
-    function renderGuestbook(messages) {
 
-        guestbookList.innerHTML = "";
+    messages.forEach((item) => {
 
-        if (!messages.length) {
+        const article =
+            document.createElement("article");
 
-            guestbookList.innerHTML = `
-                <p style="
-                    padding:30px 10px;
-                    color:#a49a92;
-                    text-align:center;
-                    font-size:12px;
-                ">
-                    첫 번째 축하 메시지를 남겨주세요 ♥
-                </p>
-            `;
+        article.className =
+            "guestbook-item";
 
-            return;
+
+        article.innerHTML = `
+            <strong>${escapeHtml(item.name)}</strong>
+            <time>${escapeHtml(item.date || "")}</time>
+            <p>${escapeHtml(item.message)}</p>
+        `;
+
+
+        guestbookList.appendChild(article);
+
+    });
+}
+
+
+/* HTML 보안 처리 */
+function escapeHtml(value) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = value;
+
+    return div.innerHTML;
+}
+
+
+/* =========================================
+   Google Sheets에서 방명록 불러오기
+========================================= */
+
+async function loadGuestbook() {
+
+    try {
+
+        const response =
+            await fetch(GOOGLE_SCRIPT_URL);
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "방명록 데이터:",
+            data
+        );
+
+
+        if (
+            data.success &&
+            Array.isArray(data.messages)
+        ) {
+
+            renderGuestbook(
+                data.messages
+            );
+
         }
 
-        messages.forEach((item) => {
+    } catch (error) {
 
-            const article = document.createElement("article");
+        console.error(
+            "방명록 불러오기 실패:",
+            error
+        );
 
-            article.className = "guestbook-item";
-
-            article.innerHTML = `
-                <strong>${escapeHtml(item.name)}</strong>
-                <time>${escapeHtml(item.date || "")}</time>
-                <p>${escapeHtml(item.message)}</p>
-            `;
-
-            guestbookList.appendChild(article);
-        });
     }
+}
 
-    renderGuestbook(demoMessages);
 
+/* =========================================
+   방명록 등록
+========================================= */
 
-    guestbookForm.addEventListener("submit", async (event) => {
+guestbookForm.addEventListener(
+    "submit",
+    (event) => {
 
         event.preventDefault();
 
-        const name = document.querySelector("#guestName").value.trim();
-        const message = document.querySelector("#guestMessage").value.trim();
+        const name =
+            document
+                .querySelector("#guestName")
+                .value
+                .trim();
+
+        const message =
+            document
+                .querySelector("#guestMessage")
+                .value
+                .trim();
+
 
         if (!name || !message) {
 
@@ -352,72 +417,138 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const data = {
-            name,
-            message,
-            createdAt: new Date().toISOString()
-        };
-
-
-        /*
-            Google Apps Script URL이 입력되어 있다면
-            실제 Google Sheets에 저장
-        */
-
-        if (GOOGLE_SCRIPT_URL) {
-
-            try {
-
-                guestbookStatus.textContent = "등록 중입니다...";
-
-                await fetch(GOOGLE_SCRIPT_URL, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                guestbookStatus.textContent =
-                    "방명록이 등록되었습니다. 감사합니다 ♥";
-
-                guestbookForm.reset();
-
-            } catch (error) {
-
-                guestbookStatus.textContent =
-                    "등록에 실패했습니다. 다시 시도해주세요.";
-            }
-
-            return;
-        }
-
-
-        /*
-            URL을 아직 입력하지 않은 개발 단계에서는
-            화면에만 표시
-        */
-
-        const today = new Date();
-
-        const formattedDate =
-            `${today.getFullYear()}.` +
-            `${String(today.getMonth() + 1).padStart(2, "0")}.` +
-            `${String(today.getDate()).padStart(2, "0")}`;
-
-        demoMessages.unshift({
-            name,
-            message,
-            date: formattedDate
-        });
-
-        renderGuestbook(demoMessages);
 
         guestbookStatus.textContent =
-            "방명록이 등록되었습니다. 감사합니다 ♥";
+            "등록 중입니다...";
 
-        guestbookForm.reset();
-    });
+
+        /* Google Sheets 저장 주소 */
+        const url =
+            GOOGLE_SCRIPT_URL +
+            "?action=add" +
+            "&name=" +
+            encodeURIComponent(name) +
+            "&message=" +
+            encodeURIComponent(message);
+
+
+        /*
+         * no-cors로 전송
+         *
+         * 응답 내용을 읽지는 않지만
+         * Google Apps Script에는 요청이 전달됨
+         */
+        fetch(url, {
+            method: "GET",
+            mode: "no-cors"
+        })
+        .then(() => {
+
+            /* 오늘 날짜 */
+            const today = new Date();
+
+            const formattedDate =
+                today.getFullYear() +
+                "." +
+                String(today.getMonth() + 1).padStart(2, "0") +
+                "." +
+                String(today.getDate()).padStart(2, "0");
+
+
+            /*
+             * 방금 작성한 글을
+             * 청첩장 화면에 즉시 표시
+             */
+            const newMessage = {
+                name: name,
+                message: message,
+                date: formattedDate
+            };
+
+
+            /*
+             * 현재 화면에 바로 추가
+             */
+            const currentItems =
+                guestbookList.querySelectorAll(
+                    ".guestbook-item"
+                );
+
+
+            /*
+             * "첫 번째 축하 메시지" 문구가
+             * 있다면 제거
+             */
+            const emptyMessage =
+                guestbookList.querySelector("p");
+
+            if (emptyMessage) {
+                emptyMessage.remove();
+            }
+
+
+            const article =
+                document.createElement("article");
+
+            article.className =
+                "guestbook-item";
+
+
+            article.innerHTML = `
+                <strong>
+                    ${escapeHtml(newMessage.name)}
+                </strong>
+
+                <time>
+                    ${escapeHtml(newMessage.date)}
+                </time>
+
+                <p>
+                    ${escapeHtml(newMessage.message)}
+                </p>
+            `;
+
+
+            /*
+             * 최신 글을 맨 위에
+             */
+            guestbookList.prepend(article);
+
+
+            /* 입력창 초기화 */
+            guestbookForm.reset();
+
+
+            guestbookStatus.textContent =
+                "방명록이 등록되었습니다. 감사합니다 ♥";
+
+
+            /*
+             * 잠시 후 Google Sheets에서
+             * 실제 데이터 다시 불러오기
+             */
+            setTimeout(() => {
+                loadGuestbook();
+            }, 1500);
+
+        })
+        .catch((error) => {
+
+            console.error(
+                "방명록 등록 오류:",
+                error
+            );
+
+            guestbookStatus.textContent =
+                "등록에 실패했습니다. 다시 시도해주세요.";
+
+        });
+
+    }
+);
+
+
+/* 페이지 열릴 때 방명록 불러오기 */
+loadGuestbook();
 
 });
