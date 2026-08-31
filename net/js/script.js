@@ -1001,32 +1001,18 @@ function setHero(movie, video) {
         return;
     }
 
-
     currentHeroMovie = movie;
+    currentHeroVideoKey = video ? video.key : null;
 
-    currentHeroVideoKey =
-        video ? video.key : null;
-
-
-    /*
-       기존 영상 제거
-    */
-
+    /* 기존 영상 제거 */
     const oldVideo =
-        hero.querySelector(
-            ".hero-video"
-        );
-
+        hero.querySelector(".hero-video");
 
     if (oldVideo) {
         oldVideo.remove();
     }
 
-
-    /*
-       배경 이미지
-    */
-
+    /* 배경 이미지 */
     if (heroBackdrop) {
 
         heroBackdrop.style.backgroundImage =
@@ -1036,32 +1022,27 @@ function setHero(movie, video) {
                     ? `url("${IMAGE_URL}${movie.poster_path}")`
                     : "none";
 
+        /*
+         * ⭐ 영상보다 뒤에 배치
+         */
+        heroBackdrop.style.zIndex = "0";
     }
 
-
-    /*
-       Hero 텍스트
-    */
-
+    /* Hero 텍스트 */
     const title =
         movie.title ||
         movie.name ||
         "영화";
-
 
     const year =
         movie.release_date
             ? movie.release_date.substring(0, 4)
             : "";
 
-
     const rating =
         movie.vote_average
-            ? Number(
-                movie.vote_average
-            ).toFixed(1)
+            ? Number(movie.vote_average).toFixed(1)
             : "0.0";
-
 
     if (heroContent) {
 
@@ -1123,25 +1104,20 @@ function setHero(movie, video) {
             </div>
         `;
 
-
         bindHeroButtons();
-
     }
 
 
     /*
-       실제 YouTube 영상이 있는 경우
-    */
-
+     * ⭐ YouTube 영상
+     */
     if (video && video.key) {
 
         const iframe =
             document.createElement("iframe");
 
-
         iframe.className =
             "hero-video";
-
 
         iframe.src =
             `https://www.youtube.com/embed/${video.key}` +
@@ -1152,31 +1128,73 @@ function setHero(movie, video) {
             `&playlist=${video.key}` +
             `&rel=0` +
             `&playsinline=1` +
-            `&modestbranding=1`;
+            `&modestbranding=1` +
+            `&enablejsapi=1` +
+            `&origin=${encodeURIComponent(
+                window.location.origin
+            )}`;
 
+        iframe.title =
+            "영화 예고편";
 
         iframe.setAttribute(
             "allow",
             "autoplay; encrypted-media; picture-in-picture"
         );
 
-
         iframe.setAttribute(
             "allowfullscreen",
             ""
         );
-
 
         iframe.setAttribute(
             "frameborder",
             "0"
         );
 
+        /*
+         * ⭐ 영상 크기 + 레이어 강제
+         */
+        iframe.style.position =
+            "absolute";
+
+        iframe.style.top =
+            "50%";
+
+        iframe.style.left =
+            "50%";
+
+        iframe.style.width =
+            "100vw";
+
+        iframe.style.height =
+            "56.25vw";
+
+        iframe.style.minWidth =
+            "177.78vh";
+
+        iframe.style.minHeight =
+            "100vh";
+
+        iframe.style.transform =
+            "translate(-50%, -50%)";
+
+        iframe.style.border =
+            "none";
 
         /*
-           hero 맨 앞에 영상 삽입
-        */
+         * ⭐ 배경보다 위
+         */
+        iframe.style.zIndex =
+            "1";
 
+        iframe.style.pointerEvents =
+            "none";
+
+
+        /*
+         * Hero 맨 앞에 영상 삽입
+         */
         hero.insertBefore(
             iframe,
             hero.firstChild
@@ -1184,9 +1202,8 @@ function setHero(movie, video) {
 
 
         /*
-           소리 버튼
-        */
-
+         * 소리 버튼
+         */
         if (soundBtn) {
 
             soundBtn.textContent =
@@ -1194,7 +1211,6 @@ function setHero(movie, video) {
 
             soundBtn.onclick =
                 toggleHeroSound;
-
         }
 
     }
@@ -2219,3 +2235,72 @@ document.querySelectorAll('.nav a').forEach(link => {
     });
 
 });
+// ========================================
+// HERO 유튜브 예고편 불러오기
+// ========================================
+async function loadHeroTrailer(movieId) {
+
+    try {
+
+        const response = await fetch(
+            `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=ko-KR`
+        );
+
+        const data = await response.json();
+
+        // YouTube 영상만 찾기
+        const trailer = data.results.find(video =>
+            video.site === "YouTube" &&
+            (
+                video.type === "Trailer" ||
+                video.type === "Teaser"
+            )
+        );
+
+        if (!trailer) {
+            console.log("유튜브 예고편이 없습니다.");
+            return;
+        }
+
+        const hero = document.querySelector(".hero");
+
+        if (!hero) return;
+
+        // 기존 영상 제거
+        const oldVideo = hero.querySelector(".hero-video");
+
+        if (oldVideo) {
+            oldVideo.remove();
+        }
+
+        // 유튜브 iframe 생성
+        const iframe = document.createElement("iframe");
+
+        iframe.className = "hero-video";
+
+        iframe.src =
+            `https://www.youtube.com/embed/${trailer.key}` +
+            `?autoplay=1` +
+            `&mute=1` +
+            `&loop=1` +
+            `&playlist=${trailer.key}` +
+            `&controls=0` +
+            `&rel=0` +
+            `&playsinline=1`;
+
+        iframe.allow =
+            "autoplay; encrypted-media; picture-in-picture";
+
+        iframe.setAttribute("allowfullscreen", "");
+
+        hero.prepend(iframe);
+
+    } catch (error) {
+
+        console.error(
+            "Hero 영상 불러오기 실패:",
+            error
+        );
+
+    }
+}

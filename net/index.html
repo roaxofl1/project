@@ -41,35 +41,67 @@
 
 <main id="home">
 
-    <!-- HERO -->
     <section class="hero">
 
-        <div class="hero-backdrop" id="heroBackdrop"></div>
-        <div class="hero-video" id="heroVideo"></div>
+    <!-- ⭐ Hero 유튜브 영상 -->
+    <iframe
+        class="hero-video"
+        id="heroVideo"
+        title="영화 예고편"
+        frameborder="0"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen>
+    </iframe>
 
-        <div class="hero-content">
+    <div class="hero-backdrop"></div>
 
-            <p class="hero-kicker">STREAMFLIX ORIGINAL</p>
+    <div class="hero-content">
 
-            <h1 id="heroTitle">영화를 불러오는 중...</h1>
+        <p class="hero-kicker">
+            STREAMFLIX ORIGINAL
+        </p>
 
-            <div class="hero-meta" id="heroMeta"></div>
+        <h1>
+            THE LAST<br>HORIZON
+        </h1>
 
-            <p class="hero-description" id="heroDescription">
-                영화를 불러오는 중입니다.
-            </p>
+        <div class="hero-meta">
+            <span>2026</span>
+            <span>12+</span>
+            <span>시즌 2개</span>
+            <span>SF · 액션</span>
+        </div>
 
-            <div class="hero-buttons">
-                <button class="primary-btn" id="heroPlayBtn">▶ 재생</button>
-                <button class="secondary-btn" id="heroInfoBtn">ⓘ 상세 정보</button>
-            </div>
+        <p class="hero-description">
+            인류의 마지막 희망을 품은 우주선이 미지의 행성에 도착한다.
+            새로운 세계에서 시작된 거대한 비밀과 생존을 위한 여정.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="primary-btn"
+                data-action="play">
+                ▶ 재생
+            </button>
+
+            <button
+                class="secondary-btn"
+                data-action="info">
+                ⓘ 상세 정보
+            </button>
 
         </div>
 
-        <button class="sound-btn" id="soundBtn" aria-label="소리 켜기">🔇</button>
+    </div>
 
-    </section>
+    <button
+        class="sound-btn"
+        aria-label="소리 켜기/끄기">
+        🔇
+    </button>
 
+</section>
 
     <!-- 인기 -->
     <section class="content-section" id="popular">
