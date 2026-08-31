@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STREAMFLIX</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- YouTube IFrame Player API -->
+<script src="https://www.youtube.com/iframe_api"></script>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+
+        <a href="#home" class="logo">STREAMFLIX</a>
+
+        <nav class="nav">
+            <a href="#home" class="active">홈</a>
+            <a href="#popular">인기 콘텐츠</a>
+            <a href="#movies">영화</a>
+            <a href="#action">액션</a>
+            <a href="#my-list">내가 찜한 콘텐츠</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-btn search-btn" id="searchBtn" aria-label="검색">⌕</button>
+            <button class="login-btn" id="loginBtn">로그인</button>
+            <button class="menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
+        </div>
+
+    </div>
+</header>
+
+
+<main id="home">
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-backdrop" id="heroBackdrop"></div>
+        <div class="hero-video" id="heroVideo"></div>
+
+        <div class="hero-content">
+
+            <p class="hero-kicker">STREAMFLIX ORIGINAL</p>
+
+            <h1 id="heroTitle">영화를 불러오는 중...</h1>
+
+            <div class="hero-meta" id="heroMeta"></div>
+
+            <p class="hero-description" id="heroDescription">
+                영화를 불러오는 중입니다.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" id="heroPlayBtn">▶ 재생</button>
+                <button class="secondary-btn" id="heroInfoBtn">ⓘ 상세 정보</button>
+            </div>
+
+        </div>
+
+        <button class="sound-btn" id="soundBtn" aria-label="소리 켜기">🔇</button>
+
+    </section>
+
+
+    <!-- 인기 -->
+    <section class="content-section" id="popular">
+        <div class="section-heading">
+            <h2>지금 뜨는 콘텐츠</h2>
+            <button class="see-all">모두 보기 ›</button>
+        </div>
+
+        <div class="movie-slider">
+            <button class="slider-btn slider-prev" aria-label="이전">‹</button>
+            <div class="movie-row" data-row="popular"></div>
+            <button class="slider-btn slider-next" aria-label="다음">›</button>
+        </div>
+    </section>
+
+
+    <!-- 액션 -->
+    <section class="content-section" id="action">
+        <div class="section-heading">
+            <h2>액션 영화</h2>
+            <button class="see-all">모두 보기 ›</button>
+        </div>
+
+        <div class="movie-slider">
+            <button class="slider-btn slider-prev" aria-label="이전">‹</button>
+            <div class="movie-row" data-row="action"></div>
+            <button class="slider-btn slider-next" aria-label="다음">›</button>
+        </div>
+    </section>
+
+
+    <!-- 코미디 -->
+    <section class="content-section" id="comedy">
+        <div class="section-heading">
+            <h2>코미디 영화</h2>
+            <button class="see-all">모두 보기 ›</button>
+        </div>
+
+        <div class="movie-slider">
+            <button class="slider-btn slider-prev" aria-label="이전">‹</button>
+            <div class="movie-row" data-row="comedy"></div>
+            <button class="slider-btn slider-next" aria-label="다음">›</button>
+        </div>
+    </section>
+
+
+    <!-- 공포 -->
+    <section class="content-section" id="horror">
+        <div class="section-heading">
+            <h2>공포 영화</h2>
+            <button class="see-all">모두 보기 ›</button>
+        </div>
+
+        <div class="movie-slider">
+            <button class="slider-btn slider-prev" aria-label="이전">‹</button>
+            <div class="movie-row" data-row="horror"></div>
+            <button class="slider-btn slider-next" aria-label="다음">›</button>
+        </div>
+    </section>
+
+
+    <!-- 로맨스 -->
+    <section class="content-section" id="romance">
+        <div class="section-heading">
+            <h2>로맨스 영화</h2>
+            <button class="see-all">모두 보기 ›</button>
+        </div>
+
+        <div class="movie-slider">
+            <button class="slider-btn slider-prev" aria-label="이전">‹</button>
+            <div class="movie-row" data-row="romance"></div>
+            <button class="slider-btn slider-next" aria-label="다음">›</button>
+        </div>
+    </section>
+
+
+    <!-- 다큐 -->
+    <section class="content-section" id="documentary">
+        <div class="section-heading">
+            <h2>다큐멘터리 영화</h2>
+            <button class="see-all">모두 보기 ›</button>
+        </div>
+
+        <div class="movie-slider">
+            <button class="slider-btn slider-prev" aria-label="이전">‹</button>
+            <div class="movie-row" data-row="documentary"></div>
+            <button class="slider-btn slider-next" aria-label="다음">›</button>
+        </div>
+    </section>
+
+
+    <!-- 평점 -->
+    <section class="content-section" id="top-rated">
+        <div class="section-heading">
+            <h2>평점 높은 영화</h2>
+            <button class="see-all">모두 보기 ›</button>
+        </div>
+
+        <div class="movie-slider">
+            <button class="slider-btn slider-prev" aria-label="이전">‹</button>
+            <div class="movie-row" data-row="top-rated"></div>
+            <button class="slider-btn slider-next" aria-label="다음">›</button>
+        </div>
+    </section>
+
+
+    <!-- 찜 -->
+    <section class="content-section" id="my-list">
+        <div class="section-heading">
+            <h2>내가 찜한 콘텐츠</h2>
+        </div>
+
+        <div class="movie-slider">
+            <button class="slider-btn slider-prev" aria-label="이전">‹</button>
+            <div class="movie-row" data-row="my-list"></div>
+            <button class="slider-btn slider-next" aria-label="다음">›</button>
+        </div>
+
+        <p class="empty-message">아직 찜한 콘텐츠가 없습니다.</p>
+    </section>
+
+</main>
+
+
+<!-- 검색 -->
+<div class="search-panel" id="searchPanel" aria-hidden="true">
+
+    <div class="search-panel-inner">
+
+        <button class="close-search" id="closeSearch" aria-label="검색 닫기">×</button>
+
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="영화 제목을 검색하세요"
+            autocomplete="off"
+        >
+
+        <div id="searchResults" class="search-results"></div>
+
+    </div>
+
+</div>
+
+
+<!-- 상세정보 -->
+<div class="modal" id="infoModal" aria-hidden="true">
+
+    <div class="modal-box">
+
+        <button class="modal-close" id="modalClose">×</button>
+
+        <div class="modal-poster" id="modalPoster"></div>
+
+        <div class="modal-body">
+
+            <p class="modal-kicker">STREAMFLIX</p>
+
+            <h2 id="modalTitle"></h2>
+
+            <div class="modal-meta" id="modalMeta"></div>
+
+            <p id="modalText"></p>
+
+            <button class="primary-btn" id="modalWishBtn">＋ 내가 찜하기</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- 로그인 -->
+<div class="login-modal" id="loginModal" aria-hidden="true">
+
+    <div class="login-modal-bg"></div>
+
+    <div class="login-box">
+
+        <button class="login-close" id="loginClose">×</button>
+
+        <div class="login-logo">STREAMFLIX</div>
+
+        <h2>로그인</h2>
+
+        <form id="loginForm">
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="이메일 주소"
+                autocomplete="email"
+                required
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="비밀번호"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit" class="login-submit">로그인</button>
+
+        </form>
+
+        <div class="login-options">
+            <label>
+                <input type="checkbox" id="rememberMe">
+                로그인 정보 저장
+            </label>
+
+            <a href="#" id="findPassword">비밀번호 찾기</a>
+        </div>
+
+        <div class="signup-area">
+            <span>STREAMFLIX가 처음이신가요?</span>
+            <a href="#" id="signupBtn">지금 가입하세요.</a>
+        </div>
+
+        <p class="login-notice">
+            이 페이지는 개인 프로젝트용 Netflix 스타일 UI입니다.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">◎</a>
+            <a href="#" aria-label="Twitter">♥</a>
+            <a href="#" aria-label="YouTube">▶</a>
+        </div>
+
+        <div class="footer-links">
+
+            <div class="footer-column">
+                <a href="#">화면 해설</a>
+                <a href="#">투자 정보(IR)</a>
+                <a href="#">법적 고지</a>
+            </div>
+
+            <div class="footer-column">
+                <a href="#">고객 센터</a>
+                <a href="#">이용 약관</a>
+                <a href="#">쿠키 설정</a>
+            </div>
+
+            <div class="footer-column">
+                <a href="#">기프트카드</a>
+                <a href="#">이용 안내</a>
+                <a href="#">회사 정보</a>
+            </div>
+
+            <div class="footer-column">
+                <a href="#">미디어 센터</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">문의하기</a>
+            </div>
+
+        </div>
+
+        <button class="service-code">서비스 코드</button>
+
+        <div class="footer-company">
+            <p>STREAMFLIX 프로젝트</p>
+            <p>본 사이트는 개인 학습 및 포트폴리오용 Netflix 스타일 UI입니다.</p>
+            <p>영화 데이터는 TMDB API를 이용합니다.</p>
+            <p>Streaming UI Project</p>
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+    /*
+     * YouTube iframe이 동적으로 생성될 때
+     * 자동재생에 필요한 설정을 보강
+     */
+    const heroVideoObserver = new MutationObserver(() => {
+
+        const iframe = document.getElementById("heroYoutube");
+
+        if (!iframe) return;
+
+        iframe.setAttribute(
+            "allow",
+            "autoplay; encrypted-media; picture-in-picture"
+        );
+
+        iframe.setAttribute(
+            "allowfullscreen",
+            ""
+        );
+
+        iframe.setAttribute(
+            "playsinline",
+            ""
+        );
+
+        iframe.setAttribute(
+            "loading",
+            "eager"
+        );
+    });
+
+    const heroVideoContainer =
+        document.getElementById("heroVideo");
+
+    if (heroVideoContainer) {
+        heroVideoObserver.observe(
+            heroVideoContainer,
+            {
+                childList: true,
+                subtree: true
+            }
+        );
+    }
+</script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

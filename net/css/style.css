@@ -1,0 +1,4049 @@
+/* =========================================================
+   STREAMFLIX
+   COMPLETE STYLE
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: #141414;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #141414;
+    color: #fff;
+
+    font-family:
+        "Noto Sans KR",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 68px;
+
+    z-index: 1000;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, .95),
+            rgba(0, 0, 0, .75),
+            transparent
+        );
+
+    transition:
+        background .3s ease;
+}
+
+.header-inner {
+    width: 100%;
+    max-width: 1500px;
+
+    height: 68px;
+
+    margin: 0 auto;
+    padding: 0 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    flex-shrink: 0;
+
+    color: #e50914;
+
+    font-size: 26px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+
+    height: 100%;
+}
+
+.nav a {
+    color: #ddd;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition:
+        color .2s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: #fff;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-actions {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.icon-btn {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    background: transparent;
+
+    font-size: 24px;
+}
+
+.icon-btn:hover {
+    background: rgba(255,255,255,.1);
+
+    border-radius: 4px;
+}
+
+.login-btn {
+    height: 34px;
+
+    padding: 0 14px;
+
+    border-radius: 4px;
+
+    background: #e50914;
+
+    color: #fff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.login-btn:hover {
+    background: #f40612;
+}
+
+.menu-btn {
+    display: none;
+
+    width: 36px;
+    height: 36px;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 720px;
+
+    overflow: hidden;
+
+    background:
+        #141414;
+}
+
+
+/* =========================================================
+   HERO BACKDROP
+========================================================= */
+
+.hero-backdrop {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.98) 0%,
+            rgba(0,0,0,.82) 25%,
+            rgba(0,0,0,.35) 65%,
+            rgba(0,0,0,.15) 100%
+        ),
+        linear-gradient(
+            to top,
+            #141414 0%,
+            transparent 45%
+        );
+
+    background-position: center;
+
+    background-size: cover;
+}
+
+
+/* =========================================================
+   HERO VIDEO
+========================================================= */
+
+.hero-video {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 100vw;
+    height: 56.25vw;
+
+    min-width: 177.78vh;
+    min-height: 100vh;
+
+    transform:
+        translate(-50%, -50%);
+
+    border: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO VIDEO OVERLAY
+========================================================= */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.9) 0%,
+            rgba(0,0,0,.65) 35%,
+            rgba(0,0,0,.15) 75%
+        ),
+        linear-gradient(
+            to top,
+            #141414 0%,
+            transparent 55%
+        );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+    position: absolute;
+
+    left: 7%;
+
+    top: 50%;
+
+    z-index: 5;
+
+    width: min(580px, 45%);
+
+    transform:
+        translateY(-35%);
+}
+
+
+/* =========================================================
+   HERO KICKER
+========================================================= */
+
+.hero-kicker {
+    margin-bottom: 12px;
+
+    color: #e50914;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero-content h1 {
+    margin-bottom: 18px;
+
+    color: #fff;
+
+    font-size: clamp(44px, 5vw, 78px);
+
+    font-weight: 800;
+
+    line-height: .95;
+
+    letter-spacing: -3px;
+}
+
+
+/* =========================================================
+   HERO META
+========================================================= */
+
+.hero-meta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+.hero-meta span:not(:last-child)::after {
+    content: "·";
+
+    margin-left: 12px;
+
+    color: #777;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.hero-description {
+    max-width: 580px;
+
+    color: #ddd;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    line-height: 1.7;
+
+    word-break: keep-all;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 10px;
+}
+
+.primary-btn,
+.secondary-btn {
+    height: 44px;
+
+    padding: 0 20px;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.primary-btn {
+    background: #fff;
+
+    color: #111;
+}
+
+.primary-btn:hover {
+    background: #ddd;
+}
+
+.secondary-btn {
+    background: rgba(80,80,80,.8);
+
+    color: #fff;
+}
+
+.secondary-btn:hover {
+    background: rgba(100,100,100,.9);
+}
+
+
+/* =========================================================
+   SOUND BUTTON
+========================================================= */
+
+.sound-btn {
+    position: absolute;
+
+    right: 45px;
+    bottom: 115px;
+
+    z-index: 10;
+
+    width: 38px;
+    height: 38px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.6);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.5);
+
+    color: #fff;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   CONTENT SECTION
+========================================================= */
+
+.content-section {
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        35px 40px 0;
+}
+
+.content-section + .content-section {
+    padding-top: 45px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+}
+
+.section-heading h2 {
+    color: #fff;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.see-all {
+    color: #aaa;
+
+    background: transparent;
+
+    font-size: 13px;
+
+    transition:
+        color .2s ease;
+}
+
+.see-all:hover {
+    color: #fff;
+}
+
+
+/* =========================================================
+   MOVIE ROW
+========================================================= */
+
+.movie-row {
+    display: flex;
+
+    gap: 10px;
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    overflow-y: visible;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
+
+    cursor: grab;
+
+    padding:
+        5px 5px 12px;
+}
+
+.movie-row::-webkit-scrollbar {
+    display: none;
+}
+
+.movie-row.dragging {
+    cursor: grabbing;
+
+    scroll-behavior: auto;
+}
+
+
+/* =========================================================
+   MOVIE CARD
+========================================================= */
+
+.movie-card {
+    position: relative;
+
+    flex:
+        0 0
+        calc((100% - 50px) / 6);
+
+    width:
+        calc((100% - 50px) / 6);
+
+    min-width: 0;
+
+    aspect-ratio: 2 / 3;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+
+    background: #222;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+
+    z-index: 30;
+}
+
+
+/* =========================================================
+   POSTER
+========================================================= */
+
+.movie-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   CARD GRADIENT
+========================================================= */
+
+.movie-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 45%;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.9),
+            transparent
+        );
+}
+
+/* =========================================================
+   MOVIE OVERLAY
+========================================================= */
+
+.movie-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /*
+       아래쪽에 영화 정보 영역을 위한 공간 확보
+       줄거리와 별점이 겹치지 않도록 함
+    */
+    padding: 110px 12px 45px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.15) 20%,
+            rgba(0, 0, 0, 0.65) 55%,
+            rgba(0, 0, 0, 0.96) 100%
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease;
+
+    z-index: 5;
+
+    /*
+       중요
+       스크롤바가 생기지 않도록 함
+    */
+    overflow: visible;
+}
+
+
+/* 마우스를 올렸을 때 */
+
+.movie-card:hover .movie-overlay {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   MOVIE TITLE
+========================================================= */
+
+.movie-title {
+    display: block;
+
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   MOVIE INFO
+   별점 / 연도 영역
+========================================================= */
+
+.movie-info {
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #ddd;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   OVERVIEW
+   줄거리는 별점보다 위쪽에 표시
+========================================================= */
+
+.movie-overview {
+   margin-top: 8px;
+    color: #ddd;
+    font-size: 11px;
+    line-height: 1.5;
+
+    display: block;
+
+    overflow: visible;
+
+    white-space: normal;
+    /*
+       기존에 들어가 있던
+       line-clamp / max-height / overflow:hidden
+       때문에 줄거리가 잘렸으므로 제거
+    */
+
+    display: block;
+
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+
+    max-height: none;
+
+    overflow: visible;
+
+    /*
+       긴 단어 때문에 레이아웃이 깨지는 것 방지
+    */
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   줄거리 내부에 별도의 overflow가 들어간 경우 제거
+========================================================= */
+
+.movie-overlay .movie-overview {
+    max-height: none !important;
+
+    height: auto !important;
+
+    overflow: visible !important;
+
+    -webkit-line-clamp: unset !important;
+
+    display: block !important;
+}
+
+
+/* =========================================================
+   포스터 HOVER
+========================================================= */
+
+.movie-card {
+    overflow: hidden;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   WISHLIST BUTTON
+   기본적으로 숨김
+========================================================= */
+
+.wish-btn {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility .2s ease;
+}
+
+
+/* 포스터에 마우스를 올렸을 때만 표시 */
+
+.movie-card:hover .wish-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================================
+   SEARCH PANEL
+========================================================= */
+
+.search-panel {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.92);
+
+    z-index: 9999;
+
+    /*
+       처음에는 완전히 숨김
+    */
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
+
+
+/*
+   JS에서 .open을 추가하면 표시
+*/
+
+.search-panel.open {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   SEARCH PANEL INNER
+========================================================= */
+
+.search-panel-inner {
+    position: relative;
+
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 80px auto 0;
+}
+
+
+/* =========================================================
+   검색창
+========================================================= */
+
+#searchInput {
+    width: 100%;
+
+    height: 58px;
+
+    padding: 0 55px 0 20px;
+
+    border: 1px solid rgba(255,255,255,.5);
+
+    border-radius: 4px;
+
+    outline: none;
+
+    background: #222;
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 18px;
+}
+
+
+#searchInput::placeholder {
+    color: #888;
+}
+
+
+#searchInput:focus {
+    border-color: #fff;
+}
+
+
+/* =========================================================
+   검색 닫기 버튼
+========================================================= */
+
+.close-search {
+    position: absolute;
+
+    top: 10px;
+
+    right: 12px;
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   SEARCH RESULTS
+========================================================= */
+
+.search-results {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-top: 25px;
+
+    max-height: calc(100vh - 180px);
+
+    overflow-y: auto;
+
+    scrollbar-width: none;
+}
+
+
+.search-results::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* 검색 결과 카드 */
+
+.search-results .movie-card {
+    width: 100%;
+
+    min-width: 0;
+
+    flex: none;
+}
+
+
+/* =========================================================
+   검색 결과 이미지
+========================================================= */
+
+.search-results .movie-card img {
+    width: 100%;
+
+    aspect-ratio: 2 / 3;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body.search-open {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SEARCH RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .search-results {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .search-panel-inner {
+        width: calc(100% - 24px);
+
+        margin-top: 60px;
+    }
+
+
+    #searchInput {
+        height: 52px;
+
+        font-size: 16px;
+    }
+
+
+    .search-results {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+
+    .movie-overview {
+ margin-top: 12px;
+    }
+
+
+    .movie-overlay {
+        padding: 70px 12px 12px;
+    }
+
+
+    .movie-info {
+           display: block;
+    margin-top: 6px;
+    }
+
+}
+
+
+/* =========================================================
+   TMDB OVERVIEW
+========================================================= */
+
+.movie-overview {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 15;
+
+    width: 100%;
+
+    max-height: 100%;
+
+    padding:
+        75px 12px 15px;
+
+    color: #fff;
+
+    font-size: 11px;
+
+    line-height: 1.65;
+
+    word-break: keep-all;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.98) 0%,
+            rgba(0,0,0,.94) 55%,
+            rgba(0,0,0,.45) 82%,
+            transparent 100%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+
+    /*
+       줄거리 전체를 읽을 수 있도록
+       line-clamp를 사용하지 않음
+    */
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(255,255,255,.4)
+        transparent;
+}
+
+.movie-overview::-webkit-scrollbar {
+    width: 4px;
+}
+
+.movie-overview::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.movie-overview::-webkit-scrollbar-thumb {
+    background:
+        rgba(255,255,255,.4);
+
+    border-radius: 10px;
+}
+
+.movie-card:hover .movie-overview {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   WISHLIST BUTTON
+   ⭐ 평소에는 숨김
+========================================================= */
+
+.wish-btn {
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    z-index: 40;
+
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(255,255,255,.45);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.7);
+
+    color: #fff;
+
+    font-size: 19px;
+
+    line-height: 30px;
+
+    text-align: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(.8);
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease,
+        background .2s ease;
+}
+
+
+/* =========================================================
+   ⭐ HOVER 때만 + 버튼 표시
+========================================================= */
+
+.movie-card:hover .wish-btn {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+}
+
+.wish-btn:hover {
+    background: #fff;
+
+    color: #111;
+}
+
+
+/* =========================================================
+   ACTIVE WISHLIST
+========================================================= */
+
+.wish-btn.active {
+    color: #e50914;
+
+    border-color: #e50914;
+}
+
+
+/* =========================================================
+   SLIDER BUTTON
+========================================================= */
+
+.slider-btn {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 60;
+
+    width: 44px;
+    height: 80px;
+
+    padding: 0;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 4px;
+
+    background:
+        rgba(0,0,0,.65);
+
+    color: #fff;
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    transition:
+        background .2s ease,
+        opacity .2s ease;
+}
+
+.slider-btn:hover {
+    background:
+        rgba(0,0,0,.9);
+}
+
+.slider-prev {
+    left: 0;
+}
+
+.slider-next {
+    right: 0;
+}
+
+.slider-btn.disabled {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.movie-loading {
+    width: 100%;
+
+    min-height: 180px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   EMPTY RESULT
+========================================================= */
+
+.empty-result,
+.empty-message {
+    color: #777;
+
+    padding:
+        30px 0;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-panel {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    background: rgba(0, 0, 0, 0.94);
+
+    overflow-y: auto;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+.search-panel.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.search-panel-inner {
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    position: relative;
+}
+
+
+/* 검색 닫기 버튼 */
+
+.close-search {
+    position: absolute;
+
+    top: 20px;
+    right: 0;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 38px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+
+/* 검색 input */
+
+#searchInput {
+    display: block;
+
+    width: 100%;
+    height: 58px;
+
+    padding: 0 55px 0 20px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #777;
+    border-radius: 4px;
+
+    outline: none;
+
+    background: #222;
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 18px;
+}
+
+
+#searchInput::placeholder {
+    color: #999;
+}
+
+
+#searchInput:focus {
+    border-color: #fff;
+}
+
+
+/* =========================================================
+   SEARCH RESULTS
+========================================================= */
+
+.search-results {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+
+    width: 100%;
+
+    margin-top: 24px;
+}
+
+
+/* 검색 결과 영화 카드 */
+
+.search-results .movie-card {
+    position: relative;
+
+    flex: none;
+
+    width: 100%;
+
+    min-width: 0;
+
+    aspect-ratio: 2 / 3;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+
+    background: #222;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease;
+}
+
+
+/* 검색 결과 카드 이미지 */
+
+.search-results .movie-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* 검색 결과 카드 호버 */
+
+.search-results .movie-card:hover {
+    transform: scale(1.04);
+
+    z-index: 5;
+}
+
+
+/* 검색 결과 줄거리 */
+
+.search-results .movie-overview {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #ddd;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    white-space: normal;
+
+    overflow: visible;
+}
+
+
+/* 검색 결과 찜 버튼 */
+
+.search-results .wish-btn {
+    opacity: 0;
+}
+
+
+.search-results .movie-card:hover .wish-btn {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   SEARCH RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .search-results {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .search-results {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+}
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 3000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.8);
+}
+
+.modal[aria-hidden="false"] {
+    display: flex;
+}
+
+.modal-box {
+    position: relative;
+
+    width: min(850px, 100%);
+
+    min-height: 450px;
+
+    display: flex;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background: #181818;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.7);
+}
+
+.modal-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    z-index: 10;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.7);
+
+    color: #fff;
+
+    font-size: 25px;
+}
+
+.modal-poster {
+    width: 42%;
+
+    min-height: 450px;
+
+    background:
+        #222;
+
+    background-position: center;
+
+    background-size: cover;
+}
+
+.modal-body {
+    flex: 1;
+
+    padding: 60px 40px;
+}
+
+.modal-kicker {
+    color: #e50914;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.modal-body h2 {
+    margin-bottom: 20px;
+
+    font-size: 32px;
+}
+
+.modal-body p {
+    color: #ccc;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   LOGIN MODAL
+========================================================= */
+
+.login-modal {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 99999;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+/* =========================================================
+   LOGIN MODAL OPEN
+========================================================= */
+
+/* 기존 JS가 aria-hidden="false"로 여는 경우 */
+.login-modal[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* active 클래스로 여는 경우도 지원 */
+.login-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* =========================================================
+   LOGIN BACKGROUND
+========================================================= */
+
+.login-modal-bg {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.78);
+
+    backdrop-filter: blur(3px);
+}
+
+
+/* =========================================================
+   LOGIN BOX
+========================================================= */
+
+.login-box {
+    position: relative;
+
+    width: 450px;
+    max-width: calc(100% - 40px);
+
+    padding: 55px 45px 50px;
+
+    background: #141414;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6);
+
+    color: #fff;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.login-close {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 34px;
+    font-weight: 300;
+
+    line-height: 36px;
+
+    cursor: pointer;
+
+    opacity: 0.9;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.login-close:hover {
+    opacity: 1;
+
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.login-logo {
+    margin-bottom: 30px;
+
+    color: #e50914;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.login-box h2 {
+    margin: 0 0 28px;
+
+    color: #fff;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   LOGIN FORM
+========================================================= */
+
+#loginForm {
+    width: 100%;
+}
+
+
+/* =========================================================
+   INPUT GROUP
+========================================================= */
+
+.login-input-group {
+    width: 100%;
+
+    margin: 0 0 10px;
+
+    padding: 0;
+}
+
+
+/* =========================================================
+   EMAIL / PASSWORD INPUT
+========================================================= */
+
+.login-input-group input {
+    display: block;
+
+    width: 100%;
+    height: 50px;
+
+    margin: 0;
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #555;
+
+    border-radius: 4px;
+
+    outline: none;
+
+    background: #333;
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    line-height: 50px;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* placeholder */
+
+.login-input-group input::placeholder {
+    color: #aaa;
+
+    opacity: 1;
+}
+
+
+/* focus */
+
+.login-input-group input:focus {
+    border-color: #fff;
+
+    background: #3b3b3b;
+}
+
+
+/* =========================================================
+   LOGIN SUBMIT
+========================================================= */
+
+.login-submit {
+    display: block;
+
+    width: 100%;
+    height: 50px;
+
+    margin-top: 20px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background: #e50914;
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    line-height: 50px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease;
+}
+
+.login-submit:hover {
+    background: #f6121d;
+}
+
+.login-submit:active {
+    transform: scale(0.99);
+}
+
+
+/* =========================================================
+   LOGIN OPTIONS
+========================================================= */
+
+.login-options {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin-top: 14px;
+
+    color: #b3b3b3;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.login-options label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 0;
+
+    cursor: pointer;
+}
+
+
+.login-options input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+
+    margin: 0;
+
+    padding: 0;
+
+    accent-color: #e50914;
+
+    cursor: pointer;
+}
+
+
+.login-options span {
+    line-height: 15px;
+}
+
+
+/* =========================================================
+   PASSWORD FIND
+========================================================= */
+
+#findPassword {
+    color: #b3b3b3;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.2s ease;
+}
+
+#findPassword:hover {
+    color: #fff;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   SIGN UP
+========================================================= */
+
+.signup-area {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top: 42px;
+
+    color: #737373;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+}
+
+
+.signup-area a {
+    color: #fff;
+
+    font-weight: 500;
+
+    text-decoration: none;
+}
+
+
+.signup-area a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.login-notice {
+    margin: 20px 0 0;
+
+    color: #737373;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .login-box {
+        width: 100%;
+
+        max-width: calc(100% - 24px);
+
+        padding:
+            45px 25px 35px;
+
+        border-radius: 5px;
+    }
+
+
+    .login-logo {
+        margin-bottom: 25px;
+
+        font-size: 23px;
+    }
+
+
+    .login-box h2 {
+        margin-bottom: 24px;
+
+        font-size: 28px;
+    }
+
+
+    .login-input-group input {
+        height: 48px;
+
+        line-height: 48px;
+
+        font-size: 14px;
+    }
+
+
+    .login-submit {
+        height: 48px;
+
+        line-height: 48px;
+    }
+
+
+    .login-options {
+        font-size: 12px;
+    }
+
+
+    .signup-area {
+        margin-top: 32px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .login-box {
+        max-width: calc(100% - 20px);
+
+        padding:
+            40px 20px 30px;
+    }
+
+
+    .login-options {
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+    margin-top: 100px;
+
+    background: #181818;
+
+    color: #777;
+}
+
+.footer-inner {
+    width: 100%;
+
+    max-width: 900px;
+
+    min-height: 400px;
+
+    margin: 0 auto;
+
+    padding:
+        55px 30px 45px;
+}
+
+
+/* =========================================================
+   FOOTER SOCIAL
+========================================================= */
+
+.footer-social {
+    display: flex;
+
+    gap: 22px;
+
+    margin-bottom: 25px;
+}
+
+.footer-social a {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    color: #fff;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   FOOTER LINKS
+========================================================= */
+
+.footer-links {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+}
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+.footer-column a {
+    color: #777;
+
+    font-size: 11px;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+
+    color: #aaa;
+}
+
+
+/* =========================================================
+   SERVICE CODE
+========================================================= */
+
+.service-code {
+    padding:
+        8px 12px;
+
+    margin-bottom: 25px;
+
+    border:
+        1px solid
+        #555;
+
+    background: transparent;
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+.service-code:hover {
+    color: #fff;
+
+    border-color: #888;
+}
+
+
+/* =========================================================
+   FOOTER COMPANY
+========================================================= */
+
+.footer-company p {
+    margin-bottom: 5px;
+
+    color: #666;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   MODAL OPEN
+========================================================= */
+
+.modal-open {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .header-inner {
+        padding:
+            0 25px;
+    }
+
+    .nav {
+        gap: 15px;
+    }
+
+    .nav a {
+        font-size: 13px;
+    }
+
+    .content-section {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .movie-card {
+        flex:
+            0 0
+            calc((100% - 30px) / 4);
+
+        width:
+            calc((100% - 30px) / 4);
+    }
+
+    .hero-content {
+        left: 5%;
+
+        width: 55%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        height: 58px;
+    }
+
+    .header-inner {
+        height: 58px;
+
+        padding:
+            0 15px;
+
+        gap: 0;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+    .header-actions {
+        gap: 5px;
+    }
+
+    .login-btn {
+        height: 32px;
+
+        padding:
+            0 10px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        height: 600px;
+    }
+
+    .hero-content {
+        left: 20px;
+        right: 20px;
+
+        top: auto;
+        bottom: 75px;
+
+        width: auto;
+
+        transform: none;
+    }
+
+    .hero-kicker {
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+
+    .hero-content h1 {
+        font-size: 45px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero-meta {
+        font-size: 12px;
+
+        gap: 8px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+
+        line-height: 1.6;
+
+        max-height: 100px;
+
+        overflow: hidden;
+    }
+
+    .sound-btn {
+        right: 20px;
+        bottom: 25px;
+    }
+
+
+    /* CONTENT */
+
+    .content-section {
+        padding:
+            25px 15px 0;
+    }
+
+    .content-section + .content-section {
+        padding-top: 35px;
+    }
+
+    .section-heading h2 {
+        font-size: 18px;
+    }
+
+    .movie-card {
+        flex:
+            0 0
+            calc((100% - 20px) / 3);
+
+        width:
+            calc((100% - 20px) / 3);
+    }
+
+
+    /* OVERVIEW */
+
+    .movie-overview {
+        padding:
+            55px 9px 10px;
+
+        font-size: 10px;
+
+        line-height: 1.5;
+    }
+
+
+    /* SLIDER */
+
+    .slider-btn {
+        width: 35px;
+
+        height: 60px;
+
+        font-size: 30px;
+    }
+
+
+    /* MODAL */
+
+    .modal-box {
+        flex-direction: column;
+
+        max-height: 90vh;
+
+        overflow-y: auto;
+    }
+
+    .modal-poster {
+        width: 100%;
+
+        height: 300px;
+
+        min-height: 300px;
+    }
+
+    .modal-body {
+        padding:
+            30px 25px;
+    }
+
+
+    /* LOGIN */
+
+    .login-box {
+        padding:
+            35px 25px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-inner {
+        padding:
+            45px 20px;
+    }
+
+    .footer-links {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .icon-btn {
+        width: 30px;
+        height: 30px;
+
+        font-size: 20px;
+    }
+
+    .login-btn {
+        font-size: 11px;
+    }
+
+    .hero {
+        height: 550px;
+    }
+
+    .hero-content {
+        bottom: 65px;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-description {
+        max-height: 75px;
+
+        margin-bottom: 15px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        height: 38px;
+
+        padding:
+            0 13px;
+
+        font-size: 12px;
+    }
+
+
+    /* 2개 표시 */
+
+    .movie-card {
+        flex:
+            0 0
+            calc((100% - 10px) / 2);
+
+        width:
+            calc((100% - 10px) / 2);
+    }
+
+
+    .movie-overlay {
+        padding:
+            45px 9px 9px;
+    }
+
+    .movie-title {
+        font-size: 12px;
+    }
+
+    .movie-info {
+        font-size: 9px;
+    }
+
+    .movie-overview {
+        font-size: 9px;
+
+        padding:
+            45px 8px 8px;
+    }
+
+    .footer-links {
+        gap: 20px;
+    }
+}
+
+/* =========================================================
+   MOVIE OVERVIEW FIX
+========================================================= */
+
+.movie-card {
+    overflow: hidden;
+}
+
+
+.movie-overview {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 6;
+
+    padding: 80px 14px 16px;
+
+    box-sizing: border-box;
+
+    color: #fff;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    white-space: normal;
+
+    overflow: visible;
+
+    max-height: none;
+
+    height: auto;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0,0,0,.72) 35%,
+            rgba(0,0,0,.96) 100%
+        );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .25s ease;
+}
+
+
+.movie-card:hover
+.movie-overview {
+
+    opacity: 1;
+
+}
+/* =========================================================
+   SEARCH RESULT
+========================================================= */
+
+.search-results {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    width: 100%;
+
+    margin-top: 25px;
+}
+
+
+.search-results .movie-card {
+
+    width: 100%;
+
+    min-width: 0;
+
+    flex: none;
+
+}
+
+
+/* 검색 결과에서도 +는 hover시에만 */
+
+.search-results .wish-btn {
+
+    opacity: 0;
+
+}
+
+
+.search-results
+.movie-card:hover
+.wish-btn {
+
+    opacity: 1;
+
+}
+
+
+@media (max-width: 900px) {
+
+    .search-results {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .search-results {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+/* =========================================================
+   LOGIN MODAL FIX
+========================================================= */
+
+.login-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+}
+
+
+.login-modal[aria-hidden="true"] {
+
+    display: none;
+
+}
+
+
+.login-modal-bg {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, .75);
+
+}
+
+
+.login-box {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(
+        450px,
+        100%
+    );
+
+    padding: 50px 45px;
+
+    box-sizing: border-box;
+
+    border-radius: 8px;
+
+    background:
+        #181818;
+
+    color: #fff;
+
+    box-shadow:
+        0 20px 70px
+        rgba(0,0,0,.6);
+
+}
+
+
+.login-close {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 18px;
+
+    width: 36px;
+
+    height: 36px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+}
+
+
+.login-logo {
+
+    margin-bottom: 25px;
+
+    color: #e50914;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+.login-box h2 {
+
+    margin:
+        0 0 25px;
+
+    font-size: 28px;
+
+}
+
+
+.login-input-group {
+
+    width: 100%;
+
+    margin-bottom: 14px;
+
+}
+
+
+.login-input-group input {
+
+    display: block;
+
+    width: 100%;
+
+    height: 52px;
+
+    padding:
+        0 15px;
+
+    box-sizing: border-box;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 4px;
+
+    background:
+        #333;
+
+    color: #fff;
+
+    font-size: 15px;
+
+}
+
+
+.login-input-group input::placeholder {
+
+    color: #aaa;
+
+}
+
+
+.login-submit {
+
+    width: 100%;
+
+    height: 50px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background:
+        #e50914;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.login-submit:hover {
+
+    background:
+        #f6121d;
+
+}
+
+
+.login-options {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 14px;
+
+    color: #999;
+
+    font-size: 12px;
+
+}
+
+
+.login-options label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+}
+
+
+.login-options a {
+
+    color: #aaa;
+
+    text-decoration: none;
+
+}
+
+
+.signup-area {
+
+    margin-top: 35px;
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+.signup-area a {
+
+    color: #fff;
+
+    text-decoration: none;
+
+}
+
+
+.login-notice {
+
+    margin-top: 20px;
+
+    color: #666;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+}
+
+
+@media (max-width: 500px) {
+
+    .login-box {
+
+        padding:
+            40px 25px;
+
+    }
+
+}
+/* =========================================================
+   STREAMFLIX LOGIN - FINAL
+   반드시 style.css 가장 마지막에 넣기
+========================================================= */
+
+
+/* 로그인 전체 화면 */
+.login-modal {
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100vh !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    z-index: 99999 !important;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .25s ease;
+}
+
+
+/* 로그인 열렸을 때 */
+.login-modal.active,
+.login-modal[aria-hidden="false"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+
+/* 배경 */
+.login-modal-bg {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    background: rgba(0, 0, 0, .72) !important;
+
+    backdrop-filter: blur(2px);
+}
+
+
+/* =========================================================
+   LOGIN BOX
+========================================================= */
+
+.login-box {
+    position: relative !important;
+
+    z-index: 2 !important;
+
+    width: 450px !important;
+    max-width: calc(100% - 40px) !important;
+
+    min-height: 500px !important;
+
+    padding: 55px 45px 50px !important;
+
+    margin: 0 !important;
+
+    box-sizing: border-box !important;
+
+    background: #141414 !important;
+
+    border-radius: 6px !important;
+
+    color: #fff !important;
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, .7) !important;
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.login-box .login-close {
+    position: absolute !important;
+
+    top: 18px !important;
+    right: 18px !important;
+
+    width: 40px !important;
+    height: 40px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: none !important;
+
+    background: transparent !important;
+
+    color: #fff !important;
+
+    font-family: Arial, sans-serif !important;
+
+    font-size: 36px !important;
+    font-weight: 300 !important;
+
+    line-height: 40px !important;
+
+    text-align: center !important;
+
+    cursor: pointer !important;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.login-box .login-logo {
+    display: block !important;
+
+    margin: 0 0 30px 0 !important;
+    padding: 0 !important;
+
+    color: #e50914 !important;
+
+    font-family: Arial, sans-serif !important;
+
+    font-size: 25px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: 1px !important;
+
+    line-height: 1 !important;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.login-box h2 {
+    display: block !important;
+
+    margin: 0 0 30px 0 !important;
+    padding: 0 !important;
+
+    color: #fff !important;
+
+    font-size: 32px !important;
+    font-weight: 700 !important;
+
+    line-height: 1.2 !important;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.login-box #loginForm {
+    display: block !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   INPUT GROUP
+========================================================= */
+
+.login-box .login-input-group {
+    display: block !important;
+
+    width: 100% !important;
+
+    height: 50px !important;
+
+    margin: 0 0 10px 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   EMAIL / PASSWORD
+========================================================= */
+
+.login-box .login-input-group input,
+.login-box #loginEmail,
+.login-box #loginPassword {
+    display: block !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+
+    margin: 0 !important;
+    padding: 0 16px !important;
+
+    box-sizing: border-box !important;
+
+    border: 1px solid #555 !important;
+    border-radius: 4px !important;
+
+    outline: none !important;
+
+    background: #333 !important;
+    background-color: #333 !important;
+
+    color: #fff !important;
+
+    font-family:
+        "Noto Sans KR",
+        sans-serif !important;
+
+    font-size: 15px !important;
+    font-weight: 400 !important;
+
+    line-height: 50px !important;
+
+    text-align: left !important;
+
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+
+
+/* placeholder */
+.login-box #loginEmail::placeholder,
+.login-box #loginPassword::placeholder {
+    color: #aaa !important;
+
+    opacity: 1 !important;
+}
+
+
+/* input 클릭 */
+.login-box #loginEmail:focus,
+.login-box #loginPassword:focus {
+    background: #3d3d3d !important;
+
+    border-color: #fff !important;
+
+    outline: none !important;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-box .login-submit {
+    display: block !important;
+
+    width: 100% !important;
+
+    height: 50px !important;
+
+    margin: 20px 0 0 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    border: none !important;
+    border-radius: 4px !important;
+
+    background: #e50914 !important;
+
+    color: #fff !important;
+
+    font-family:
+        "Noto Sans KR",
+        sans-serif !important;
+
+    font-size: 16px !important;
+    font-weight: 700 !important;
+
+    line-height: 50px !important;
+
+    text-align: center !important;
+
+    cursor: pointer !important;
+
+    transition: background .2s ease !important;
+}
+
+
+.login-box .login-submit:hover {
+    background: #f6121d !important;
+}
+
+
+/* =========================================================
+   LOGIN OPTIONS
+========================================================= */
+
+.login-box .login-options {
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    width: 100% !important;
+
+    margin: 14px 0 0 0 !important;
+    padding: 0 !important;
+
+    color: #b3b3b3 !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.4 !important;
+}
+
+
+/* 체크박스 */
+.login-box .login-options label {
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 7px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: #b3b3b3 !important;
+
+    cursor: pointer !important;
+}
+
+
+.login-box .login-options input[type="checkbox"] {
+    width: 15px !important;
+    height: 15px !important;
+
+    min-width: 15px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    accent-color: #e50914 !important;
+}
+
+
+/* 비밀번호 찾기 */
+.login-box #findPassword {
+    color: #b3b3b3 !important;
+
+    text-decoration: none !important;
+
+    white-space: nowrap !important;
+}
+
+
+.login-box #findPassword:hover {
+    color: #fff !important;
+
+    text-decoration: underline !important;
+}
+
+
+/* =========================================================
+   SIGN UP
+========================================================= */
+
+.login-box .signup-area {
+    display: flex !important;
+
+    align-items: center !important;
+
+    width: 100% !important;
+
+    margin: 40px 0 0 0 !important;
+    padding: 0 !important;
+
+    color: #737373 !important;
+
+    font-size: 15px !important;
+
+    line-height: 1.5 !important;
+}
+
+
+.login-box .signup-area a {
+    margin-left: 5px !important;
+
+    color: #fff !important;
+
+    text-decoration: none !important;
+}
+
+
+.login-box .signup-area a:hover {
+    text-decoration: underline !important;
+}
+
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.login-box .login-notice {
+    display: block !important;
+
+    margin: 20px 0 0 0 !important;
+    padding: 0 !important;
+
+    color: #737373 !important;
+
+    font-size: 12px !important;
+
+    line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .login-box {
+        width: calc(100% - 24px) !important;
+
+        max-width: 450px !important;
+
+        min-height: auto !important;
+
+        padding:
+            45px 25px 35px !important;
+    }
+
+
+    .login-box .login-logo {
+        font-size: 23px !important;
+    }
+
+
+    .login-box h2 {
+        font-size: 28px !important;
+    }
+
+
+    .login-box .login-input-group {
+        height: 48px !important;
+    }
+
+
+    .login-box .login-input-group input,
+    .login-box #loginEmail,
+    .login-box #loginPassword {
+        height: 48px !important;
+        min-height: 48px !important;
+
+        line-height: 48px !important;
+    }
+
+
+    .login-box .login-submit {
+        height: 48px !important;
+
+        line-height: 48px !important;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .login-box {
+        padding:
+            40px 20px 30px !important;
+    }
+
+
+    .login-box .login-options {
+        font-size: 12px !important;
+    }
+
+
+    .login-box .signup-area {
+        font-size: 13px !important;
+    }
+
+}
+/* =========================================================
+   MOVIE CARD HOVER - 최종 수정
+   줄거리와 연도/평점 겹침 방지
+========================================================= */
+
+/* 카드 기본 */
+.movie-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 기본 상태에서는 플러스 버튼 숨김 */
+.movie-card .wish-btn {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* 마우스를 올렸을 때만 플러스 버튼 표시 */
+.movie-card:hover .wish-btn {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   HOVER OVERLAY
+========================================================= */
+
+.movie-overlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* 충분한 공간 확보 */
+    padding: 100px 12px 14px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.35) 25%,
+            rgba(0, 0, 0, 0.88) 65%,
+            rgba(0, 0, 0, 0.98) 100%
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease;
+
+    z-index: 5;
+
+    /* 스크롤 절대 생성하지 않음 */
+    overflow: visible;
+
+    /* 내용이 아래로 밀려 겹치지 않게 */
+    box-sizing: border-box;
+}
+
+
+/* Hover */
+.movie-card:hover .movie-overlay {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   영화 제목
+========================================================= */
+
+.movie-title {
+    display: block;
+
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    margin-bottom: 7px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   줄거리
+========================================================= */
+
+.movie-overlay .movie-overview,
+.movie-overlay .overview {
+    display: block;
+
+    color: #eee;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+
+    margin: 0 0 12px;
+
+    /* 스크롤 제거 */
+    overflow: visible;
+
+    /* 줄거리 자체를 잘라버리지 않음 */
+    max-height: none;
+
+    /* 단어가 너무 길어도 화면 밖으로 안 나가게 */
+    overflow-wrap: break-word;
+    word-break: keep-all;
+}
+
+
+/* =========================================================
+   연도 / 평점 / 장르
+========================================================= */
+
+.movie-info {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 8px;
+    padding-top: 8px;
+
+    border-top: 1px solid rgba(255,255,255,0.18);
+
+    color: #ccc;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    /* 줄거리와 겹치지 않게 */
+    clear: both;
+}
+
+
+/* 별점 */
+.movie-info .rating {
+    color: #f5c518;
+}
+
+
+/* =========================================================
+   줄거리가 없는 경우에도 레이아웃 유지
+========================================================= */
+
+.movie-overlay .movie-overview:empty {
+    display: none;
+}
+
+
+/* =========================================================
+   HOVER 시 카드 위로 표시
+========================================================= */
+
+.movie-card:hover {
+    z-index: 50;
+}
+
+
+/* =========================================================
+   모바일
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .movie-overlay {
+        padding:
+            70px 10px 10px;
+    }
+
+    .movie-title {
+        font-size: 12px;
+    }
+
+    .movie-overlay .movie-overview,
+    .movie-overlay .overview {
+        font-size: 10px;
+        line-height: 1.45;
+        margin-bottom: 9px;
+    }
+
+    .movie-info {
+        font-size: 10px;
+        gap: 5px;
+    }
+}
+
+/* =========================================================
+   영화 카드 Hover 최종 수정
+   줄거리 / 별점 겹침 완전 방지
+========================================================= */
+
+/* 카드 */
+.movie-card {
+    position: relative;
+}
+
+/* 호버했을 때 카드가 내용만큼 확장될 수 있도록 */
+.movie-card:hover {
+    overflow: visible !important;
+    z-index: 100;
+}
+
+/* =========================================================
+   영화 Hover 영역
+========================================================= */
+
+.movie-card .movie-overlay {
+    position: absolute !important;
+
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    padding: 100px 12px 14px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: stretch !important;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.25) 20%,
+            rgba(0, 0, 0, 0.85) 65%,
+            rgba(0, 0, 0, 0.98) 100%
+        ) !important;
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+
+    /*
+       중요:
+       기존 overflow 때문에 줄거리가 잘리는 것 방지
+    */
+    overflow: visible !important;
+
+    /*
+       기존 height/max-height 제거
+    */
+    height: auto !important;
+    max-height: none !important;
+
+    z-index: 20;
+}
+
+
+/* Hover */
+.movie-card:hover .movie-overlay {
+    opacity: 1 !important;
+}
+
+
+/* =========================================================
+   제목
+========================================================= */
+
+.movie-card .movie-title {
+    position: static !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    margin: 0 0 8px 0 !important;
+
+    color: #fff !important;
+
+    font-size: 14px !important;
+    font-weight: 700 !important;
+
+    line-height: 1.4 !important;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   줄거리
+========================================================= */
+
+.movie-card .movie-overview,
+.movie-card .overview {
+    position: static !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    max-height: none !important;
+
+    margin: 0 0 12px 0 !important;
+
+    padding: 0 !important;
+
+    color: #eee !important;
+
+    font-size: 11px !important;
+
+    line-height: 1.55 !important;
+
+    /*
+       줄거리 자체를 자르지 않음
+    */
+    overflow: visible !important;
+
+    white-space: normal !important;
+
+    word-break: keep-all !important;
+
+    overflow-wrap: break-word !important;
+
+    /*
+       혹시 기존 line-clamp가 걸려 있다면 제거
+    */
+    -webkit-line-clamp: unset !important;
+    -webkit-box-orient: unset !important;
+}
+
+
+/* =========================================================
+   ⭐ 제일 중요
+   연도 / 별점 / 장르 영역
+========================================================= */
+
+.movie-card .movie-info {
+    position: static !important;
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    justify-content: flex-start !important;
+
+    flex-wrap: wrap !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    max-height: none !important;
+
+    margin: 0 !important;
+
+    padding: 8px 0 0 0 !important;
+
+    border-top: 1px solid rgba(255,255,255,.25);
+
+    box-sizing: border-box !important;
+
+    color: #ccc !important;
+
+    font-size: 11px !important;
+
+    line-height: 1.4 !important;
+
+    /*
+       절대 위치로 겹치는 것 방지
+    */
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    transform: none !important;
+
+    overflow: visible !important;
+}
+
+
+/* =========================================================
+   별점
+========================================================= */
+
+.movie-card .movie-info .rating {
+    color: #f5c518 !important;
+}
+
+
+/* =========================================================
+   Hover 전에는 플러스 버튼 숨김
+========================================================= */
+
+.movie-card .wish-btn {
+    opacity: 0 !important;
+
+    visibility: hidden !important;
+
+    transform: scale(.8);
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+}
+
+
+/* Hover 했을 때만 표시 */
+.movie-card:hover .wish-btn {
+    opacity: 1 !important;
+
+    visibility: visible !important;
+
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   모바일
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .movie-card .movie-overlay {
+        padding: 70px 10px 10px !important;
+    }
+
+    .movie-card .movie-title {
+        font-size: 12px !important;
+    }
+
+    .movie-card .movie-overview,
+    .movie-card .overview {
+        font-size: 10px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 9px !important;
+    }
+
+    .movie-card .movie-info {
+        font-size: 10px !important;
+    }
+}
