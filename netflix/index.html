@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NETFLIX STYLE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="#" aria-label="홈">STREAMFLIX</a>
+      <nav class="nav">
+        <a href="#home" class="active">홈</a>
+        <a href="#popular">인기 콘텐츠</a>
+        <a href="#movies">영화</a>
+        <a href="#series">시리즈</a>
+        <a href="#my-list">내가 찜한 콘텐츠</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn search-btn" aria-label="검색">⌕</button>
+        <button class="login-btn" id="loginBtn">
+    로그인
+</button>
+        <button class="menu-btn" aria-label="메뉴">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-backdrop"></div>
+      <div class="hero-content">
+        <p class="hero-kicker">STREAMFLIX ORIGINAL</p>
+        <h1>THE LAST<br>HORIZON</h1>
+        <div class="hero-meta">
+          <span>2026</span><span>12+</span><span>시즌 2개</span><span>SF · 액션</span>
+        </div>
+        <p class="hero-description">
+          인류의 마지막 희망을 품은 우주선이 미지의 행성에 도착한다.
+          새로운 세계에서 시작된 거대한 비밀과 생존을 위한 여정.
+        </p>
+        <div class="hero-buttons">
+          <button class="primary-btn" data-action="play">▶ 재생</button>
+          <button class="secondary-btn" data-action="info">ⓘ 상세 정보</button>
+        </div>
+      </div>
+      <button class="sound-btn" aria-label="소리 켜기/끄기">🔇</button>
+    </section>
+
+    <section class="content-section" id="popular">
+      <div class="section-heading">
+        <h2>지금 뜨는 콘텐츠</h2>
+        <button class="see-all">모두 보기 ›</button>
+      </div>
+      <div class="movie-row" data-row="popular"></div>
+    </section>
+    <!-- ========================================
+     찜한 콘텐츠
+======================================== -->
+
+<section class="content-section" id="wishlist">
+
+  
+
+    <div
+        class="movie-row"
+        data-row="wishlist"
+    ></div>
+
+</section>
+
+<!-- 액션 영화 -->
+<section class="content-section" id="action">
+    <div class="section-heading">
+        <h2>액션 영화</h2>
+        <button class="see-all">모두 보기 ›</button>
+    </div>
+
+    <div class="movie-row" data-row="action"></div>
+</section>
+
+
+<!-- 코미디 영화 -->
+<section class="content-section" id="comedy">
+    <div class="section-heading">
+        <h2>코미디 영화</h2>
+        <button class="see-all">모두 보기 ›</button>
+    </div>
+
+    <div class="movie-row" data-row="comedy"></div>
+</section>
+
+
+<!-- 공포 영화 -->
+<section class="content-section" id="horror">
+    <div class="section-heading">
+        <h2>공포 영화</h2>
+        <button class="see-all">모두 보기 ›</button>
+    </div>
+
+    <div class="movie-row" data-row="horror"></div>
+</section>
+
+
+<!-- 로맨스 영화 -->
+<section class="content-section" id="romance">
+    <div class="section-heading">
+        <h2>로맨스 영화</h2>
+        <button class="see-all">모두 보기 ›</button>
+    </div>
+
+    <div class="movie-row" data-row="romance"></div>
+</section>
+
+
+<!-- 다큐멘터리 영화 -->
+<section class="content-section" id="documentary">
+    <div class="section-heading">
+        <h2>다큐멘터리 영화</h2>
+        <button class="see-all">모두 보기 ›</button>
+    </div>
+
+    <div class="movie-row" data-row="documentary"></div>
+</section>
+
+
+<!-- 평점 높은 영화 -->
+<section class="content-section" id="top-rated">
+    <div class="section-heading">
+        <h2>평점 높은 영화</h2>
+        <button class="see-all">모두 보기 ›</button>
+    </div>
+
+    <div class="movie-row" data-row="top-rated"></div>
+</section>
+
+    <section class="content-section" id="my-list">
+      <div class="section-heading">
+        <h2>내가 찜한 콘텐츠</h2>
+      </div>
+      <div class="movie-row" data-row="my-list"></div>
+      <p class="empty-message">아직 찜한 콘텐츠가 없습니다.</p>
+    </section>
+  </main>
+
+  <div class="search-panel" aria-hidden="true">
+    <div class="search-panel-inner">
+      <button class="close-search" aria-label="검색 닫기">×</button>
+      <input id="searchInput" type="search" placeholder="영화, 시리즈, 배우 등을 검색하세요">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="infoModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="닫기">×</button>
+      <div class="modal-poster"></div>
+      <div class="modal-body">
+        <p class="modal-kicker">NETFLIX ORIGINAL</p>
+        <h2 id="modalTitle">THE LAST HORIZON</h2>
+        <p id="modalText">새로운 세계에서 펼쳐지는 거대한 생존 이야기.</p>
+        <button class="primary-btn" data-action="play">▶ 재생</button>
+      </div>
+    </div>
+  </div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+
+        <!-- SNS -->
+        <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">◎</a>
+            <a href="#" aria-label="Twitter">♥</a>
+            <a href="#" aria-label="YouTube">▶</a>
+        </div>
+
+        <!-- Footer 메뉴 -->
+        <div class="footer-links">
+
+            <div class="footer-column">
+                <a href="#">화면 해설</a>
+                <a href="#">투자 정보(IR)</a>
+                <a href="#">법적 고지</a>
+            </div>
+
+            <div class="footer-column">
+                <a href="#">고객 센터</a>
+                <a href="#">이용 약관</a>
+                <a href="#">쿠키 설정</a>
+            </div>
+
+            <div class="footer-column">
+                <a href="#">기프트카드</a>
+                <a href="#">이용 안내</a>
+                <a href="#">회사 정보</a>
+            </div>
+
+            <div class="footer-column">
+                <a href="#">미디어 센터</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">문의하기</a>
+            </div>
+
+        </div>
+
+        <!-- 서비스 코드 -->
+        <button class="service-code">서비스 코드</button>
+
+        <!-- 회사 정보 -->
+        <div class="footer-company">
+            <p>
+                넷플릭스서비시스코리아 유한회사 · 통신판매업신고번호:
+                제2018-서울종로-0426호 · 전화번호: 00-308-321-0161 (수신자 부담)
+            </p>
+
+            <p>
+                대표: 레지널드 숀 톰프슨
+            </p>
+
+            <p>
+                이메일 주소: korea@netflix.com
+            </p>
+
+            <p>
+                주소: 대한민국 서울특별시 중구 소월로 2길 30,
+                스테이트타워 남산 20층 우편번호 04637
+            </p>
+
+            <p>
+                사업자등록번호: 165-87-00119
+            </p>
+
+            <p>
+                클라우드 호스팅: Amazon Web Services Inc.
+            </p>
+
+            <p>
+                공정거래위원회 웹사이트
+            </p>
+        </div>
+
+    </div>
+</footer>
+<!-- ========================================
+     LOGIN MODAL
+======================================== -->
+
+<div
+    class="login-modal"
+    id="loginModal"
+    aria-hidden="true"
+>
+
+    <div class="login-modal-bg"></div>
+
+    <div class="login-box">
+
+        <!-- 닫기 -->
+        <button
+            class="login-close"
+            id="loginClose"
+            aria-label="로그인 창 닫기"
+        >
+            ×
+        </button>
+
+
+        <!-- 로고 -->
+        <div class="login-logo">
+            NETFLIX
+        </div>
+
+
+        <h2>로그인</h2>
+
+
+        <!-- 로그인 폼 -->
+        <form id="loginForm">
+
+            <div class="login-input-group">
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="이메일 주소"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="login-input-group">
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="비밀번호"
+                    autocomplete="current-password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-submit"
+            >
+                로그인
+            </button>
+
+        </form>
+
+
+        <!-- 로그인 옵션 -->
+        <div class="login-options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    id="rememberMe"
+                >
+                <span>로그인 정보 저장</span>
+            </label>
+
+            <a href="#" id="findPassword">
+                비밀번호 찾기
+            </a>
+
+        </div>
+
+
+        <!-- 회원가입 -->
+        <div class="signup-area">
+
+            <span>Netflix가 처음이신가요?</span>
+
+            <a href="#" id="signupBtn">
+                지금 가입하세요.
+            </a>
+
+        </div>
+
+
+        <!-- 안내 -->
+        <p class="login-notice">
+            이 페이지는 개인 프로젝트용 Netflix 스타일
+            UI입니다.
+        </p>
+
+    </div>
+
+</div>
+  <script src="js/script.js"></script>
+</body>
+</html>
